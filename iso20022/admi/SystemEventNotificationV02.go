@@ -8,7 +8,7 @@ import (
 
 type Document00400102 struct {
 	XMLName xml.Name                    `xml:"urn:iso:std:iso:20022:tech:xsd:admi.004.001.02 Document"`
-	Message *SystemEventNotificationV02 `xml:"SysEvtNtfctn"`
+	Message *SystemEventNotificationV02 `xml:"SysEvtNtfctn" json:"SysEvtNtfctn"`
 }
 
 func (d *Document00400102) AddMessage() *SystemEventNotificationV02 {
@@ -23,11 +23,11 @@ func (d *Document00400102) AddMessage() *SystemEventNotificationV02 {
 type SystemEventNotificationV02 struct {
 
 	// Detailed information about a system event.
-	EventInformation *iso20022.Event2 `xml:"EvtInf"`
+	EventInformation *iso20022.Event2 `xml:"EvtInf" json:"EvtInf"`
 }
 
 func (s *SystemEventNotificationV02) AddEventInformation() *iso20022.Event2 {
 	s.EventInformation = new(iso20022.Event2)
 	return s.EventInformation
 }
-func ( d *Document00400102 ) String() (result string, ok bool) { return }
+func (d *Document00400102) String() (result string, ok bool) { return }
