@@ -1,2 +1,8 @@
-*.DS_Store
+*.DS_Storefigassis/bankiso
 bankiso
+/.idea/.gitignore
+/.idea/bankiso.iml
+/.idea/misc.xml
+/.idea/modules.xml
+/msg-examples/sample_AccountEnquiry_AccountID_pacs.008_request_OFI_to_CIHUB.xml
+/.idea/vcs.xml
