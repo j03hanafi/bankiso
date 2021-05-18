@@ -8,7 +8,7 @@ import (
 
 type Document00100101 struct {
 	XMLName xml.Name                      `xml:"urn:iso:std:iso:20022:tech:xsd:head.001.001.01 Document"`
-	Message *BusinessApplicationHeaderV01 `xml:"AppHdr"`
+	Message *BusinessApplicationHeaderV01 `xml:"AppHdr" json:"AppHdr"`
 }
 
 func (d *Document00100101) AddMessage() *BusinessApplicationHeaderV01 {
@@ -26,35 +26,35 @@ func (d *Document00100101) AddMessage() *BusinessApplicationHeaderV01 {
 type BusinessApplicationHeaderV01 struct {
 
 	// Contains the character set of the text-based elements used in the Business Message.
-	CharacterSet *iso20022.UnicodeChartsCode `xml:"CharSet,omitempty"`
+	CharacterSet *iso20022.UnicodeChartsCode `xml:"CharSet,omitempty" json:"CharSet,omitempty"`
 
 	// The sending MessagingEndpoint that has created this Business Message for the receiving MessagingEndpoint that will process this Business Message.
 	//
 	// Note	the sending MessagingEndpoint might be different from the sending address potentially contained in the transport header (as defined in the transport layer).
-	From *iso20022.Party9Choice `xml:"Fr"`
+	From *iso20022.Party9Choice `xml:"Fr" json:"Fr"`
 
 	// The MessagingEndpoint designated by the sending MessagingEndpoint to be the recipient who will ultimately process this Business Message.
 	//
 	// Note the receiving MessagingEndpoint might be different from the receiving address potentially contained in the transport header (as defined in the transport layer).
-	To *iso20022.Party9Choice `xml:"To"`
+	To *iso20022.Party9Choice `xml:"To" json:"To"`
 
 	// Unambiguously identifies the Business Message to the MessagingEndpoint that has created the Business Message.
-	BusinessMessageIdentifier *iso20022.Max35Text `xml:"BizMsgIdr"`
+	BusinessMessageIdentifier *iso20022.Max35Text `xml:"BizMsgIdr" json:"BizMsgIdr"`
 
 	// Contains the MessageIdentifier that defines the BusinessMessage.
 	// It must contain a MessageIdentifier published on the ISO 20022 website.
 	//
 	// example	camt.001.001.03
-	MessageDefinitionIdentifier *iso20022.Max35Text `xml:"MsgDefIdr"`
+	MessageDefinitionIdentifier *iso20022.Max35Text `xml:"MsgDefIdr" json:"MsgDefIdr"`
 
 	// Specifies the business service agreed between the two MessagingEndpoints under which rules this Business Message is exchanged.
 	//  To be used when there is a choice of processing services or processing service levels.
 	// Example: E&I
-	BusinessService *iso20022.Max35Text `xml:"BizSvc,omitempty"`
+	BusinessService *iso20022.Max35Text `xml:"BizSvc,omitempty" json:"BizSvc,omitempty"`
 
 	// Date and time when this Business Message (header) was created.
 	// Note    Times must be normalized, using the "Z" annotation.
-	CreationDate *iso20022.ISONormalisedDateTime `xml:"CreDt"`
+	CreationDate *iso20022.ISONormalisedDateTime `xml:"CreDt" json:"CreDt"`
 
 	// Indicates whether the message is a Copy, a Duplicate or a copy of a duplicate of a previously sent ISO 20022 Message.
 	CopyDuplicate *iso20022.CopyDuplicate1Code `xml:"CpyDplct,omitempty"`
@@ -131,4 +131,4 @@ func (b *BusinessApplicationHeaderV01) AddRelated() *iso20022.BusinessApplicatio
 	b.Related = new(iso20022.BusinessApplicationHeader1)
 	return b.Related
 }
-func ( d *Document00100101 ) String() (result string, ok bool) { return }
+func (d *Document00100101) String() (result string, ok bool) { return }

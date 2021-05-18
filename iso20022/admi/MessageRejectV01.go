@@ -7,8 +7,8 @@ import (
 )
 
 type Document00200101 struct {
-	XMLName xml.Name          `xml:"urn:iso:std:iso:20022:tech:xsd:admi.002.001.01 Document"`
-	Message *MessageRejectV01 `xml:"admi.002.001.01"`
+	XMLName xml.Name          `xml:"urn:iso:std:iso:20022:tech:xsd:admi.002.001.01 Document" json:"-"`
+	Message *MessageRejectV01 `xml:"admi.002.001.01" json:"admi.002.001.01" json:"MessageReject"`
 }
 
 func (d *Document00200101) AddMessage() *MessageRejectV01 {
@@ -23,10 +23,10 @@ func (d *Document00200101) AddMessage() *MessageRejectV01 {
 type MessageRejectV01 struct {
 
 	// Refers to the identification of the message previously received and for which the rejection is notified.
-	RelatedReference *iso20022.MessageReference `xml:"RltdRef"`
+	RelatedReference *iso20022.MessageReference `xml:"RltdRef" json:"RltdRef"`
 
 	// General information about the reason of the message rejection.
-	Reason *iso20022.RejectionReason2 `xml:"Rsn"`
+	Reason *iso20022.RejectionReason2 `xml:"Rsn" json:"Rsn"`
 }
 
 func (m *MessageRejectV01) AddRelatedReference() *iso20022.MessageReference {
@@ -38,4 +38,4 @@ func (m *MessageRejectV01) AddReason() *iso20022.RejectionReason2 {
 	m.Reason = new(iso20022.RejectionReason2)
 	return m.Reason
 }
-func ( d *Document00200101 ) String() (result string, ok bool) { return }
+func (d *Document00200101) String() (result string, ok bool) { return }

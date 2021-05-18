@@ -7,8 +7,8 @@ import (
 )
 
 type Document01100101 struct {
-	XMLName xml.Name                       `xml:"urn:iso:std:iso:20022:tech:xsd:admi.011.001.01 Document"`
-	Message *SystemEventAcknowledgementV01 `xml:"SysEvtAck"`
+	XMLName xml.Name                       `xml:"urn:iso:std:iso:20022:tech:xsd:admi.011.001.01 Document" json:"-"`
+	Message *SystemEventAcknowledgementV01 `xml:"SysEvtAck" json:"SysEvtAck"`
 }
 
 func (d *Document01100101) AddMessage() *SystemEventAcknowledgementV01 {
@@ -21,19 +21,19 @@ func (d *Document01100101) AddMessage() *SystemEventAcknowledgementV01 {
 type SystemEventAcknowledgementV01 struct {
 
 	// Unique and unambiguous identifier for the message, as assigned by the sender.
-	MessageIdentification *iso20022.Max35Text `xml:"MsgId"`
+	MessageIdentification *iso20022.Max35Text `xml:"MsgId" json:"MsgId"`
 
 	// Represents the original reference of the system event notification for which the acknowledgement is given, as assigned by the central system.
-	OriginatorReference *iso20022.Max35Text `xml:"OrgtrRef,omitempty"`
+	OriginatorReference *iso20022.Max35Text `xml:"OrgtrRef,omitempty" json:"OrgtrRef,omitempty"`
 
 	// To indicate the requested CLS Settlement Session that the related trade is part of.
-	SettlementSessionIdentifier *iso20022.Exact4AlphaNumericText `xml:"SttlmSsnIdr,omitempty"`
+	SettlementSessionIdentifier *iso20022.Exact4AlphaNumericText `xml:"SttlmSsnIdr,omitempty" json:"SttlmSsnIdr,omitempty"`
 
 	// Details of the system event being acknowledged.
-	AcknowledgementDetails *iso20022.Event1 `xml:"AckDtls,omitempty"`
+	AcknowledgementDetails *iso20022.Event1 `xml:"AckDtls,omitempty" json:"AckDtls,omitempty"`
 
 	// Additional information that cannot be captured in the structured elements and/or any other specific block.
-	SupplementaryData []*iso20022.SupplementaryData1 `xml:"SplmtryData,omitempty"`
+	SupplementaryData []*iso20022.SupplementaryData1 `xml:"SplmtryData,omitempty" json:"SplmtryData,omitempty"`
 }
 
 func (s *SystemEventAcknowledgementV01) SetMessageIdentification(value string) {
@@ -58,4 +58,4 @@ func (s *SystemEventAcknowledgementV01) AddSupplementaryData() *iso20022.Supplem
 	s.SupplementaryData = append(s.SupplementaryData, newValue)
 	return newValue
 }
-func ( d *Document01100101 ) String() (result string, ok bool) { return }
+func (d *Document01100101) String() (result string, ok bool) { return }
