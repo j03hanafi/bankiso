@@ -2,7 +2,8 @@ package pacs
 
 import (
 	"encoding/xml"
-	"github.com/figassis/bankiso/iso20022"
+
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document00800108 struct {
