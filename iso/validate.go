@@ -8,6 +8,7 @@ import (
 	"strings"
 
 	"github.com/j03hanafi/bankiso/iso20022/acmt"
+	"github.com/j03hanafi/bankiso/iso20022/admi"
 	"github.com/j03hanafi/bankiso/iso20022/auth"
 	"github.com/j03hanafi/bankiso/iso20022/caaa"
 	"github.com/j03hanafi/bankiso/iso20022/caam"
@@ -23,7 +24,6 @@ import (
 	//"github.com/j03hanafi/bankiso/iso20022/secl"
 	//"github.com/j03hanafi/bankiso/iso20022/semt"
 	//"github.com/j03hanafi/bankiso/iso20022/sese"
-	//"github.com/j03hanafi/bankiso/iso20022/admi"
 	//"github.com/j03hanafi/bankiso/iso20022/colr"
 	//"github.com/j03hanafi/bankiso/iso20022/fxtr"
 	//"github.com/j03hanafi/bankiso/iso20022/reda"
@@ -53,6 +53,9 @@ var ISO20022Registry map[string]interface{} = map[string]interface{}{
 	"acmt.022.001.02": &acmt.Document02200102{},
 	"acmt.023.001.02": &acmt.Document02300102{},
 	"acmt.024.001.02": &acmt.Document02400102{},
+	"admi.002.001.01": &admi.Document00200101{},
+	"admi.004.001.02": &admi.Document00400102{},
+	"admi.011.001.01": &admi.Document01100101{},
 	"auth.001.001.01": &auth.Document00100101{},
 	"auth.002.001.01": &auth.Document00200101{},
 	"auth.003.001.01": &auth.Document00300101{},
@@ -160,12 +163,16 @@ var ISO20022Registry map[string]interface{} = map[string]interface{}{
 	"catp.017.001.01": &catp.Document01700101{},
 	"head.001.001.01": &head.Document00100101{},
 	"pacs.002.001.07": &pacs.Document00200107{},
+	"pacs.002.001.10": &pacs.Document00200110{},
 	"pacs.003.001.06": &pacs.Document00300106{},
 	"pacs.004.001.06": &pacs.Document00400106{},
 	"pacs.007.001.06": &pacs.Document00700106{},
 	"pacs.008.001.06": &pacs.Document00800106{},
+	"pacs.008.001.08": &pacs.Document00800108{},
 	"pacs.009.001.06": &pacs.Document00900106{},
+	"pacs.009.001.09": &pacs.Document00900109{},
 	"pacs.010.001.02": &pacs.Document01000102{},
+	"pacs.028.001.04": &pacs.Document02800104{},
 	"pain.001.001.07": &pain.Document00100107{},
 	"pain.002.001.07": &pain.Document00200107{},
 	"pain.007.001.06": &pain.Document00700106{},
@@ -176,6 +183,8 @@ var ISO20022Registry map[string]interface{} = map[string]interface{}{
 	"pain.012.001.04": &pain.Document01200104{},
 	"pain.013.001.05": &pain.Document01300105{},
 	"pain.014.001.05": &pain.Document01400105{},
+	"prxy.001.001.01": &prxy.Document00100101{},
+	"prxy.002.001.01": &prxy.Document00200101{},
 	"prxy.003.001.01": &prxy.Document00300101{},
 	"prxy.004.001.01": &prxy.Document00400101{},
 	"prxy.005.001.01": &prxy.Document00500101{},
