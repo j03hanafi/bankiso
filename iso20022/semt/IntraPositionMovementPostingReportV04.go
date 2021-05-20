@@ -3,7 +3,7 @@ package semt
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document01600104 struct {
@@ -72,4 +72,4 @@ func (i *IntraPositionMovementPostingReportV04) AddFinancialInstrument() *iso200
 	i.FinancialInstrument = append(i.FinancialInstrument, newValue)
 	return newValue
 }
-func ( d *Document01600104 ) String() (result string, ok bool) { return }
+func (d *Document01600104) String() (result string, ok bool) { return }

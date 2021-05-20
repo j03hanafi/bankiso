@@ -3,7 +3,7 @@ package catm
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document00400103 struct {
@@ -35,4 +35,4 @@ func (t *TerminalManagementRejectionV03) AddReject() *iso20022.AcceptorRejection
 	t.Reject = new(iso20022.AcceptorRejection3)
 	return t.Reject
 }
-func ( d *Document00400103 ) String() (result string, ok bool) { return }
+func (d *Document00400103) String() (result string, ok bool) { return }

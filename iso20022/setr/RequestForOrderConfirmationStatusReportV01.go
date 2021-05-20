@@ -3,7 +3,7 @@ package setr
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document05800101 struct {
@@ -54,4 +54,4 @@ func (r *RequestForOrderConfirmationStatusReportV01) AddExtension() *iso20022.Ex
 	r.Extension = append(r.Extension, newValue)
 	return newValue
 }
-func ( d *Document05800101 ) String() (result string, ok bool) { return }
+func (d *Document05800101) String() (result string, ok bool) { return }

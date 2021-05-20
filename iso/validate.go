@@ -7,30 +7,31 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/figassis/bankiso/iso20022/acmt"
-	"github.com/figassis/bankiso/iso20022/auth"
-	"github.com/figassis/bankiso/iso20022/caaa"
-	"github.com/figassis/bankiso/iso20022/caam"
-	"github.com/figassis/bankiso/iso20022/cain"
-	"github.com/figassis/bankiso/iso20022/camt"
-	"github.com/figassis/bankiso/iso20022/catm"
-	"github.com/figassis/bankiso/iso20022/catp"
-	"github.com/figassis/bankiso/iso20022/head"
-	"github.com/figassis/bankiso/iso20022/pacs"
-	"github.com/figassis/bankiso/iso20022/pain"
-	"github.com/figassis/bankiso/iso20022/remt"
-	//"github.com/figassis/bankiso/iso20022/secl"
-	//"github.com/figassis/bankiso/iso20022/semt"
-	//"github.com/figassis/bankiso/iso20022/sese"
-	//"github.com/figassis/bankiso/iso20022/admi"
-	//"github.com/figassis/bankiso/iso20022/colr"
-	//"github.com/figassis/bankiso/iso20022/fxtr"
-	//"github.com/figassis/bankiso/iso20022/reda"
-	//"github.com/figassis/bankiso/iso20022/seev"
-	//"github.com/figassis/bankiso/iso20022/setr"
-	//"github.com/figassis/bankiso/iso20022/tsin"
-	//"github.com/figassis/bankiso/iso20022/tsmt"
-	//"github.com/figassis/bankiso/iso20022/tsrv"
+	"github.com/j03hanafi/bankiso/iso20022/acmt"
+	"github.com/j03hanafi/bankiso/iso20022/auth"
+	"github.com/j03hanafi/bankiso/iso20022/caaa"
+	"github.com/j03hanafi/bankiso/iso20022/caam"
+	"github.com/j03hanafi/bankiso/iso20022/cain"
+	"github.com/j03hanafi/bankiso/iso20022/camt"
+	"github.com/j03hanafi/bankiso/iso20022/catm"
+	"github.com/j03hanafi/bankiso/iso20022/catp"
+	"github.com/j03hanafi/bankiso/iso20022/head"
+	"github.com/j03hanafi/bankiso/iso20022/pacs"
+	"github.com/j03hanafi/bankiso/iso20022/pain"
+	"github.com/j03hanafi/bankiso/iso20022/prxy"
+	"github.com/j03hanafi/bankiso/iso20022/remt"
+	//"github.com/j03hanafi/bankiso/iso20022/secl"
+	//"github.com/j03hanafi/bankiso/iso20022/semt"
+	//"github.com/j03hanafi/bankiso/iso20022/sese"
+	//"github.com/j03hanafi/bankiso/iso20022/admi"
+	//"github.com/j03hanafi/bankiso/iso20022/colr"
+	//"github.com/j03hanafi/bankiso/iso20022/fxtr"
+	//"github.com/j03hanafi/bankiso/iso20022/reda"
+	//"github.com/j03hanafi/bankiso/iso20022/seev"
+	//"github.com/j03hanafi/bankiso/iso20022/setr"
+	//"github.com/j03hanafi/bankiso/iso20022/tsin"
+	//"github.com/j03hanafi/bankiso/iso20022/tsmt"
+	//"github.com/j03hanafi/bankiso/iso20022/tsrv"
 )
 
 var ISO20022Registry map[string]interface{} = map[string]interface{}{
@@ -175,6 +176,11 @@ var ISO20022Registry map[string]interface{} = map[string]interface{}{
 	"pain.012.001.04": &pain.Document01200104{},
 	"pain.013.001.05": &pain.Document01300105{},
 	"pain.014.001.05": &pain.Document01400105{},
+	"prxy.003.001.01": &prxy.Document00300101{},
+	"prxy.004.001.01": &prxy.Document00400101{},
+	"prxy.005.001.01": &prxy.Document00500101{},
+	"prxy.006.001.01": &prxy.Document00600101{},
+	"prxy.901.001.01": &prxy.Document90100101{},
 	"remt.001.001.02": &remt.Document00100102{},
 	"remt.002.001.01": &remt.Document00200101{},
 }
@@ -235,7 +241,7 @@ func ValidateISO20022(message string) (domain, code string, err error) {
 	}
 
 	//Match all iso20022 message types
-	search := `^urn:iso:std:iso:20022:tech:xsd:(acmt|admi|auth|caaa|caam|camt|catm|catp|colr|fxtr|pacs|pain|reda|remt|secl|seev|semt|sese|setr|tsin|tsmt|tsrv|head)\.[0-9]{3}\.[0-9]{3}\.[0-9]{2}$`
+	search := `^urn:iso:std:iso:20022:tech:xsd:(acmt|admi|auth|caaa|caam|camt|catm|catp|colr|fxtr|pacs|pain|prxy|reda|remt|secl|seev|semt|sese|setr|tsin|tsmt|tsrv|head)\.[0-9]{3}\.[0-9]{3}\.[0-9]{2}$`
 	match, err := regexp.MatchString(search, v.Format)
 	if err != nil {
 		return

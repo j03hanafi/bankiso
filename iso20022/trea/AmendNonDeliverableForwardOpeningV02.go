@@ -3,7 +3,7 @@ package trea
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document00200102 struct {
@@ -70,4 +70,4 @@ func (a *AmendNonDeliverableForwardOpeningV02) AddValuationConditions() *iso2002
 	a.ValuationConditions = new(iso20022.NonDeliverableForwardValuationConditions2)
 	return a.ValuationConditions
 }
-func ( d *Document00200102 ) String() (result string, ok bool) { return }
+func (d *Document00200102) String() (result string, ok bool) { return }

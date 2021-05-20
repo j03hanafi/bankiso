@@ -3,7 +3,7 @@ package tsmt
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document03800103 struct {
@@ -41,4 +41,4 @@ func (s *StatusReportRequestV03) AddEntitiesToBeReported() *iso20022.BICIdentifi
 	s.EntitiesToBeReported = append(s.EntitiesToBeReported, newValue)
 	return newValue
 }
-func ( d *Document03800103 ) String() (result string, ok bool) { return }
+func (d *Document03800103) String() (result string, ok bool) { return }

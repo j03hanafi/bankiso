@@ -3,7 +3,7 @@ package tsin
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document00900101 struct {
@@ -67,4 +67,4 @@ func (p *PartyRegistrationAndGuaranteeRequestV01) AddAttachedMessage() *iso20022
 	p.AttachedMessage = append(p.AttachedMessage, newValue)
 	return newValue
 }
-func ( d *Document00900101 ) String() (result string, ok bool) { return }
+func (d *Document00900101) String() (result string, ok bool) { return }

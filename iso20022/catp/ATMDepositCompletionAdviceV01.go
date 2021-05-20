@@ -3,7 +3,7 @@ package catp
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document01400101 struct {
@@ -53,4 +53,4 @@ func (a *ATMDepositCompletionAdviceV01) AddSecurityTrailer() *iso20022.ContentIn
 	a.SecurityTrailer = new(iso20022.ContentInformationType15)
 	return a.SecurityTrailer
 }
-func ( d *Document01400101 ) String() (result string, ok bool) { return }
+func (d *Document01400101) String() (result string, ok bool) { return }

@@ -3,7 +3,7 @@ package caaa
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document01500105 struct {
@@ -35,4 +35,4 @@ func (a *AcceptorRejectionV05) AddReject() *iso20022.AcceptorRejection2 {
 	a.Reject = new(iso20022.AcceptorRejection2)
 	return a.Reject
 }
-func ( d *Document01500105 ) String() (result string, ok bool) { return }
+func (d *Document01500105) String() (result string, ok bool) { return }

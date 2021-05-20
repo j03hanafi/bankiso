@@ -3,7 +3,7 @@ package sese
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document00200102 struct {
@@ -81,4 +81,4 @@ func (t *TransferOutCancellationRequestV02) AddCopyDetails() *iso20022.CopyInfor
 	t.CopyDetails = new(iso20022.CopyInformation2)
 	return t.CopyDetails
 }
-func ( d *Document00200102 ) String() (result string, ok bool) { return }
+func (d *Document00200102) String() (result string, ok bool) { return }

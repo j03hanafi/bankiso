@@ -3,7 +3,7 @@ package camt
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document03100103 struct {
@@ -59,4 +59,4 @@ func (r *RejectInvestigationV03) AddJustification() *iso20022.InvestigationRejec
 	r.Justification = new(iso20022.InvestigationRejectionJustification1)
 	return r.Justification
 }
-func ( d *Document03100103 ) String() (result string, ok bool) { return }
+func (d *Document03100103) String() (result string, ok bool) { return }

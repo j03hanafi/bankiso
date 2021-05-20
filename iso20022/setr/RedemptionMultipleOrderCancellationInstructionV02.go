@@ -3,7 +3,7 @@ package setr
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document00500102 struct {
@@ -58,4 +58,4 @@ func (r *RedemptionMultipleOrderCancellationInstructionV02) AddOrderToBeCancelle
 	r.OrderToBeCancelled = new(iso20022.RedemptionMultipleOrderInstruction1)
 	return r.OrderToBeCancelled
 }
-func ( d *Document00500102 ) String() (result string, ok bool) { return }
+func (d *Document00500102) String() (result string, ok bool) { return }

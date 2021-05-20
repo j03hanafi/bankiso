@@ -3,7 +3,7 @@ package semt
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document00300105 struct {
@@ -122,4 +122,4 @@ func (s *SecuritiesBalanceAccountingReportV05) AddAlternateReportingCurrencyTota
 	s.AlternateReportingCurrencyTotalAmounts = new(iso20022.TotalValueInPageAndStatement2)
 	return s.AlternateReportingCurrencyTotalAmounts
 }
-func ( d *Document00300105 ) String() (result string, ok bool) { return }
+func (d *Document00300105) String() (result string, ok bool) { return }

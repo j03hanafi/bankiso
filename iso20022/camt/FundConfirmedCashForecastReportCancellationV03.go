@@ -3,7 +3,7 @@ package camt
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document04400103 struct {
@@ -72,4 +72,4 @@ func (f *FundConfirmedCashForecastReportCancellationV03) AddCashForecastReportTo
 	f.CashForecastReportToBeCancelled = new(iso20022.FundConfirmedCashForecastReport3)
 	return f.CashForecastReportToBeCancelled
 }
-func ( d *Document04400103 ) String() (result string, ok bool) { return }
+func (d *Document04400103) String() (result string, ok bool) { return }

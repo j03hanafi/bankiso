@@ -6,10 +6,10 @@ This package consumes valid iso20022 XML strings and returns Go structs to be pr
 
 
 # Setup
-go get github.com/figassis/bankiso  
+go get github.com/j03hanafi/bankiso  
 go get github.com/davecgh/go-spew/spew  --for debugging purposes only. Not required if not building
 
-cd $GOPATH/src/github.com/figassis/bankiso
+cd $GOPATH/src/github.com/j03hanafi/bankiso
 go build  
 
 
@@ -18,7 +18,7 @@ go build
 ./bankiso -f bankiso -f msg-examples/payments/pain.009.001.04/Business\ example3\ pain.009.001.04.xml
 
 # Usage in a project
-Take a look at https://github.com/figassis/bankiso/blob/master/main.go
+Take a look at https://github.com/j03hanafi/bankiso/blob/master/main.go
 
 Each iso20022 schema results in a different struct, and therefore a different go type.
 I've decided to use interfaces, type assertions and type switches to provide a sane way to handle all messages.

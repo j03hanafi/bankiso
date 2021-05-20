@@ -3,7 +3,7 @@ package camt
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document06000103 struct {
@@ -48,4 +48,4 @@ func (a *AccountReportingRequestV03) AddSupplementaryData() *iso20022.Supplement
 	a.SupplementaryData = append(a.SupplementaryData, newValue)
 	return newValue
 }
-func ( d *Document06000103 ) String() (result string, ok bool) { return }
+func (d *Document06000103) String() (result string, ok bool) { return }

@@ -3,7 +3,7 @@ package camt
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document02700101 struct {
@@ -60,4 +60,4 @@ func (c *ClaimNonReceipt) AddMissingCover() *iso20022.MissingCover {
 	c.MissingCover = new(iso20022.MissingCover)
 	return c.MissingCover
 }
-func ( d *Document02700101 ) String() (result string, ok bool) { return }
+func (d *Document02700101) String() (result string, ok bool) { return }

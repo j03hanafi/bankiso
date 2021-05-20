@@ -3,7 +3,7 @@ package seev
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document00600102 struct {
@@ -92,4 +92,4 @@ func (m *MeetingInstructionStatusV02) AddCancellationStatus() *iso20022.Cancella
 	m.CancellationStatus = new(iso20022.CancellationStatus1Choice)
 	return m.CancellationStatus
 }
-func ( d *Document00600102 ) String() (result string, ok bool) { return }
+func (d *Document00600102) String() (result string, ok bool) { return }

@@ -3,7 +3,7 @@ package seev
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document00100102 struct {
@@ -132,4 +132,4 @@ func (m *MeetingNotificationV02) AddPowerOfAttorneyRequirements() *iso20022.Powe
 	m.PowerOfAttorneyRequirements = new(iso20022.PowerOfAttorneyRequirements2)
 	return m.PowerOfAttorneyRequirements
 }
-func ( d *Document00100102 ) String() (result string, ok bool) { return }
+func (d *Document00100102) String() (result string, ok bool) { return }

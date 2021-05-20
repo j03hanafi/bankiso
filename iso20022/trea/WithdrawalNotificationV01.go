@@ -3,7 +3,7 @@ package trea
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document01300101 struct {
@@ -30,4 +30,4 @@ func (w *WithdrawalNotificationV01) AddMatchingSystemUniqueReference() *iso20022
 	w.MatchingSystemUniqueReference = new(iso20022.MessageReference)
 	return w.MatchingSystemUniqueReference
 }
-func ( d *Document01300101 ) String() (result string, ok bool) { return }
+func (d *Document01300101) String() (result string, ok bool) { return }

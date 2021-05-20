@@ -3,7 +3,7 @@ package remt
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document00100102 struct {
@@ -45,4 +45,4 @@ func (r *RemittanceAdviceV02) AddSupplementaryData() *iso20022.SupplementaryData
 	r.SupplementaryData = append(r.SupplementaryData, newValue)
 	return newValue
 }
-func ( d *Document00100102 ) String() (result string, ok bool) { return }
+func (d *Document00100102) String() (result string, ok bool) { return }

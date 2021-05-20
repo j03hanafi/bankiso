@@ -3,7 +3,7 @@ package fxtr
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document01500103 struct {
@@ -103,4 +103,4 @@ func (f *ForeignExchangeTradeInstructionAmendmentV03) AddSupplementaryData() *is
 	f.SupplementaryData = append(f.SupplementaryData, newValue)
 	return newValue
 }
-func ( d *Document01500103 ) String() (result string, ok bool) { return }
+func (d *Document01500103) String() (result string, ok bool) { return }

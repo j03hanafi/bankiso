@@ -3,7 +3,7 @@ package tsmt
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document02000102 struct {
@@ -59,4 +59,4 @@ func (m *MisMatchAcceptanceV02) AddDataSetMatchReportReference() *iso20022.Messa
 	m.DataSetMatchReportReference = new(iso20022.MessageIdentification1)
 	return m.DataSetMatchReportReference
 }
-func ( d *Document02000102 ) String() (result string, ok bool) { return }
+func (d *Document02000102) String() (result string, ok bool) { return }

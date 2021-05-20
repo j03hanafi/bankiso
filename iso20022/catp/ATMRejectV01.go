@@ -3,7 +3,7 @@ package catp
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document00500101 struct {
@@ -35,4 +35,4 @@ func (a *ATMRejectV01) AddATMReject() *iso20022.ATMReject1 {
 	a.ATMReject = new(iso20022.ATMReject1)
 	return a.ATMReject
 }
-func ( d *Document00500101 ) String() (result string, ok bool) { return }
+func (d *Document00500101) String() (result string, ok bool) { return }

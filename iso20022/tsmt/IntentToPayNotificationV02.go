@@ -3,7 +3,7 @@ package tsmt
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document04400102 struct {
@@ -75,4 +75,4 @@ func (i *IntentToPayNotificationV02) AddIntentToPay() *iso20022.IntentToPay2 {
 	i.IntentToPay = new(iso20022.IntentToPay2)
 	return i.IntentToPay
 }
-func ( d *Document04400102 ) String() (result string, ok bool) { return }
+func (d *Document04400102) String() (result string, ok bool) { return }

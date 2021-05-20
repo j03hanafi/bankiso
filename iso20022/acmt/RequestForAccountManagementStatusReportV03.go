@@ -3,7 +3,7 @@ package acmt
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document00500103 struct {
@@ -38,4 +38,4 @@ func (r *RequestForAccountManagementStatusReportV03) AddRequestDetails() *iso200
 	r.RequestDetails = new(iso20022.AccountManagementMessageReference2)
 	return r.RequestDetails
 }
-func ( d *Document00500103 ) String() (result string, ok bool) { return }
+func (d *Document00500103) String() (result string, ok bool) { return }

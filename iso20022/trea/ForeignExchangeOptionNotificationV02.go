@@ -3,7 +3,7 @@ package trea
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document01200102 struct {
@@ -62,4 +62,4 @@ func (f *ForeignExchangeOptionNotificationV02) AddSettlementData() *iso20022.Set
 	f.SettlementData = new(iso20022.SettlementData2)
 	return f.SettlementData
 }
-func ( d *Document01200102 ) String() (result string, ok bool) { return }
+func (d *Document01200102) String() (result string, ok bool) { return }

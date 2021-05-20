@@ -3,7 +3,7 @@ package sese
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document01200105 struct {
@@ -164,4 +164,4 @@ func (p *PortfolioTransferInstructionV05) AddExtension() *iso20022.Extension1 {
 	p.Extension = append(p.Extension, newValue)
 	return newValue
 }
-func ( d *Document01200105 ) String() (result string, ok bool) { return }
+func (d *Document01200105) String() (result string, ok bool) { return }

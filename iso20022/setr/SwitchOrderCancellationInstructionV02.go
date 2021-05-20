@@ -3,7 +3,7 @@ package setr
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document01400102 struct {
@@ -58,4 +58,4 @@ func (s *SwitchOrderCancellationInstructionV02) AddOrderToBeCancelled() *iso2002
 	s.OrderToBeCancelled = new(iso20022.SwitchOrderInstruction1)
 	return s.OrderToBeCancelled
 }
-func ( d *Document01400102 ) String() (result string, ok bool) { return }
+func (d *Document01400102) String() (result string, ok bool) { return }

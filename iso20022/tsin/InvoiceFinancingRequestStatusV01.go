@@ -3,7 +3,7 @@ package tsin
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document00200101 struct {
@@ -59,4 +59,4 @@ func (i *InvoiceFinancingRequestStatusV01) AddFinancingInformationAndStatus() *i
 	i.FinancingInformationAndStatus = new(iso20022.FinancingInformationAndStatus1)
 	return i.FinancingInformationAndStatus
 }
-func ( d *Document00200101 ) String() (result string, ok bool) { return }
+func (d *Document00200101) String() (result string, ok bool) { return }

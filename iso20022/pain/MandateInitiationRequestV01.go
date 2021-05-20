@@ -3,7 +3,7 @@ package pain
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document00900101 struct {
@@ -43,4 +43,4 @@ func (m *MandateInitiationRequestV01) AddMandate() *iso20022.MandateInformation2
 	m.Mandate = new(iso20022.MandateInformation2)
 	return m.Mandate
 }
-func ( d *Document00900101 ) String() (result string, ok bool) { return }
+func (d *Document00900101) String() (result string, ok bool) { return }

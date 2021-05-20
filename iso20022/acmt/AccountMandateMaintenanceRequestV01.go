@@ -3,7 +3,7 @@ package acmt
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document01700101 struct {
@@ -100,4 +100,4 @@ func (a *AccountMandateMaintenanceRequestV01) AddDigitalSignature() *iso20022.Pa
 	a.DigitalSignature = append(a.DigitalSignature, newValue)
 	return newValue
 }
-func ( d *Document01700101 ) String() (result string, ok bool) { return }
+func (d *Document01700101) String() (result string, ok bool) { return }

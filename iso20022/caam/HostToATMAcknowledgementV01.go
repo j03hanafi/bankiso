@@ -3,7 +3,7 @@ package caam
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document00800101 struct {
@@ -51,4 +51,4 @@ func (h *HostToATMAcknowledgementV01) AddSecurityTrailer() *iso20022.ContentInfo
 	h.SecurityTrailer = new(iso20022.ContentInformationType15)
 	return h.SecurityTrailer
 }
-func ( d *Document00800101 ) String() (result string, ok bool) { return }
+func (d *Document00800101) String() (result string, ok bool) { return }

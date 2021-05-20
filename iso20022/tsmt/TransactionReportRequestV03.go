@@ -3,7 +3,7 @@ package tsmt
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document04200103 struct {
@@ -39,4 +39,4 @@ func (t *TransactionReportRequestV03) AddReportSpecification() *iso20022.ReportS
 	t.ReportSpecification = new(iso20022.ReportSpecification4)
 	return t.ReportSpecification
 }
-func ( d *Document04200103 ) String() (result string, ok bool) { return }
+func (d *Document04200103) String() (result string, ok bool) { return }

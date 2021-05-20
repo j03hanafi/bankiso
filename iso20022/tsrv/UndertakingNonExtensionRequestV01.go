@@ -3,7 +3,7 @@ package tsrv
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document01000101 struct {
@@ -35,4 +35,4 @@ func (u *UndertakingNonExtensionRequestV01) AddDigitalSignature() *iso20022.Part
 	u.DigitalSignature = new(iso20022.PartyAndSignature2)
 	return u.DigitalSignature
 }
-func ( d *Document01000101 ) String() (result string, ok bool) { return }
+func (d *Document01000101) String() (result string, ok bool) { return }

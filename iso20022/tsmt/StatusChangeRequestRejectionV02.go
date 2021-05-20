@@ -3,7 +3,7 @@ package tsmt
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document02900102 struct {
@@ -66,4 +66,4 @@ func (s *StatusChangeRequestRejectionV02) AddRejectionReason() *iso20022.Reason2
 	s.RejectionReason = new(iso20022.Reason2)
 	return s.RejectionReason
 }
-func ( d *Document02900102 ) String() (result string, ok bool) { return }
+func (d *Document02900102) String() (result string, ok bool) { return }

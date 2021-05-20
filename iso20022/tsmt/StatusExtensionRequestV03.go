@@ -3,7 +3,7 @@ package tsmt
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document03500103 struct {
@@ -58,4 +58,4 @@ func (s *StatusExtensionRequestV03) AddStatusToBeExtended() *iso20022.Transactio
 	s.StatusToBeExtended = new(iso20022.TransactionStatus5)
 	return s.StatusToBeExtended
 }
-func ( d *Document03500103 ) String() (result string, ok bool) { return }
+func (d *Document03500103) String() (result string, ok bool) { return }

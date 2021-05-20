@@ -3,7 +3,7 @@ package tsmt
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document01500103 struct {
@@ -133,4 +133,4 @@ func (d *DeltaReportV03) AddRequestForAction() *iso20022.PendingActivity2 {
 	d.RequestForAction = new(iso20022.PendingActivity2)
 	return d.RequestForAction
 }
-func ( d *Document01500103 ) String() (result string, ok bool) { return }
+func (d *Document01500103) String() (result string, ok bool) { return }

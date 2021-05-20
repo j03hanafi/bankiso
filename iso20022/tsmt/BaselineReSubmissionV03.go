@@ -3,7 +3,7 @@ package tsmt
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document01200103 struct {
@@ -105,4 +105,4 @@ func (b *BaselineReSubmissionV03) AddOtherBankContactPerson() *iso20022.ContactI
 	b.OtherBankContactPerson = append(b.OtherBankContactPerson, newValue)
 	return newValue
 }
-func ( d *Document01200103 ) String() (result string, ok bool) { return }
+func (d *Document01200103) String() (result string, ok bool) { return }

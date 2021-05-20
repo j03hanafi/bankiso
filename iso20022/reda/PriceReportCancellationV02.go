@@ -3,7 +3,7 @@ package reda
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document00200102 struct {
@@ -48,4 +48,4 @@ func (p *PriceReportCancellationV02) AddPriceReportToBeCancelled() *iso20022.Pri
 	p.PriceReportToBeCancelled = new(iso20022.PriceReport1)
 	return p.PriceReportToBeCancelled
 }
-func ( d *Document00200102 ) String() (result string, ok bool) { return }
+func (d *Document00200102) String() (result string, ok bool) { return }

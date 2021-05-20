@@ -3,7 +3,7 @@ package supl
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document02700101 struct {
@@ -50,4 +50,4 @@ func (i *InformationResponseSD1V01) AddAccountAndParties() *iso20022.AccountAndP
 	i.AccountAndParties = append(i.AccountAndParties, newValue)
 	return newValue
 }
-func ( d *Document02700101 ) String() (result string, ok bool) { return }
+func (d *Document02700101) String() (result string, ok bool) { return }

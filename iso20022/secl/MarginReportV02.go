@@ -3,7 +3,7 @@ package secl
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document00500102 struct {
@@ -82,4 +82,4 @@ func (m *MarginReportV02) AddSupplementaryData() *iso20022.SupplementaryData1 {
 	m.SupplementaryData = append(m.SupplementaryData, newValue)
 	return newValue
 }
-func ( d *Document00500102 ) String() (result string, ok bool) { return }
+func (d *Document00500102) String() (result string, ok bool) { return }

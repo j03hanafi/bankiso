@@ -3,7 +3,7 @@ package sese
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document03700101 struct {
@@ -94,4 +94,4 @@ func (p *PortfolioTransferNotificationV01) AddMessageRecipient() *iso20022.Party
 	p.MessageRecipient = new(iso20022.PartyIdentification10Choice)
 	return p.MessageRecipient
 }
-func ( d *Document03700101 ) String() (result string, ok bool) { return }
+func (d *Document03700101) String() (result string, ok bool) { return }

@@ -3,7 +3,7 @@ package caaa
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document00900105 struct {
@@ -44,4 +44,4 @@ func (a *AcceptorReconciliationRequestV05) AddSecurityTrailer() *iso20022.Conten
 	a.SecurityTrailer = new(iso20022.ContentInformationType15)
 	return a.SecurityTrailer
 }
-func ( d *Document00900105 ) String() (result string, ok bool) { return }
+func (d *Document00900105) String() (result string, ok bool) { return }

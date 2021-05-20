@@ -3,7 +3,7 @@ package pain
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document00100102 struct {
@@ -60,4 +60,4 @@ func (c *CustomerCreditTransferInitiationV02) AddPaymentInformation() *iso20022.
 	c.PaymentInformation = append(c.PaymentInformation, newValue)
 	return newValue
 }
-func ( d *Document00100102 ) String() (result string, ok bool) { return }
+func (d *Document00100102) String() (result string, ok bool) { return }

@@ -3,7 +3,7 @@ package semt
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document01400101 struct {
@@ -96,4 +96,4 @@ func (i *IntraPositionMovementStatusAdviceV01) AddExtension() *iso20022.Extensio
 	i.Extension = append(i.Extension, newValue)
 	return newValue
 }
-func ( d *Document01400101 ) String() (result string, ok bool) { return }
+func (d *Document01400101) String() (result string, ok bool) { return }

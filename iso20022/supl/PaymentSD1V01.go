@@ -3,7 +3,7 @@ package supl
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document01700101 struct {
@@ -27,4 +27,4 @@ func (p *PaymentSD1V01) AddCardRemittanceInformation() *iso20022.TransactionData
 	p.CardRemittanceInformation = new(iso20022.TransactionData1)
 	return p.CardRemittanceInformation
 }
-func ( d *Document01700101 ) String() (result string, ok bool) { return }
+func (d *Document01700101) String() (result string, ok bool) { return }

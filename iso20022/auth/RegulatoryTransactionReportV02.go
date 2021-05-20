@@ -3,7 +3,7 @@ package auth
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document00800102 struct {
@@ -65,4 +65,4 @@ func (r *RegulatoryTransactionReportV02) AddExtension() *iso20022.Extension1 {
 	r.Extension = append(r.Extension, newValue)
 	return newValue
 }
-func ( d *Document00800102 ) String() (result string, ok bool) { return }
+func (d *Document00800102) String() (result string, ok bool) { return }

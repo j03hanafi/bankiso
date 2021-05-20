@@ -3,7 +3,7 @@ package tsmt
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document04900101 struct {
@@ -48,4 +48,4 @@ func (r *RoleAndBaselineAcceptanceV01) AddTransactionIdentification() *iso20022.
 	r.TransactionIdentification = new(iso20022.SimpleIdentificationInformation)
 	return r.TransactionIdentification
 }
-func ( d *Document04900101 ) String() (result string, ok bool) { return }
+func (d *Document04900101) String() (result string, ok bool) { return }

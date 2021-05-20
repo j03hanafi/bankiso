@@ -3,7 +3,7 @@ package camt
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document05700102 struct {
@@ -38,4 +38,4 @@ func (n *NotificationToReceiveV02) AddNotification() *iso20022.AccountNotificati
 	n.Notification = new(iso20022.AccountNotification4)
 	return n.Notification
 }
-func ( d *Document05700102 ) String() (result string, ok bool) { return }
+func (d *Document05700102) String() (result string, ok bool) { return }

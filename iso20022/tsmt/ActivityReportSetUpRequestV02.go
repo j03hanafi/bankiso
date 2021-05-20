@@ -3,7 +3,7 @@ package tsmt
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document00400102 struct {
@@ -39,4 +39,4 @@ func (a *ActivityReportSetUpRequestV02) AddUTCOffset() *iso20022.UTCOffset1 {
 	a.UTCOffset = new(iso20022.UTCOffset1)
 	return a.UTCOffset
 }
-func ( d *Document00400102 ) String() (result string, ok bool) { return }
+func (d *Document00400102) String() (result string, ok bool) { return }

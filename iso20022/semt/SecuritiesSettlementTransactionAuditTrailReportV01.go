@@ -3,7 +3,7 @@ package semt
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document02200101 struct {
@@ -85,4 +85,4 @@ func (s *SecuritiesSettlementTransactionAuditTrailReportV01) AddStatusTrail() *i
 	s.StatusTrail = append(s.StatusTrail, newValue)
 	return newValue
 }
-func ( d *Document02200101 ) String() (result string, ok bool) { return }
+func (d *Document02200101) String() (result string, ok bool) { return }

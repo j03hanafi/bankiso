@@ -3,7 +3,7 @@ package auth
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document02700101 struct {
@@ -57,4 +57,4 @@ func (c *CurrencyControlStatusAdviceV01) AddSupplementaryData() *iso20022.Supple
 	c.SupplementaryData = append(c.SupplementaryData, newValue)
 	return newValue
 }
-func ( d *Document02700101 ) String() (result string, ok bool) { return }
+func (d *Document02700101) String() (result string, ok bool) { return }

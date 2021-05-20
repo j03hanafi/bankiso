@@ -3,7 +3,7 @@ package tsmt
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document05400101 struct {
@@ -69,4 +69,4 @@ func (i *InvoicePaymentReconciliationStatusV01) AddAttachedMessage() *iso20022.E
 	i.AttachedMessage = append(i.AttachedMessage, newValue)
 	return newValue
 }
-func ( d *Document05400101 ) String() (result string, ok bool) { return }
+func (d *Document05400101) String() (result string, ok bool) { return }

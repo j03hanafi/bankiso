@@ -9,19 +9,19 @@ import (
 	"reflect"
 
 	"github.com/davecgh/go-spew/spew"
-	"github.com/figassis/bankiso/iso"
-	"github.com/figassis/bankiso/iso20022/acmt"
-	"github.com/figassis/bankiso/iso20022/auth"
-	"github.com/figassis/bankiso/iso20022/caaa"
-	"github.com/figassis/bankiso/iso20022/caam"
-	"github.com/figassis/bankiso/iso20022/cain"
-	"github.com/figassis/bankiso/iso20022/camt"
-	"github.com/figassis/bankiso/iso20022/catm"
-	"github.com/figassis/bankiso/iso20022/catp"
-	"github.com/figassis/bankiso/iso20022/head"
-	"github.com/figassis/bankiso/iso20022/pacs"
-	"github.com/figassis/bankiso/iso20022/pain"
-	"github.com/figassis/bankiso/iso20022/remt"
+	"github.com/j03hanafi/bankiso/iso"
+	"github.com/j03hanafi/bankiso/iso20022/acmt"
+	"github.com/j03hanafi/bankiso/iso20022/auth"
+	"github.com/j03hanafi/bankiso/iso20022/caaa"
+	"github.com/j03hanafi/bankiso/iso20022/caam"
+	"github.com/j03hanafi/bankiso/iso20022/cain"
+	"github.com/j03hanafi/bankiso/iso20022/camt"
+	"github.com/j03hanafi/bankiso/iso20022/catm"
+	"github.com/j03hanafi/bankiso/iso20022/catp"
+	"github.com/j03hanafi/bankiso/iso20022/head"
+	"github.com/j03hanafi/bankiso/iso20022/pacs"
+	"github.com/j03hanafi/bankiso/iso20022/pain"
+	"github.com/j03hanafi/bankiso/iso20022/remt"
 )
 
 func main() {
@@ -340,7 +340,7 @@ func main() {
 	case *camt.Document08600102:
 		content := message.(*camt.Document08600102)
 		//	case *camt.Document08700103:
-		//		fmt.Println("Not yet implemented. See https://github.com/figassis/isogen/issues/1")
+		//		fmt.Println("Not yet implemented. See https://github.com/j03hanafi/isogen/issues/1")
 		//		os.Exit(0)
 		spew.Dump(content)
 	case *catm.Document00100105:

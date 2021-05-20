@@ -3,7 +3,7 @@ package seev
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document03800204 struct {
@@ -67,4 +67,4 @@ func (c *CorporateActionNarrative002V04) AddSupplementaryData() *iso20022.Supple
 	c.SupplementaryData = append(c.SupplementaryData, newValue)
 	return newValue
 }
-func ( d *Document03800204 ) String() (result string, ok bool) { return }
+func (d *Document03800204) String() (result string, ok bool) { return }

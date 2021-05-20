@@ -3,7 +3,7 @@ package tsmt
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document01400103 struct {
@@ -120,4 +120,4 @@ func (d *DataSetSubmissionV03) AddOtherCertificateDataSet() *iso20022.OtherCerti
 	d.OtherCertificateDataSet = append(d.OtherCertificateDataSet, newValue)
 	return newValue
 }
-func ( d *Document01400103 ) String() (result string, ok bool) { return }
+func (d *Document01400103) String() (result string, ok bool) { return }

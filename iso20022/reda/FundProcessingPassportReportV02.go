@@ -3,7 +3,7 @@ package reda
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document00400102 struct {
@@ -44,4 +44,4 @@ func (f *FundProcessingPassportReportV02) AddFundProcessingPassport() *iso20022.
 	f.FundProcessingPassport = append(f.FundProcessingPassport, newValue)
 	return newValue
 }
-func ( d *Document00400102 ) String() (result string, ok bool) { return }
+func (d *Document00400102) String() (result string, ok bool) { return }

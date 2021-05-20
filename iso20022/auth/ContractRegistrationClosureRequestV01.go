@@ -3,7 +3,7 @@ package auth
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document02000101 struct {
@@ -45,4 +45,4 @@ func (c *ContractRegistrationClosureRequestV01) AddSupplementaryData() *iso20022
 	c.SupplementaryData = append(c.SupplementaryData, newValue)
 	return newValue
 }
-func ( d *Document02000101 ) String() (result string, ok bool) { return }
+func (d *Document02000101) String() (result string, ok bool) { return }

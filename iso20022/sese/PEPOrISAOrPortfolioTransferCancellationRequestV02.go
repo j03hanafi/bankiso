@@ -3,7 +3,7 @@ package sese
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document01400102 struct {
@@ -73,4 +73,4 @@ func (p *PEPOrISAOrPortfolioTransferCancellationRequestV02) AddCancellationByRef
 	p.CancellationByReference = new(iso20022.TransferReference3)
 	return p.CancellationByReference
 }
-func ( d *Document01400102 ) String() (result string, ok bool) { return }
+func (d *Document01400102) String() (result string, ok bool) { return }

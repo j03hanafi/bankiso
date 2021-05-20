@@ -3,7 +3,7 @@ package tsmt
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document00300103 struct {
@@ -50,4 +50,4 @@ func (a *ActivityReportRequestV03) AddReportPeriod() *iso20022.DateTimePeriodDet
 	a.ReportPeriod = new(iso20022.DateTimePeriodDetails1)
 	return a.ReportPeriod
 }
-func ( d *Document00300103 ) String() (result string, ok bool) { return }
+func (d *Document00300103) String() (result string, ok bool) { return }

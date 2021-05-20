@@ -3,7 +3,7 @@ package cain
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document01100101 struct {
@@ -43,4 +43,4 @@ func (k *KeyExchangeInitiation) AddSecurityTrailer() *iso20022.ContentInformatio
 	k.SecurityTrailer = new(iso20022.ContentInformationType12)
 	return k.SecurityTrailer
 }
-func ( d *Document01100101 ) String() (result string, ok bool) { return }
+func (d *Document01100101) String() (result string, ok bool) { return }

@@ -3,7 +3,7 @@ package tsmt
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document02800103 struct {
@@ -97,4 +97,4 @@ func (s *StatusChangeRequestNotificationV03) AddRequestForAction() *iso20022.Pen
 	s.RequestForAction = new(iso20022.PendingActivity2)
 	return s.RequestForAction
 }
-func ( d *Document02800103 ) String() (result string, ok bool) { return }
+func (d *Document02800103) String() (result string, ok bool) { return }

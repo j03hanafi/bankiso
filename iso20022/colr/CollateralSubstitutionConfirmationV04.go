@@ -3,7 +3,7 @@ package colr
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document01200104 struct {
@@ -68,4 +68,4 @@ func (c *CollateralSubstitutionConfirmationV04) AddSupplementaryData() *iso20022
 	c.SupplementaryData = append(c.SupplementaryData, newValue)
 	return newValue
 }
-func ( d *Document01200104 ) String() (result string, ok bool) { return }
+func (d *Document01200104) String() (result string, ok bool) { return }

@@ -732,3 +732,87 @@ type ProxyStatusChoice struct {
 	Cd    ExternalStatusReason1Code `xml:"Cd,omitempty" json:"Cd,omitempty"`
 	Prtry Max35Text                 `xml:"Prtry,omitempty" json:"Prtry,omitempty"`
 }
+
+// TODO: prxy.003.001.01, json tag
+type ProxyLookUpChoice1 struct {
+	PrxyOnly ProxyLookUp11 `xml:"PrxyOnly" json:"PrxyOnly"`
+}
+
+type ProxyLookUp11 struct {
+	LkUpTp    ProxyLookUpType1Code `xml:"LkUpTp" json:"LkUpTP"`
+	Id        Max35Text            `xml:"Id" json:"Id"`
+	PrxyRtrvl ProxyDefinition1     `xml:"PrxyRtrvl" json:"PrxyRtrvl"`
+}
+
+type ProxyLookUpType1Code string
+
+// TODO: prxy.004.001.01, json tag
+type ProxyLookUpResponse1 struct {
+	OrgnlId        Max35Text                `xml:"OrgnlId" json:"OrgnlId"`
+	OrgnlPrxyRtrvl ProxyDefinition1         `xml:"OrgnlPrxyRtrvl" json:"OrgnlPrxyRtrvl"`
+	RegnRspn       ProxyLookUpRegistration1 `xml:"RegnRspn" json:"RegnRspn"`
+}
+
+type ProxyLookUpRegistration1 struct {
+	PrxRspnSts ProxyStatusCode     `xml:"PrxRspnSts" json:"PrxRspnSts"`
+	StsRsnInf  ProxyStatusChoice   `xml:"StsRsnInf" json:"StsRsnInf"`
+	Prxy       ProxyDefinition1    `xml:"Prxy" json:"Prxy"`
+	Regn       ProxyLookUpAccount1 `xml:"Regn" json:"Regn"`
+}
+
+type ProxyLookUpAccount1 struct {
+	RegnId Max35Text                                    `xml:"RegnId" json:"RegnId"`
+	DsplNm Max140Text                                   `xml:"DsplNm" json:"DsplNm"`
+	Agt    BranchAndFinancialInstitutionIdentification5 `xml:"Agt" json:"Agt"`
+	Acct   CashAccount40                                `xml:"Acct" json:"Acct"`
+}
+
+// TODO: prxy.005.001.01, json tag
+type ProxyEnquiryChoice1 struct {
+	RegnId Max35Text         `xml:"RegnId" json:"RegnId"`
+	ScndId ScndIdDefinition1 `xml:"ScndId" json:"ScndId"`
+}
+
+// TODO: prxy.006.001.01, json tag
+type ProxyEnquiryResponse1 struct {
+	PrxRspnSts ProxyStatusCode          `xml:"PrxRspnSts" json:"PrxRspnSts"`
+	StsRsnInf  ProxyStatusChoice        `xml:"StsRsnInf" json:"StsRsnInf"`
+	Rspn       ProxyEnquiryInformation1 `xml:"Rspn" json:"Rspn"`
+}
+
+type ProxyEnquiryInformation1 struct {
+	RegnId      Max35Text                                    `xml:"RegnId" json:"RegnId"`
+	DsplNm      Max140Text                                   `xml:"DsplNm" json:"DsplNm"`
+	Ptcpt       BranchAndFinancialInstitutionIdentification5 `xml:"Ptcpt" json:"Ptcpt"`
+	PrxyInf     ProxyEnquiryDefinition1                      `xml:"PrxyInf" json:"PrxyInf"`
+	AcctInf     ProxyEnquiryAccount1                         `xml:"AcctInf" json:"AcctInf"`
+	SplmtryData BI_SupplementaryData1                        `xml:"SplmtryData" json:"SplmtryData"`
+}
+
+type ProxyEnquiryDefinition1 struct {
+	Tp  Max12Text              `xml:"Tp" json:"Tp"`
+	Val Max140Text             `xml:"Val" json:"Val"`
+	Sts ProxyEnquiryStatusCode `xml:"Sts" json:"Sts"`
+}
+
+type ProxyEnquiryAccount1 struct {
+	Agt BranchAndFinancialInstitutionIdentification5 `xml:"Agt" json:"Agt"`
+}
+
+type ProxyEnquiryStatusCode string
+
+// TODO: prxy.901.001.01, json tag
+type ProxyNtfctn1 struct {
+	OrgnlId   Max35Text        `xml:"OrgnlId" json:"OrgnlId"`
+	OrgnlPrxy ProxyDefinition1 `xml:"OrgnlPrxy" json:"OrgnlPrxy"`
+	OrgnlAcct ProxyAccount1    `xml:"OrgnlAcct" json:"OrgnlAcct"`
+	NewAcct   ProxyAccount1    `xml:"NewAcct" json:"NewAcct"`
+}
+
+type ProxyAccount1 struct {
+	RegnId      Max35Text                                    `xml:"RegnId" json:"RegnId"`
+	DsplNm      Max140Text                                   `xml:"DsplNm" json:"DsplNm"`
+	Agt         BranchAndFinancialInstitutionIdentification5 `xml:"Agt" json:"Agt"`
+	Acct        CashAccount40                                `xml:"Acct" json:"Acct"`
+	SplmtryData BI_SupplementaryData1                        `xml:"SplmtryData" json:"SplmtryData"`
+}

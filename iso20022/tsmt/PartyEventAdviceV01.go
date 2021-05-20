@@ -3,7 +3,7 @@ package tsmt
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document05500101 struct {
@@ -55,4 +55,4 @@ func (p *PartyEventAdviceV01) AddAttachedMessage() *iso20022.EncapsulatedBusines
 	p.AttachedMessage = append(p.AttachedMessage, newValue)
 	return newValue
 }
-func ( d *Document05500101 ) String() (result string, ok bool) { return }
+func (d *Document05500101) String() (result string, ok bool) { return }

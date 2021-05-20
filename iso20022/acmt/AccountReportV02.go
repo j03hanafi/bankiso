@@ -3,7 +3,7 @@ package acmt
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document01400102 struct {
@@ -79,4 +79,4 @@ func (a *AccountReportV02) AddSupplementaryData() *iso20022.SupplementaryData1 {
 	a.SupplementaryData = append(a.SupplementaryData, newValue)
 	return newValue
 }
-func ( d *Document01400102 ) String() (result string, ok bool) { return }
+func (d *Document01400102) String() (result string, ok bool) { return }

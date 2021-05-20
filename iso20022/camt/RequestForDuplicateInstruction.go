@@ -3,7 +3,7 @@ package camt
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document03300101 struct {
@@ -43,4 +43,4 @@ func (r *RequestForDuplicateInstruction) AddCase() *iso20022.Case {
 	r.Case = new(iso20022.Case)
 	return r.Case
 }
-func ( d *Document03300101 ) String() (result string, ok bool) { return }
+func (d *Document03300101) String() (result string, ok bool) { return }

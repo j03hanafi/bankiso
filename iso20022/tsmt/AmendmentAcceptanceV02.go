@@ -3,7 +3,7 @@ package tsmt
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document00500102 struct {
@@ -66,4 +66,4 @@ func (a *AmendmentAcceptanceV02) AddAcceptedAmendmentNumber() *iso20022.Count1 {
 	a.AcceptedAmendmentNumber = new(iso20022.Count1)
 	return a.AcceptedAmendmentNumber
 }
-func ( d *Document00500102 ) String() (result string, ok bool) { return }
+func (d *Document00500102) String() (result string, ok bool) { return }

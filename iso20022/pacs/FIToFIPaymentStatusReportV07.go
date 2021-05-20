@@ -3,7 +3,7 @@ package pacs
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document00200107 struct {
@@ -60,4 +60,4 @@ func (f *FIToFIPaymentStatusReportV07) AddSupplementaryData() *iso20022.Suppleme
 	f.SupplementaryData = append(f.SupplementaryData, newValue)
 	return newValue
 }
-func ( d *Document00200107 ) String() (result string, ok bool) { return }
+func (d *Document00200107) String() (result string, ok bool) { return }

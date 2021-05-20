@@ -3,7 +3,7 @@ package tsin
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document00800101 struct {
@@ -71,4 +71,4 @@ func (i *InvoiceAssignmentNotificationV01) AddAttachedMessage() *iso20022.Encaps
 	i.AttachedMessage = append(i.AttachedMessage, newValue)
 	return newValue
 }
-func ( d *Document00800101 ) String() (result string, ok bool) { return }
+func (d *Document00800101) String() (result string, ok bool) { return }

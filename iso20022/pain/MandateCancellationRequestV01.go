@@ -3,7 +3,7 @@ package pain
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document01100101 struct {
@@ -43,4 +43,4 @@ func (m *MandateCancellationRequestV01) AddUnderlyingCancellationDetails() *iso2
 	m.UnderlyingCancellationDetails = new(iso20022.MandateCancellation1)
 	return m.UnderlyingCancellationDetails
 }
-func ( d *Document01100101 ) String() (result string, ok bool) { return }
+func (d *Document01100101) String() (result string, ok bool) { return }

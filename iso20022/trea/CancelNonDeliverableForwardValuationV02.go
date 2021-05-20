@@ -3,7 +3,7 @@ package trea
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document00600102 struct {
@@ -70,4 +70,4 @@ func (c *CancelNonDeliverableForwardValuationV02) AddValuationInformation() *iso
 	c.ValuationInformation = new(iso20022.ValuationData2)
 	return c.ValuationInformation
 }
-func ( d *Document00600102 ) String() (result string, ok bool) { return }
+func (d *Document00600102) String() (result string, ok bool) { return }

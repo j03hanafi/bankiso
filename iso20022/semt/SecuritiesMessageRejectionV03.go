@@ -3,7 +3,7 @@ package semt
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document00100103 struct {
@@ -51,4 +51,4 @@ func (s *SecuritiesMessageRejectionV03) AddReason() *iso20022.RejectionReason23 
 	s.Reason = new(iso20022.RejectionReason23)
 	return s.Reason
 }
-func ( d *Document00100103 ) String() (result string, ok bool) { return }
+func (d *Document00100103) String() (result string, ok bool) { return }

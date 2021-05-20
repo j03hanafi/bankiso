@@ -3,7 +3,7 @@ package sese
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document01400105 struct {
@@ -73,4 +73,4 @@ func (p *PortfolioTransferCancellationRequestV05) AddMarketPracticeVersion() *is
 	p.MarketPracticeVersion = new(iso20022.MarketPracticeVersion1)
 	return p.MarketPracticeVersion
 }
-func ( d *Document01400105 ) String() (result string, ok bool) { return }
+func (d *Document01400105) String() (result string, ok bool) { return }

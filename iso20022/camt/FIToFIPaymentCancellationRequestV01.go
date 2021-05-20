@@ -3,7 +3,7 @@ package camt
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document05600101 struct {
@@ -65,4 +65,4 @@ func (f *FIToFIPaymentCancellationRequestV01) AddUnderlying() *iso20022.Underlyi
 	f.Underlying = append(f.Underlying, newValue)
 	return newValue
 }
-func ( d *Document05600101 ) String() (result string, ok bool) { return }
+func (d *Document05600101) String() (result string, ok bool) { return }

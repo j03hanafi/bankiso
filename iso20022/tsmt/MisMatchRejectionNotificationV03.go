@@ -3,7 +3,7 @@ package tsmt
 import (
 	"encoding/xml"
 
-	"github.com/figassis/bankiso/iso20022"
+	"github.com/j03hanafi/bankiso/iso20022"
 )
 
 type Document02300103 struct {
@@ -91,4 +91,4 @@ func (m *MisMatchRejectionNotificationV03) AddRequestForAction() *iso20022.Pendi
 	m.RequestForAction = new(iso20022.PendingActivity2)
 	return m.RequestForAction
 }
-func ( d *Document02300103 ) String() (result string, ok bool) { return }
+func (d *Document02300103) String() (result string, ok bool) { return }
