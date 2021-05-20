@@ -9,7 +9,6 @@ import (
 	"reflect"
 
 	"github.com/davecgh/go-spew/spew"
-	"github.com/figassis/bankiso/iso"
 	"github.com/figassis/bankiso/iso20022/acmt"
 	"github.com/figassis/bankiso/iso20022/auth"
 	"github.com/figassis/bankiso/iso20022/caaa"
@@ -18,10 +17,11 @@ import (
 	"github.com/figassis/bankiso/iso20022/camt"
 	"github.com/figassis/bankiso/iso20022/catm"
 	"github.com/figassis/bankiso/iso20022/catp"
-	"github.com/figassis/bankiso/iso20022/head"
-	"github.com/figassis/bankiso/iso20022/pacs"
 	"github.com/figassis/bankiso/iso20022/pain"
 	"github.com/figassis/bankiso/iso20022/remt"
+	"github.com/j03hanafi/bankiso/iso"
+	"github.com/j03hanafi/bankiso/iso20022/head"
+	"github.com/j03hanafi/bankiso/iso20022/pacs"
 )
 
 func main() {
