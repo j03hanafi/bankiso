@@ -5,4 +5,6 @@ bankiso
 /.idea/misc.xml
 /.idea/modules.xml
 /msg-examples/sample_AccountEnquiry_AccountID_pacs.008_request_OFI_to_CIHUB.xml
+/msg-examples/samples
 /.idea/vcs.xml
+/log.txt

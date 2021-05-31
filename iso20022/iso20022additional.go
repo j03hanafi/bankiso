@@ -371,6 +371,7 @@ type BI_SupplementaryDataEnvelope1 struct {
 	Cdtr        BI_AddtlCstmrInf `xml:"Cdtr,omitempty" json:"Cdtr,omitempty"`
 	DbtrAgtAcct CashAccount38    `xml:"DbtrAgtAcct,omitempty" json:"DbtrAgtAcct,omitempty"`
 	CdtrAgtAcct CashAccount38    `xml:"CdtrAgtAcct,omitempty" json:"CdtrAgtAcct,omitempty"`
+	Cstmr       BI_AddtlCstmrInf `xml:"Cstmr,omitempty" json:"Cstmr,omitempty"`
 }
 
 type BI_AddtlCstmrInf struct {
@@ -682,14 +683,15 @@ type ProxyDefinition1 struct {
 }
 
 type ProxyRegistrationAccount1 struct {
-	RegnId     Max35Text                                    `xml:"RegnId,omitempty" json:"RegnId,omitempty"`
-	DsplNm     Max140Text                                   `xml:"DsplNm,omitempty" json:"DsplNm,omitempty"`
-	Agt        BranchAndFinancialInstitutionIdentification5 `xml:"Agt,omitempty" json:"Agt,omitempty"`
-	Acct       CashAccount40                                `xml:"Acct,omitempty" json:"Acct,omitempty"`
-	AcctHldr   Party30Choice                                `xml:"AcctHldr,omitempty" json:"AcctHldr,omitempty"`
-	ScndId     ScndIdDefinition1                            `xml:"ScndId,omitempty" json:"ScndId,omitempty"`
-	RegnSts    ProxyRegistrationStatusCode                  `xml:"RegnSts,omitempty" json:"RegnSts,omitempty"`
-	PreAuthrsd TrueFalseIndicator                           `xml:"PreAuthrsd,omitempty" json:"PreAuthrsd,omitempty"`
+	RegnId      Max35Text                                    `xml:"RegnId,omitempty" json:"RegnId,omitempty"`
+	DsplNm      Max140Text                                   `xml:"DsplNm,omitempty" json:"DsplNm,omitempty"`
+	Agt         BranchAndFinancialInstitutionIdentification5 `xml:"Agt,omitempty" json:"Agt,omitempty"`
+	Acct        CashAccount40                                `xml:"Acct,omitempty" json:"Acct,omitempty"`
+	AcctHldr    Party30Choice                                `xml:"AcctHldr,omitempty" json:"AcctHldr,omitempty"`
+	ScndId      ScndIdDefinition1                            `xml:"ScndId,omitempty" json:"ScndId,omitempty"`
+	RegnSts     ProxyRegistrationStatusCode                  `xml:"RegnSts,omitempty" json:"RegnSts,omitempty"`
+	PreAuthrsd  TrueFalseIndicator                           `xml:"PreAuthrsd,omitempty" json:"PreAuthrsd,omitempty"`
+	SplmtryData []BI_SupplementaryData1                      `xml:"SplmtryData,omitempty" json:"SplmtryData,omitempty"`
 }
 
 type CashAccount40 struct {

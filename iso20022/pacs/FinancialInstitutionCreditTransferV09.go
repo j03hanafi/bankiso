@@ -7,7 +7,7 @@ import (
 )
 
 type Document00900109 struct {
-	XMLName xml.Name                               `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.009.001.09 Document" json:"Document"`
+	XMLName xml.Name                               `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.009.001.09 Document" json:"-"`
 	Message *FinancialInstitutionCreditTransferV09 `xml:"FICdtTrf" json:"FICdtTrf"`
 }
 

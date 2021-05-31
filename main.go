@@ -340,7 +340,7 @@ func main() {
 	case *camt.Document08600102:
 		content := message.(*camt.Document08600102)
 		//	case *camt.Document08700103:
-		//		fmt.Println("Not yet implemented. See https://github.com/j03hanafi/isogen/issues/1")
+		//		fmt.Println("Not yet implemented. See https://github.com/figassis/isogen/issues/1")
 		//		os.Exit(0)
 		spew.Dump(content)
 	case *catm.Document00100105:

@@ -57,7 +57,7 @@ type BusinessApplicationHeaderV01 struct {
 	CreationDate *iso20022.ISONormalisedDateTime `xml:"CreDt" json:"CreDt"`
 
 	// Indicates whether the message is a Copy, a Duplicate or a copy of a duplicate of a previously sent ISO 20022 Message.
-	CopyDuplicate *iso20022.CopyDuplicate1Code `xml:"CpyDplct,omitempty"`
+	CopyDuplicate *iso20022.CopyDuplicate1Code `xml:"CpyDplct,omitempty" json:"CpyDplct,omitempty"`
 
 	// Flag indicating if the Business Message exchanged between the MessagingEndpoints is possibly a duplicate.
 	// If the receiving MessagingEndpoint  did not receive the original, then this Business Message should be processed as if it were the original.
@@ -67,17 +67,17 @@ type BusinessApplicationHeaderV01 struct {
 	// This will guarantee business idempotent behaviour.
 	//
 	// NOTE: this is named "PossResend" in FIX - this is an application level resend not a network level retransmission
-	PossibleDuplicate *iso20022.YesNoIndicator `xml:"PssblDplct,omitempty"`
+	PossibleDuplicate *iso20022.YesNoIndicator `xml:"PssblDplct,omitempty" json:"PssblDplct,omitempty"`
 
 	// Relative indication of the processing precedence of the message over a (set of) Business Messages with assigned priorities.
-	Priority *iso20022.BusinessMessagePriorityCode `xml:"Prty,omitempty"`
+	Priority *iso20022.BusinessMessagePriorityCode `xml:"Prty,omitempty" json:"Prty,omitempty"`
 
 	// Contains the digital signature of the Business Entity authorised to sign this Business Message.
-	Signature *iso20022.SignatureEnvelope `xml:"Sgntr,omitempty"`
+	Signature *iso20022.SignatureEnvelope `xml:"Sgntr,omitempty" json:"Sgntr,omitempty"`
 
 	// Specifies the Business Application Header of the Business Message to which this Business Message relates.
 	// Can be used when replying to a query;  can also be used when canceling or amending.
-	Related *iso20022.BusinessApplicationHeader1 `xml:"Rltd,omitempty"`
+	Related *iso20022.BusinessApplicationHeader1 `xml:"Rltd,omitempty" json:"Rltd,omitempty"`
 }
 
 func (b *BusinessApplicationHeaderV01) SetCharacterSet(value string) {

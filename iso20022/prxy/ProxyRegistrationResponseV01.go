@@ -6,7 +6,7 @@ import (
 )
 
 type Document00200101 struct {
-	XMLName xml.Name                      `xml:"urn:iso:std:iso:20022:tech:xsd:prxy.002.001.01 Document" json:"Document"`
+	XMLName xml.Name                      `xml:"urn:iso:std:iso:20022:tech:xsd:prxy.002.001.01 Document" json:"-"`
 	Message *ProxyRegistrationResponseV01 `xml:"PrxyRegnRspn" json:"PrxyRegnRspn"`
 }
 
