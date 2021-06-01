@@ -829,5 +829,5 @@ type AdminResponse struct {
 	InstgAgt     BranchAndFinancialInstitutionIdentification5 `xml:"InstgAgt" json:"InstgAgt"`
 	OrgnlInstrId Max35Text                                    `xml:"OrgnlInstrId" json:"OrgnlInstrId"`
 	FnctnCd      Max4NumericText                              `xml:"FnctnCd" json:"FnctnCd"`
-	TxSts        TransactionIndividualStatus3Code_Admn        `xml:"TxSts" json:"TxSts"`
+	TxSts        TransactionIndividualStatus3Code             `xml:"TxSts" json:"TxSts"`
 }

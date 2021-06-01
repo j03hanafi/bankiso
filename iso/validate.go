@@ -9,6 +9,7 @@ import (
 
 	"github.com/j03hanafi/bankiso/iso20022/acmt"
 	"github.com/j03hanafi/bankiso/iso20022/admi"
+	"github.com/j03hanafi/bankiso/iso20022/admn"
 	"github.com/j03hanafi/bankiso/iso20022/auth"
 	"github.com/j03hanafi/bankiso/iso20022/caaa"
 	"github.com/j03hanafi/bankiso/iso20022/caam"
@@ -56,6 +57,8 @@ var ISO20022Registry map[string]interface{} = map[string]interface{}{
 	"admi.002.001.01": &admi.Document00200101{},
 	"admi.004.001.02": &admi.Document00400102{},
 	"admi.011.001.01": &admi.Document01100101{},
+	"admn.001.001.01": &admn.Document00100101{},
+	"admn.002.001.01": &admn.Document00200101{},
 	"auth.001.001.01": &auth.Document00100101{},
 	"auth.002.001.01": &auth.Document00200101{},
 	"auth.003.001.01": &auth.Document00300101{},
