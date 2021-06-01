@@ -818,3 +818,16 @@ type ProxyAccount1 struct {
 	Acct        CashAccount40                                `xml:"Acct" json:"Acct"`
 	SplmtryData BI_SupplementaryData1                        `xml:"SplmtryData" json:"SplmtryData"`
 }
+
+type AdminTransactionInformation struct {
+	FnctnCd  Max4NumericText                              `xml:"FnctnCd" json:"FnctnCd"`
+	InstrId  Max35Text                                    `xml:"InstrId" json:"InstrId"`
+	InstgAgt BranchAndFinancialInstitutionIdentification5 `xml:"InstgAgt" json:"InstgAgt"`
+}
+
+type AdminResponse struct {
+	InstgAgt     BranchAndFinancialInstitutionIdentification5 `xml:"InstgAgt" json:"InstgAgt"`
+	OrgnlInstrId Max35Text                                    `xml:"OrgnlInstrId" json:"OrgnlInstrId"`
+	FnctnCd      Max4NumericText                              `xml:"FnctnCd" json:"FnctnCd"`
+	TxSts        TransactionIndividualStatus3Code_Admn        `xml:"TxSts" json:"TxSts"`
+}
