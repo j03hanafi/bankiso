@@ -8,3 +8,4 @@ bankiso
 /msg-examples/samples
 /.idea/vcs.xml
 /log.txt
+/go.mod
