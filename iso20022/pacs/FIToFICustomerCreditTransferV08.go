@@ -6,9 +6,16 @@ import (
 	"github.com/j03hanafi/bankiso/iso20022"
 )
 
+// res := new(pacs.Document00800108)
 type Document00800108 struct {
 	XMLName xml.Name                         `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.008.001.08 Document" json:"-"`
 	Message *FIToFICustomerCreditTransferV08 `xml:"FIToFICstmrCdtTrf" json:"FIToFICstmrCdtTrf"`
+}
+
+// res.AddMessage()
+func (d *Document00800108) AddMessage() *FIToFICustomerCreditTransferV08 {
+	d.Message = new(FIToFICustomerCreditTransferV08)
+	return d.Message
 }
 
 type FIToFICustomerCreditTransferV08 struct {
@@ -23,7 +30,15 @@ type FIToFICustomerCreditTransferV08 struct {
 	SupplementaryData []*iso20022.SupplementaryData1 `xml:"SplmtryData,omitempty" json:"SplmtryData,omitempty"`
 }
 
+// res.AddMessage().AddGroupHeader()
 func (f *FIToFICustomerCreditTransferV08) AddGroupHeader() *iso20022.GroupHeader93 {
 	f.GroupHeader = new(iso20022.GroupHeader93)
 	return f.GroupHeader
+}
+
+// res.AddMessage(). AddCreditTransferTransactionInformation()
+func (f *FIToFICustomerCreditTransferV08) AddCreditTransferTransactionInformation() *iso20022.CreditTransferTransaction39 {
+	newValue := new(iso20022.CreditTransferTransaction39)
+	f.CreditTransferTransactionInformation = append(f.CreditTransferTransactionInformation, newValue)
+	return newValue
 }

@@ -397,6 +397,7 @@ type GroupHeader93 struct {
 	InstdAgt          BranchAndFinancialInstitutionIdentification6 `xml:"InstdAgt,omitempty" json:"InstdAgt,omitempty"`
 }
 
+// res.AddMessage(). AddGroupHeader().SetMsgId("val")
 func (g *GroupHeader93) SetMsgId(value string) {
 	g.MsgId = (*Max35Text)(&value)
 }
@@ -421,7 +422,7 @@ type CreditTransferTransaction39 struct {
 	PoolgAdjstmntDt   ISODate                                      `xml:"PoolgAdjstmntDt,omitempty" json:"PoolgAdjstmntDt,omitempty"`
 	InstdAmt          ActiveOrHistoricCurrencyAndAmount            `xml:"InstdAmt,omitempty" json:"InstdAmt,omitempty"`
 	XchgRate          DecimalNumber                                `xml:"XchgRate,omitempty" json:"XchgRate,omitempty"`
-	ChrgBr            ChargeBearerType1Code                        `xml:"ChrgBr" json:"ChrgBr"`
+	ChrgBr            *ChargeBearerType1Code                       `xml:"ChrgBr" json:"ChrgBr"`
 	ChrgsInf          []Charges7                                   `xml:"ChrgsInf,omitempty" json:"ChrgsInf,omitempty"`
 	PrvsInstgAgt1     BranchAndFinancialInstitutionIdentification6 `xml:"PrvsInstgAgt1,omitempty" json:"PrvsInstgAgt1,omitempty"`
 	PrvsInstgAgt1Acct CashAccount38                                `xml:"PrvsInstgAgt1Acct,omitempty" json:"PrvsInstgAgt1Acct,omitempty"`
@@ -456,6 +457,11 @@ type CreditTransferTransaction39 struct {
 	RltdRmtInf        []RemittanceLocation7                        `xml:"RltdRmtInf,omitempty" json:"RltdRmtInf,omitempty"`
 	RmtInf            RemittanceInformation16                      `xml:"RmtInf,omitempty" json:"RmtInf,omitempty"`
 	SplmtryData       []BI_SupplementaryData1                      `xml:"SplmtryData,omitempty" json:"SplmtryData,omitempty"`
+}
+
+// res.AddMessage(). AddCreditTransferTransactionInformation().SetChrgBr("val")
+func (c *CreditTransferTransaction39) SetChrgBr(value string) {
+	c.ChrgBr = (*ChargeBearerType1Code)(&value)
 }
 
 type PaymentIdentification7 struct {
