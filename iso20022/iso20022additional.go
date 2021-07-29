@@ -384,7 +384,7 @@ type BI_AddtlCstmrInf struct {
 // TODO: pacs.008.001.08, json tag
 
 type GroupHeader93 struct {
-	MsgId             Max35Text                                    `xml:"MsgId" json:"MsgId"`
+	MsgId             *Max35Text                                   `xml:"MsgId" json:"MsgId"`
 	CreDtTm           ISODateTime                                  `xml:"CreDtTm" json:"CreDtTm"`
 	BtchBookg         TrueFalseIndicator                           `xml:"BtchBookg,omitempty" json:"BtchBookg,omitempty"`
 	NbOfTxs           Max15NumericText                             `xml:"NbOfTxs" json:"NbOfTxs"`
@@ -395,6 +395,10 @@ type GroupHeader93 struct {
 	PmtTpInf          PaymentTypeInformation28                     `xml:"PmtTpInf,omitempty" json:"PmtTpInf,omitempty"`
 	InstgAgt          BranchAndFinancialInstitutionIdentification6 `xml:"InstgAgt,omitempty" json:"InstgAgt,omitempty"`
 	InstdAgt          BranchAndFinancialInstitutionIdentification6 `xml:"InstdAgt,omitempty" json:"InstdAgt,omitempty"`
+}
+
+func (g *GroupHeader93) SetMsgId(value string) {
+	g.MsgId = (*Max35Text)(&value)
 }
 
 type PaymentTypeInformation28 struct {

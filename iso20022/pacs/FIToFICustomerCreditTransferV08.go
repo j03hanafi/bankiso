@@ -22,3 +22,8 @@ type FIToFICustomerCreditTransferV08 struct {
 	// Additional information that cannot be captured in the structured elements and/or any other specific block.
 	SupplementaryData []*iso20022.SupplementaryData1 `xml:"SplmtryData,omitempty" json:"SplmtryData,omitempty"`
 }
+
+func (f *FIToFICustomerCreditTransferV08) AddGroupHeader() *iso20022.GroupHeader93 {
+	f.GroupHeader = new(iso20022.GroupHeader93)
+	return f.GroupHeader
+}
