@@ -42,3 +42,10 @@ func (f *FIToFICustomerCreditTransferV08) AddCreditTransferTransactionInformatio
 	f.CreditTransferTransactionInformation = append(f.CreditTransferTransactionInformation, newValue)
 	return newValue
 }
+
+// res.AddMessage(). AddCreditTransferTransactionInformation()
+func (f *FIToFICustomerCreditTransferV08) AddSupplementaryData() *iso20022.SupplementaryData1 {
+	newValue := new(iso20022.SupplementaryData1)
+	f.SupplementaryData = append(f.SupplementaryData, newValue)
+	return newValue
+}

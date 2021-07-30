@@ -197,7 +197,7 @@ type OriginalTransactionReference28 struct {
 }
 
 type SettlementInstruction7 struct {
-	SttlmMtd             SettlementMethod1Code                        `xml:"SttlmMtd" json:"SttlmMtd"`
+	SttlmMtd             *SettlementMethod1Code                       `xml:"SttlmMtd" json:"SttlmMtd"`
 	SttlmAcct            CashAccount38                                `xml:"SttlmAcct,omitempty" json:"SttlmAcct,omitempty"`
 	ClrSys               ClearingSystemIdentification3Choice          `xml:"ClrSys,omitempty" json:"ClrSys,omitempty"`
 	InstgRmbrsmntAgt     BranchAndFinancialInstitutionIdentification6 `xml:"InstgRmbrsmntAgt,omitempty" json:"InstgRmbrsmntAgt,omitempty"`
@@ -206,6 +206,10 @@ type SettlementInstruction7 struct {
 	InstdRmbrsmntAgtAcct CashAccount38                                `xml:"InstdRmbrsmntAgtAcct,omitempty" json:"InstdRmbrsmntAgtAcct,omitempty"`
 	ThrdRmbrsmntAgt      BranchAndFinancialInstitutionIdentification6 `xml:"ThrdRmbrsmntAgt,omitempty" json:"ThrdRmbrsmntAgt,omitempty"`
 	ThrdRmbrsmntAgtAcct  CashAccount38                                `xml:"ThrdRmbrsmntAgtAcct,omitempty" json:"ThrdRmbrsmntAgtAcct,omitempty"`
+}
+
+func (s *SettlementInstruction7) SetSttlmMtd(value string) {
+	s.SttlmMtd = (*SettlementMethod1Code)(&value)
 }
 
 type CashAccount38 struct {
@@ -384,23 +388,64 @@ type BI_AddtlCstmrInf struct {
 // TODO: pacs.008.001.08, json tag
 
 type GroupHeader93 struct {
-	MsgId             *Max35Text                                   `xml:"MsgId" json:"MsgId"`
-	CreDtTm           ISODateTime                                  `xml:"CreDtTm" json:"CreDtTm"`
-	BtchBookg         TrueFalseIndicator                           `xml:"BtchBookg,omitempty" json:"BtchBookg,omitempty"`
-	NbOfTxs           Max15NumericText                             `xml:"NbOfTxs" json:"NbOfTxs"`
-	CtrlSum           DecimalNumber                                `xml:"CtrlSum,omitempty" json:"CtrlSum,omitempty"`
-	TtlIntrBkSttlmAmt ActiveCurrencyAndAmount                      `xml:"TtlIntrBkSttlmAmt,omitempty" json:"TtlIntrBkSttlmAmt,omitempty"`
-	IntrBkSttlmDt     ISODate                                      `xml:"IntrBkSttlmDt,omitempty" json:"IntrBkSttlmDt,omitempty"`
-	SttlmInf          SettlementInstruction7                       `xml:"SttlmInf" json:"SttlmInf"`
-	PmtTpInf          PaymentTypeInformation28                     `xml:"PmtTpInf,omitempty" json:"PmtTpInf,omitempty"`
-	InstgAgt          BranchAndFinancialInstitutionIdentification6 `xml:"InstgAgt,omitempty" json:"InstgAgt,omitempty"`
-	InstdAgt          BranchAndFinancialInstitutionIdentification6 `xml:"InstdAgt,omitempty" json:"InstdAgt,omitempty"`
+	MsgId             *Max35Text                                    `xml:"MsgId" json:"MsgId"`
+	CreDtTm           *ISODateTime                                  `xml:"CreDtTm" json:"CreDtTm"`
+	BtchBookg         *TrueFalseIndicator                           `xml:"BtchBookg,omitempty" json:"BtchBookg,omitempty"`
+	NbOfTxs           *Max15NumericText                             `xml:"NbOfTxs" json:"NbOfTxs"`
+	CtrlSum           *DecimalNumber                                `xml:"CtrlSum,omitempty" json:"CtrlSum,omitempty"`
+	TtlIntrBkSttlmAmt *ActiveCurrencyAndAmount                      `xml:"TtlIntrBkSttlmAmt,omitempty" json:"TtlIntrBkSttlmAmt,omitempty"`
+	IntrBkSttlmDt     *ISODate                                      `xml:"IntrBkSttlmDt,omitempty" json:"IntrBkSttlmDt,omitempty"`
+	SttlmInf          *SettlementInstruction7                       `xml:"SttlmInf" json:"SttlmInf"`
+	PmtTpInf          *PaymentTypeInformation28                     `xml:"PmtTpInf,omitempty" json:"PmtTpInf,omitempty"`
+	InstgAgt          *BranchAndFinancialInstitutionIdentification6 `xml:"InstgAgt,omitempty" json:"InstgAgt,omitempty"`
+	InstdAgt          *BranchAndFinancialInstitutionIdentification6 `xml:"InstdAgt,omitempty" json:"InstdAgt,omitempty"`
 }
 
 // res.AddMessage(). AddGroupHeader().SetMsgId("val")
 func (g *GroupHeader93) SetMsgId(value string) {
 	g.MsgId = (*Max35Text)(&value)
 }
+
+func (g *GroupHeader93) SetCreDtTm(value string) {
+	g.CreDtTm = (*ISODateTime)(&value)
+}
+
+func (g *GroupHeader93) SetBtchBookg(value string) {
+	g.BtchBookg = (*TrueFalseIndicator)(&value)
+}
+
+func (g *GroupHeader93) SetNbOfTxs(value string) {
+	g.NbOfTxs = (*Max15NumericText)(&value)
+}
+
+func (g *GroupHeader93) SetCtrlSum(value string) {
+	g.CtrlSum = (*DecimalNumber)(&value)
+}
+
+// func (g *GroupHeader93) SetTtlIntrBkSttlmAmt(value string) {
+// 	g.TtlIntrBkSttlmAmt = (*ActiveCurrencyAndAmount)(&value)
+// }
+
+func (g *GroupHeader93) SetIntrBkSttlmDt(value string) {
+	g.IntrBkSttlmDt = (*ISODate)(&value)
+}
+
+func (g *GroupHeader93) AddSttlmInf() *SettlementInstruction7 {
+	g.SttlmInf = new(SettlementInstruction7)
+	return g.SttlmInf
+}
+
+// func (g *GroupHeader93) SetPmtTpInf(value string) {
+// 	g.PmtTpInf = (*PaymentTypeInformation28)(&value)
+// }
+
+// func (g *GroupHeader93) SetInstgAgt(value string) {
+// 	g.InstgAgt = (*BranchAndFinancialInstitutionIdentification6)(&value)
+// }
+
+// func (g *GroupHeader93) SetInstdAgt(value string) {
+// 	g.InstdAgt = (*BranchAndFinancialInstitutionIdentification6)(&value)
+// }
 
 type PaymentTypeInformation28 struct {
 	InstrPrty Priority2Code          `xml:"InstrPrty,omitempty" json:"InstrPrty,omitempty"`
