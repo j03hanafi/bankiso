@@ -613,6 +613,11 @@ type PaymentTypeInformation28 struct {
 	CtgyPurp  *CategoryPurpose1Choice `xml:"CtgyPurp,omitempty" json:"CtgyPurp,omitempty"`
 }
 
+func (p *PaymentTypeInformation28) AddCtgyPurp() *CategoryPurpose1Choice {
+	p.CtgyPurp = new(CategoryPurpose1Choice)
+	return p.CtgyPurp
+}
+
 func (p *PaymentTypeInformation28) AddInstrPrty() *Priority2Code {
 	p.InstrPrty = new(Priority2Code)
 	return p.InstrPrty
@@ -771,12 +776,54 @@ type CreditTransferTransaction44 struct {
 	SplmtryData        []SupplementaryData1                         `xml:"SplmtryData,omitempty" json:"SplmtryData,omitempty"`
 }
 
+func (f *CreditTransferTransaction44) AddPmtId() *PaymentIdentification13 {
+	f.PmtId = new(PaymentIdentification13)
+	return f.PmtId
+}
+
+func (f *CreditTransferTransaction44) AddPmtTpInf() *PaymentTypeInformation28 {
+	f.PmtTpInf = new(PaymentTypeInformation28)
+	return f.PmtTpInf
+}
+
+func (f *CreditTransferTransaction44) AddIntrBkSttlmAmt() *ActiveCurrencyAndAmount {
+	f.IntrBkSttlmAmt = new(ActiveCurrencyAndAmount)
+	return f.IntrBkSttlmAmt
+}
+
+func (f *CreditTransferTransaction44) SetIntrBkSttlmDt(value string) {
+	f.IntrBkSttlmDt = (*ISODate)(&value)
+}
+
+func (f *CreditTransferTransaction44) AddDbtr() *BranchAndFinancialInstitutionIdentification6 {
+	f.Dbtr = new(BranchAndFinancialInstitutionIdentification6)
+	return f.Dbtr
+}
+
+func (f *CreditTransferTransaction44) AddCdtr() *BranchAndFinancialInstitutionIdentification6 {
+	f.Cdtr = new(BranchAndFinancialInstitutionIdentification6)
+	return f.Cdtr
+}
+
+func (f *CreditTransferTransaction44) AddRmtInf() *RemittanceInformation2 {
+	f.RmtInf = new(RemittanceInformation2)
+	return f.RmtInf
+}
+
 type PaymentIdentification13 struct {
 	InstrId    Max35Text        `xml:"InstrId,omitempty" json:"InstrId,omitempty"`
 	EndToEndId Max35Text        `xml:"EndToEndId" json:"EndToEndId"`
 	TxId       Max35Text        `xml:"TxId,omitempty" json:"TxId,omitempty"`
 	UETR       UUIDv4Identifier `xml:"UETR,omitempty" json:"UETR,omitempty"`
 	ClrSysRef  Max35Text        `xml:"ClrSysRef,omitempty" json:"ClrSysRef,omitempty"`
+}
+
+func (p *PaymentIdentification13) SetEndToEndId(value string) {
+	p.EndToEndId = (*Max35Text)(&value)
+}
+
+func (p *PaymentIdentification13) SetTxId(value string) {
+	p.TxId = (*Max35Text)(&value)
 }
 
 type InstructionForCreditorAgent3 struct {
@@ -841,6 +888,19 @@ type PaymentTransaction121 struct {
 	InstdAgt        BranchAndFinancialInstitutionIdentification6 `xml:"InstdAgt,omitempty" json:"InstdAgt,omitempty"`
 	OrgnlTxRef      OriginalTransactionReference31               `xml:"OrgnlTxRef,omitempty" json:"OrgnlTxRef,omitempty"`
 	SplmtryData     []SupplementaryData1                         `xml:"SplmtryData,omitempty" json:"SplmtryData,omitempty"`
+}
+
+//func (g *GroupHeader93) SetCtrlSum (value string) {
+//	g.CtrlSum = (*DecimalNumber)(&value)
+//}
+//
+//func (g *GroupHeader93) AddTtlIntrBkSttlmAmt() *ActiveCurrencyAndAmount {
+//	g.TtlIntrBkSttlmAmt = new(ActiveCurrencyAndAmount)
+//	return g.TtlIntrBkSttlmAmt
+//}
+
+func (p *PaymentTransaction121) SetOrgnlEndToEndId(value string) {
+	p.OrgnlEndToEndId = (*Max35Text)(&value)
 }
 
 type OriginalTransactionReference31 struct {
