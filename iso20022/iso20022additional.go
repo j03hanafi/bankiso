@@ -211,13 +211,37 @@ func (o *OriginalGroupHeader17) SetOrgnlMsgId(value string) {
 	o.OrgnlMsgId = (*Max35Text)(&value)
 }
 
-// OrgnlMsgNmId  *Max35Text
-// OrgnlCreDtTm  *ISODateTime
-// OrgnlNbOfTxs  *Max15NumericText
-// OrgnlCtrlSum  *DecimalNumber
-// GrpSts        *ExternalPaymentGroupStatus1Code
-// StsRsnInf     []*StatusReasonInformation12
-// NbOfTxsPerSts []*NumberOfTransactionsPerStatus5
+func (o *OriginalGroupHeader17) SetOrgnlMsgNmId(value string) {
+	o.OrgnlMsgNmId = (*Max35Text)(&value)
+}
+
+func (o *OriginalGroupHeader17) SetOrgnlCreDtTm(value string) {
+	o.OrgnlMsgNmId = (*Max35Text)(&value)
+}
+
+func (o *OriginalGroupHeader17) SetOrgnlNbOfTxs(value string) {
+	o.OrgnlNbOfTxs = (*Max15NumericText)(&value)
+}
+
+func (o *OriginalGroupHeader17) SetOrgnlCtrlSum(value string) {
+	o.OrgnlCtrlSum = (*DecimalNumber)(&value)
+}
+
+func (o *OriginalGroupHeader17) SetGrpSts(value string) {
+	o.GrpSts = (*ExternalPaymentGroupStatus1Code)(&value)
+}
+
+func (o *OriginalGroupHeader17) AddStsRsnInf() *StatusReasonInformation12 {
+	newValue := new(StatusReasonInformation12)
+	o.StsRsnInf = append(o.StsRsnInf, newValue)
+	return newValue
+}
+
+func (o *OriginalGroupHeader17) AddNbOfTxsPerSts() *NumberOfTransactionsPerStatus5 {
+	newValue := new(NumberOfTransactionsPerStatus5)
+	o.NbOfTxsPerSts = append(o.NbOfTxsPerSts, newValue)
+	return newValue
+}
 
 // May be no more than 4 items long
 type ExternalPaymentGroupStatus1Code string
@@ -351,37 +375,68 @@ type OriginalTransactionReference28 struct {
 }
 
 type SettlementInstruction7 struct {
-	SttlmMtd             *SettlementMethod1Code                       `xml:"SttlmMtd" json:"SttlmMtd"`
-	SttlmAcct            CashAccount38                                `xml:"SttlmAcct,omitempty" json:"SttlmAcct,omitempty"`
-	ClrSys               ClearingSystemIdentification3Choice          `xml:"ClrSys,omitempty" json:"ClrSys,omitempty"`
-	InstgRmbrsmntAgt     BranchAndFinancialInstitutionIdentification6 `xml:"InstgRmbrsmntAgt,omitempty" json:"InstgRmbrsmntAgt,omitempty"`
-	InstgRmbrsmntAgtAcct CashAccount38                                `xml:"InstgRmbrsmntAgtAcct,omitempty" json:"InstgRmbrsmntAgtAcct,omitempty"`
-	InstdRmbrsmntAgt     BranchAndFinancialInstitutionIdentification6 `xml:"InstdRmbrsmntAgt,omitempty" json:"InstdRmbrsmntAgt,omitempty"`
-	InstdRmbrsmntAgtAcct CashAccount38                                `xml:"InstdRmbrsmntAgtAcct,omitempty" json:"InstdRmbrsmntAgtAcct,omitempty"`
-	ThrdRmbrsmntAgt      BranchAndFinancialInstitutionIdentification6 `xml:"ThrdRmbrsmntAgt,omitempty" json:"ThrdRmbrsmntAgt,omitempty"`
-	ThrdRmbrsmntAgtAcct  CashAccount38                                `xml:"ThrdRmbrsmntAgtAcct,omitempty" json:"ThrdRmbrsmntAgtAcct,omitempty"`
+	SttlmMtd             *SettlementMethod1Code                        `xml:"SttlmMtd" json:"SttlmMtd"`
+	SttlmAcct            *CashAccount38                                `xml:"SttlmAcct,omitempty" json:"SttlmAcct,omitempty"`
+	ClrSys               *ClearingSystemIdentification3Choice          `xml:"ClrSys,omitempty" json:"ClrSys,omitempty"`
+	InstgRmbrsmntAgt     *BranchAndFinancialInstitutionIdentification6 `xml:"InstgRmbrsmntAgt,omitempty" json:"InstgRmbrsmntAgt,omitempty"`
+	InstgRmbrsmntAgtAcct *CashAccount38                                `xml:"InstgRmbrsmntAgtAcct,omitempty" json:"InstgRmbrsmntAgtAcct,omitempty"`
+	InstdRmbrsmntAgt     *BranchAndFinancialInstitutionIdentification6 `xml:"InstdRmbrsmntAgt,omitempty" json:"InstdRmbrsmntAgt,omitempty"`
+	InstdRmbrsmntAgtAcct *CashAccount38                                `xml:"InstdRmbrsmntAgtAcct,omitempty" json:"InstdRmbrsmntAgtAcct,omitempty"`
+	ThrdRmbrsmntAgt      *BranchAndFinancialInstitutionIdentification6 `xml:"ThrdRmbrsmntAgt,omitempty" json:"ThrdRmbrsmntAgt,omitempty"`
+	ThrdRmbrsmntAgtAcct  *CashAccount38                                `xml:"ThrdRmbrsmntAgtAcct,omitempty" json:"ThrdRmbrsmntAgtAcct,omitempty"`
 }
 
 func (s *SettlementInstruction7) SetSttlmMtd(value string) {
 	s.SttlmMtd = (*SettlementMethod1Code)(&value)
 }
 
+// SttlmAcct            *CashAccount38
+// ClrSys               *ClearingSystemIdentification3Choice
+// InstgRmbrsmntAgt     *BranchAndFinancialInstitutionIdentification6
+// InstgRmbrsmntAgtAcct *CashAccount38
+// InstdRmbrsmntAgt     *BranchAndFinancialInstitutionIdentification6
+// InstdRmbrsmntAgtAcct *CashAccount38
+// ThrdRmbrsmntAgt      *BranchAndFinancialInstitutionIdentification6
+// ThrdRmbrsmntAgtAcct  *CashAccount38
+
 type CashAccount38 struct {
-	Id   AccountIdentification4Choice `xml:"Id" json:"Id"`
-	Tp   CashAccountType2Choice       `xml:"Tp,omitempty" json:"Tp,omitempty"`
-	Ccy  ActiveOrHistoricCurrencyCode `xml:"Ccy,omitempty" json:"Ccy,omitempty"`
-	Nm   Max70Text                    `xml:"Nm,omitempty" json:"Nm,omitempty"`
-	Prxy ProxyAccountIdentification1  `xml:"Prxy,omitempty" json:"Prxy,omitempty"`
+	Id   *AccountIdentification4Choice `xml:"Id" json:"Id"`
+	Tp   *CashAccountType2Choice       `xml:"Tp,omitempty" json:"Tp,omitempty"`
+	Ccy  *ActiveOrHistoricCurrencyCode `xml:"Ccy,omitempty" json:"Ccy,omitempty"`
+	Nm   *Max70Text                    `xml:"Nm,omitempty" json:"Nm,omitempty"`
+	Prxy *ProxyAccountIdentification1  `xml:"Prxy,omitempty" json:"Prxy,omitempty"`
 }
 
+// Id   *AccountIdentification4Choice
+// Tp   *CashAccountType2Choice
+// Ccy  *ActiveOrHistoricCurrencyCode
+// Nm   *Max70Text
+// Prxy *ProxyAccountIdentification1
 type ProxyAccountIdentification1 struct {
-	Tp ProxyAccountType1Choice `xml:"Tp,omitempty" json:"Tp,omitempty"`
-	Id Max2048Text             `xml:"Id" json:"Id"`
+	Tp *ProxyAccountType1Choice `xml:"Tp,omitempty" json:"Tp,omitempty"`
+	Id *Max2048Text             `xml:"Id" json:"Id"`
+}
+
+func (p *ProxyAccountIdentification1) AddTp() *ProxyAccountType1Choice {
+	p.Tp = new(ProxyAccountType1Choice)
+	return p.Tp
+}
+
+func (p *ProxyAccountIdentification1) SetId(value string) {
+	p.Id = (*Max2048Text)(&value)
 }
 
 type ProxyAccountType1Choice struct {
-	Cd    ExternalProxyAccountType1Code `xml:"Cd,omitempty" json:"Cd,omitempty"`
-	Prtry Max35Text                     `xml:"Prtry,omitempty" json:"Prtry,omitempty"`
+	Cd    *ExternalProxyAccountType1Code `xml:"Cd,omitempty" json:"Cd,omitempty"`
+	Prtry *Max35Text                     `xml:"Prtry,omitempty" json:"Prtry,omitempty"`
+}
+
+func (p *ProxyAccountType1Choice) SetCd(value string) {
+	p.Cd = (*ExternalProxyAccountType1Code)(&value)
+}
+
+func (p *ProxyAccountType1Choice) SetPrtry(value string) {
+	p.Prtry = (*Max35Text)(&value)
 }
 
 // May be no more than 4 items long
