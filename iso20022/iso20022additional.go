@@ -2224,44 +2224,206 @@ type InstructionForCreditorAgent3 struct {
 type ExternalCreditorAgentInstruction1Code string
 
 type CreditTransferTransaction45 struct {
-	UltmtDbtr         PartyIdentification135                       `xml:"UltmtDbtr,omitempty" json:"UltmtDbtr,omitempty"`
-	InitgPty          PartyIdentification135                       `xml:"InitgPty,omitempty" json:"InitgPty,omitempty"`
-	Dbtr              PartyIdentification135                       `xml:"Dbtr" json:"Dbtr"`
-	DbtrAcct          CashAccount38                                `xml:"DbtrAcct,omitempty" json:"DbtrAcct,omitempty"`
-	DbtrAgt           BranchAndFinancialInstitutionIdentification6 `xml:"DbtrAgt" json:"DbtrAgt"`
-	DbtrAgtAcct       CashAccount38                                `xml:"DbtrAgtAcct,omitempty" json:"DbtrAgtAcct,omitempty"`
-	PrvsInstgAgt1     BranchAndFinancialInstitutionIdentification6 `xml:"PrvsInstgAgt1,omitempty" json:"PrvsInstgAgt1,omitempty"`
-	PrvsInstgAgt1Acct CashAccount38                                `xml:"PrvsInstgAgt1Acct,omitempty" json:"PrvsInstgAgt1Acct,omitempty"`
-	PrvsInstgAgt2     BranchAndFinancialInstitutionIdentification6 `xml:"PrvsInstgAgt2,omitempty" json:"PrvsInstgAgt2,omitempty"`
-	PrvsInstgAgt2Acct CashAccount38                                `xml:"PrvsInstgAgt2Acct,omitempty" json:"PrvsInstgAgt2Acct,omitempty"`
-	PrvsInstgAgt3     BranchAndFinancialInstitutionIdentification6 `xml:"PrvsInstgAgt3,omitempty" json:"PrvsInstgAgt3,omitempty"`
-	PrvsInstgAgt3Acct CashAccount38                                `xml:"PrvsInstgAgt3Acct,omitempty" json:"PrvsInstgAgt3Acct,omitempty"`
-	IntrmyAgt1        BranchAndFinancialInstitutionIdentification6 `xml:"IntrmyAgt1,omitempty" json:"IntrmyAgt1,omitempty"`
-	IntrmyAgt1Acct    CashAccount38                                `xml:"IntrmyAgt1Acct,omitempty" json:"IntrmyAgt1Acct,omitempty"`
-	IntrmyAgt2        BranchAndFinancialInstitutionIdentification6 `xml:"IntrmyAgt2,omitempty" json:"IntrmyAgt2,omitempty"`
-	IntrmyAgt2Acct    CashAccount38                                `xml:"IntrmyAgt2Acct,omitempty" json:"IntrmyAgt2Acct,omitempty"`
-	IntrmyAgt3        BranchAndFinancialInstitutionIdentification6 `xml:"IntrmyAgt3,omitempty" json:"IntrmyAgt3,omitempty"`
-	IntrmyAgt3Acct    CashAccount38                                `xml:"IntrmyAgt3Acct,omitempty" json:"IntrmyAgt3Acct,omitempty"`
-	CdtrAgt           BranchAndFinancialInstitutionIdentification6 `xml:"CdtrAgt" json:"CdtrAgt"`
-	CdtrAgtAcct       CashAccount38                                `xml:"CdtrAgtAcct,omitempty" json:"CdtrAgtAcct,omitempty"`
-	Cdtr              PartyIdentification135                       `xml:"Cdtr" json:"Cdtr"`
-	CdtrAcct          CashAccount38                                `xml:"CdtrAcct,omitempty" json:"CdtrAcct,omitempty"`
-	UltmtCdtr         PartyIdentification135                       `xml:"UltmtCdtr,omitempty" json:"UltmtCdtr,omitempty"`
-	InstrForCdtrAgt   []InstructionForCreditorAgent3               `xml:"InstrForCdtrAgt,omitempty" json:"InstrForCdtrAgt,omitempty"`
-	InstrForNxtAgt    []InstructionForNextAgent1                   `xml:"InstrForNxtAgt,omitempty" json:"InstrForNxtAgt,omitempty"`
-	Tax               TaxInformation8                              `xml:"Tax,omitempty" json:"Tax,omitempty"`
-	RmtInf            RemittanceInformation16                      `xml:"RmtInf,omitempty" json:"RmtInf,omitempty"`
-	InstdAmt          ActiveOrHistoricCurrencyAndAmount            `xml:"InstdAmt,omitempty" json:"InstdAmt,omitempty"`
+	UltmtDbtr         *PartyIdentification135                       `xml:"UltmtDbtr,omitempty" json:"UltmtDbtr,omitempty"`
+	InitgPty          *PartyIdentification135                       `xml:"InitgPty,omitempty" json:"InitgPty,omitempty"`
+	Dbtr              *PartyIdentification135                       `xml:"Dbtr" json:"Dbtr"`
+	DbtrAcct          *CashAccount38                                `xml:"DbtrAcct,omitempty" json:"DbtrAcct,omitempty"`
+	DbtrAgt           *BranchAndFinancialInstitutionIdentification6 `xml:"DbtrAgt" json:"DbtrAgt"`
+	DbtrAgtAcct       *CashAccount38                                `xml:"DbtrAgtAcct,omitempty" json:"DbtrAgtAcct,omitempty"`
+	PrvsInstgAgt1     *BranchAndFinancialInstitutionIdentification6 `xml:"PrvsInstgAgt1,omitempty" json:"PrvsInstgAgt1,omitempty"`
+	PrvsInstgAgt1Acct *CashAccount38                                `xml:"PrvsInstgAgt1Acct,omitempty" json:"PrvsInstgAgt1Acct,omitempty"`
+	PrvsInstgAgt2     *BranchAndFinancialInstitutionIdentification6 `xml:"PrvsInstgAgt2,omitempty" json:"PrvsInstgAgt2,omitempty"`
+	PrvsInstgAgt2Acct *CashAccount38                                `xml:"PrvsInstgAgt2Acct,omitempty" json:"PrvsInstgAgt2Acct,omitempty"`
+	PrvsInstgAgt3     *BranchAndFinancialInstitutionIdentification6 `xml:"PrvsInstgAgt3,omitempty" json:"PrvsInstgAgt3,omitempty"`
+	PrvsInstgAgt3Acct *CashAccount38                                `xml:"PrvsInstgAgt3Acct,omitempty" json:"PrvsInstgAgt3Acct,omitempty"`
+	IntrmyAgt1        *BranchAndFinancialInstitutionIdentification6 `xml:"IntrmyAgt1,omitempty" json:"IntrmyAgt1,omitempty"`
+	IntrmyAgt1Acct    *CashAccount38                                `xml:"IntrmyAgt1Acct,omitempty" json:"IntrmyAgt1Acct,omitempty"`
+	IntrmyAgt2        *BranchAndFinancialInstitutionIdentification6 `xml:"IntrmyAgt2,omitempty" json:"IntrmyAgt2,omitempty"`
+	IntrmyAgt2Acct    *CashAccount38                                `xml:"IntrmyAgt2Acct,omitempty" json:"IntrmyAgt2Acct,omitempty"`
+	IntrmyAgt3        *BranchAndFinancialInstitutionIdentification6 `xml:"IntrmyAgt3,omitempty" json:"IntrmyAgt3,omitempty"`
+	IntrmyAgt3Acct    *CashAccount38                                `xml:"IntrmyAgt3Acct,omitempty" json:"IntrmyAgt3Acct,omitempty"`
+	CdtrAgt           *BranchAndFinancialInstitutionIdentification6 `xml:"CdtrAgt" json:"CdtrAgt"`
+	CdtrAgtAcct       *CashAccount38                                `xml:"CdtrAgtAcct,omitempty" json:"CdtrAgtAcct,omitempty"`
+	Cdtr              *PartyIdentification135                       `xml:"Cdtr" json:"Cdtr"`
+	CdtrAcct          *CashAccount38                                `xml:"CdtrAcct,omitempty" json:"CdtrAcct,omitempty"`
+	UltmtCdtr         *PartyIdentification135                       `xml:"UltmtCdtr,omitempty" json:"UltmtCdtr,omitempty"`
+	InstrForCdtrAgt   []*InstructionForCreditorAgent3               `xml:"InstrForCdtrAgt,omitempty" json:"InstrForCdtrAgt,omitempty"`
+	InstrForNxtAgt    []*InstructionForNextAgent1                   `xml:"InstrForNxtAgt,omitempty" json:"InstrForNxtAgt,omitempty"`
+	Tax               *TaxInformation8                              `xml:"Tax,omitempty" json:"Tax,omitempty"`
+	RmtInf            *RemittanceInformation16                      `xml:"RmtInf,omitempty" json:"RmtInf,omitempty"`
+	InstdAmt          *ActiveOrHistoricCurrencyAndAmount            `xml:"InstdAmt,omitempty" json:"InstdAmt,omitempty"`
+}
+
+func (c *CreditTransferTransaction45) AddUltmtDbtr() *PartyIdentification135 {
+	c.UltmtDbtr = new(PartyIdentification135)
+	return c.UltmtDbtr
+}
+
+func (c *CreditTransferTransaction45) AddInitgPty() *PartyIdentification135 {
+	c.InitgPty = new(PartyIdentification135)
+	return c.InitgPty
+}
+
+func (c *CreditTransferTransaction45) AddDbtr() *PartyIdentification135 {
+	c.Dbtr = new(PartyIdentification135)
+	return c.Dbtr
+}
+
+func (c *CreditTransferTransaction45) AddDbtrAcct() *CashAccount38 {
+	c.DbtrAcct = new(CashAccount38)
+	return c.DbtrAcct
+}
+
+func (c *CreditTransferTransaction45) AddDbtrAgt() *BranchAndFinancialInstitutionIdentification6 {
+	c.DbtrAgt = new(BranchAndFinancialInstitutionIdentification6)
+	return c.DbtrAgt
+}
+
+func (c *CreditTransferTransaction45) AddDbtrAgtAcct() *CashAccount38 {
+	c.DbtrAgtAcct = new(CashAccount38)
+	return c.DbtrAgtAcct
+}
+
+func (c *CreditTransferTransaction45) AddPrvsInstgAgt1() *BranchAndFinancialInstitutionIdentification6 {
+	c.PrvsInstgAgt1 = new(BranchAndFinancialInstitutionIdentification6)
+	return c.PrvsInstgAgt1
+}
+
+func (c *CreditTransferTransaction45) AddPrvsInstgAgt1Acct() *CashAccount38 {
+	c.PrvsInstgAgt1Acct = new(CashAccount38)
+	return c.PrvsInstgAgt1Acct
+}
+
+func (c *CreditTransferTransaction45) AddPrvsInstgAgt2() *BranchAndFinancialInstitutionIdentification6 {
+	c.PrvsInstgAgt2 = new(BranchAndFinancialInstitutionIdentification6)
+	return c.PrvsInstgAgt2
+}
+
+func (c *CreditTransferTransaction45) AddPrvsInstgAgt2Acct() *CashAccount38 {
+	c.PrvsInstgAgt2Acct = new(CashAccount38)
+	return c.PrvsInstgAgt2Acct
+}
+
+func (c *CreditTransferTransaction45) AddPrvsInstgAgt3() *BranchAndFinancialInstitutionIdentification6 {
+	c.PrvsInstgAgt3 = new(BranchAndFinancialInstitutionIdentification6)
+	return c.PrvsInstgAgt3
+}
+
+func (c *CreditTransferTransaction45) AddPrvsInstgAgt3Acct() *CashAccount38 {
+	c.PrvsInstgAgt3Acct = new(CashAccount38)
+	return c.PrvsInstgAgt3Acct
+}
+
+func (c *CreditTransferTransaction45) AddIntrmyAgt1() *BranchAndFinancialInstitutionIdentification6 {
+	c.IntrmyAgt1 = new(BranchAndFinancialInstitutionIdentification6)
+	return c.IntrmyAgt1
+}
+
+func (c *CreditTransferTransaction45) AddIntrmyAgt1Acct() *CashAccount38 {
+	c.IntrmyAgt1Acct = new(CashAccount38)
+	return c.IntrmyAgt1Acct
+}
+
+func (c *CreditTransferTransaction45) AddIntrmyAgt2() *BranchAndFinancialInstitutionIdentification6 {
+	c.IntrmyAgt2 = new(BranchAndFinancialInstitutionIdentification6)
+	return c.IntrmyAgt2
+}
+
+func (c *CreditTransferTransaction45) AddIntrmyAgt2Acct() *CashAccount38 {
+	c.IntrmyAgt2Acct = new(CashAccount38)
+	return c.IntrmyAgt2Acct
+}
+
+func (c *CreditTransferTransaction45) AddIntrmyAgt3() *BranchAndFinancialInstitutionIdentification6 {
+	c.IntrmyAgt3 = new(BranchAndFinancialInstitutionIdentification6)
+	return c.IntrmyAgt3
+}
+
+func (c *CreditTransferTransaction45) AddIntrmyAgt3Acct() *CashAccount38 {
+	c.IntrmyAgt3Acct = new(CashAccount38)
+	return c.IntrmyAgt3Acct
+}
+
+func (c *CreditTransferTransaction45) AddCdtrAgt() *BranchAndFinancialInstitutionIdentification6 {
+	c.CdtrAgt = new(BranchAndFinancialInstitutionIdentification6)
+	return c.CdtrAgt
+}
+
+func (c *CreditTransferTransaction45) AddCdtrAgtAcct() *CashAccount38 {
+	c.CdtrAgtAcct = new(CashAccount38)
+	return c.CdtrAgtAcct
+}
+
+func (c *CreditTransferTransaction45) AddCdtr() *PartyIdentification135 {
+	c.Cdtr = new(PartyIdentification135)
+	return c.Cdtr
+}
+
+func (c *CreditTransferTransaction45) AddCdtrAcct() *CashAccount38 {
+	c.CdtrAcct = new(CashAccount38)
+	return c.CdtrAcct
+}
+
+func (c *CreditTransferTransaction45) AddUltmtCdtr() *PartyIdentification135 {
+	c.UltmtCdtr = new(PartyIdentification135)
+	return c.UltmtCdtr
+}
+
+func (c *CreditTransferTransaction45) AddInstrForCdtrAgt() *InstructionForCreditorAgent3 {
+	newValue := new(InstructionForCreditorAgent3)
+	c.InstrForCdtrAgt = append(c.InstrForCdtrAgt, newValue)
+	return newValue
+}
+
+func (c *CreditTransferTransaction45) AddInstrForNxtAgt() *InstructionForNextAgent1 {
+	newValue := new(InstructionForNextAgent1)
+	c.InstrForNxtAgt = append(c.InstrForNxtAgt, newValue)
+	return newValue
+}
+
+func (c *CreditTransferTransaction45) AddTax() *TaxInformation8 {
+	c.Tax = new(TaxInformation8)
+	return c.Tax
+}
+
+func (c *CreditTransferTransaction45) AddRmtInf() *RemittanceInformation16 {
+	c.RmtInf = new(RemittanceInformation16)
+	return c.RmtInf
+}
+
+func (c *CreditTransferTransaction45) AddInstdAmt() *ActiveOrHistoricCurrencyAndAmount {
+	c.InstdAmt = new(ActiveOrHistoricCurrencyAndAmount)
+	return c.InstdAmt
 }
 
 // TODO: pacs.028.001.04, json tag
 
 type OriginalGroupInformation27 struct {
-	OrgnlMsgId   Max35Text        `xml:"OrgnlMsgId" json:"OrgnlMsgId"`
-	OrgnlMsgNmId Max35Text        `xml:"OrgnlMsgNmId" json:"OrgnlMsgNmId"`
-	OrgnlCreDtTm ISODateTime      `xml:"OrgnlCreDtTm,omitempty" json:"OrgnlCreDtTm,omitempty"`
-	OrgnlNbOfTxs Max15NumericText `xml:"OrgnlNbOfTxs,omitempty" json:"OrgnlNbOfTxs,omitempty"`
-	OrgnlCtrlSum DecimalNumber    `xml:"OrgnlCtrlSum,omitempty" json:"OrgnlCtrlSum,omitempty"`
+	OrgnlMsgId   *Max35Text        `xml:"OrgnlMsgId" json:"OrgnlMsgId"`
+	OrgnlMsgNmId *Max35Text        `xml:"OrgnlMsgNmId" json:"OrgnlMsgNmId"`
+	OrgnlCreDtTm *ISODateTime      `xml:"OrgnlCreDtTm,omitempty" json:"OrgnlCreDtTm,omitempty"`
+	OrgnlNbOfTxs *Max15NumericText `xml:"OrgnlNbOfTxs,omitempty" json:"OrgnlNbOfTxs,omitempty"`
+	OrgnlCtrlSum *DecimalNumber    `xml:"OrgnlCtrlSum,omitempty" json:"OrgnlCtrlSum,omitempty"`
+}
+
+func (o *OriginalGroupInformation27) SetOrgnlMsgId(value string) {
+	o.OrgnlMsgId = (*Max35Text)(&value)
+}
+
+func (o *OriginalGroupInformation27) SetOrgnlMsgNmId(value string) {
+	o.OrgnlMsgNmId = (*Max35Text)(&value)
+}
+
+func (o *OriginalGroupInformation27) SetOrgnlCreDtTm(value string) {
+	o.OrgnlCreDtTm = (*ISODateTime)(&value)
+}
+
+func (o *OriginalGroupInformation27) SetOrgnlNbOfTxs(value string) {
+	o.OrgnlNbOfTxs = (*Max15NumericText)(&value)
+}
+
+func (o *OriginalGroupInformation27) SetOrgnlCtrlSum(value string) {
+	o.OrgnlCtrlSum = (*DecimalNumber)(&value)
 }
 
 type PaymentTransaction121 struct {
@@ -2279,71 +2441,308 @@ type PaymentTransaction121 struct {
 	SplmtryData     []*SupplementaryData1                         `xml:"SplmtryData,omitempty" json:"SplmtryData,omitempty"`
 }
 
-//func (g *GroupHeader93) SetCtrlSum (value string) {
-//	g.CtrlSum = (*DecimalNumber)(&value)
-//}
-//
-//func (g *GroupHeader93) AddTtlIntrBkSttlmAmt() *ActiveCurrencyAndAmount {
-//	g.TtlIntrBkSttlmAmt = new(ActiveCurrencyAndAmount)
-//	return g.TtlIntrBkSttlmAmt
-//}
+// StsReqId        *Max35Text
+func (p *PaymentTransaction121) SetStsReqId(value string) {
+	p.StsReqId = (*Max35Text)(&value)
+}
 
+// OrgnlGrpInf     *OriginalGroupInformation29
+func (p *PaymentTransaction121) AddOrgnlGrpInf() *OriginalGroupInformation29 {
+	p.OrgnlGrpInf = new(OriginalGroupInformation29)
+	return p.OrgnlGrpInf
+}
+
+// OrgnlInstrId    *Max35Text
+func (p *PaymentTransaction121) SetOrgnlInstrId(value string) {
+	p.OrgnlInstrId = (*Max35Text)(&value)
+}
+
+// OrgnlEndToEndId *Max35Text
 func (p *PaymentTransaction121) SetOrgnlEndToEndId(value string) {
 	p.OrgnlEndToEndId = (*Max35Text)(&value)
 }
 
+// OrgnlTxId       *Max35Text
+func (p *PaymentTransaction121) SetOrgnlTxId(value string) {
+	p.OrgnlTxId = (*Max35Text)(&value)
+}
+
+// OrgnlUETR       *UUIDv4Identifier
+func (p *PaymentTransaction121) SetOrgnlUETR(value string) {
+	p.OrgnlUETR = (*UUIDv4Identifier)(&value)
+}
+
+// AccptncDtTm     *ISODateTime
+func (p *PaymentTransaction121) SetAccptncDtTm(value string) {
+	p.AccptncDtTm = (*ISODateTime)(&value)
+}
+
+// ClrSysRef       *Max35Text
+func (p *PaymentTransaction121) SetClrSysRef(value string) {
+	p.ClrSysRef = (*Max35Text)(&value)
+}
+
+// InstgAgt        *BranchAndFinancialInstitutionIdentification6
+func (p *PaymentTransaction121) AddInstgAgt() *BranchAndFinancialInstitutionIdentification6 {
+	p.InstgAgt = new(BranchAndFinancialInstitutionIdentification6)
+	return p.InstgAgt
+}
+
+// InstdAgt        *BranchAndFinancialInstitutionIdentification6
+func (p *PaymentTransaction121) AddInstdAgt() *BranchAndFinancialInstitutionIdentification6 {
+	p.InstdAgt = new(BranchAndFinancialInstitutionIdentification6)
+	return p.InstdAgt
+}
+
+// OrgnlTxRef      *OriginalTransactionReference31
+func (p *PaymentTransaction121) AddOrgnlTxRef() *OriginalTransactionReference31 {
+	p.OrgnlTxRef = new(OriginalTransactionReference31)
+	return p.OrgnlTxRef
+}
+
+// SplmtryData     []*SupplementaryData1
+func (p *PaymentTransaction121) AddSplmtryData() *SupplementaryData1 {
+	newValue := new(SupplementaryData1)
+	p.SplmtryData = append(p.SplmtryData, newValue)
+	return newValue
+}
+
 type OriginalTransactionReference31 struct {
-	IntrBkSttlmAmt ActiveOrHistoricCurrencyAndAmount            `xml:"IntrBkSttlmAmt,omitempty" json:"IntrBkSttlmAmt,omitempty"`
-	Amt            AmountType4Choice                            `xml:"Amt,omitempty" json:"Amt,omitempty"`
-	IntrBkSttlmDt  ISODate                                      `xml:"IntrBkSttlmDt,omitempty" json:"IntrBkSttlmDt,omitempty"`
-	ReqdColltnDt   ISODate                                      `xml:"ReqdColltnDt,omitempty" json:"ReqdColltnDt,omitempty"`
-	ReqdExctnDt    DateAndDateTime2Choice                       `xml:"ReqdExctnDt,omitempty" json:"ReqdExctnDt,omitempty"`
-	CdtrSchmeId    PartyIdentification135                       `xml:"CdtrSchmeId,omitempty" json:"CdtrSchmeId,omitempty"`
-	SttlmInf       SettlementInstruction7                       `xml:"SttlmInf,omitempty" json:"SttlmInf,omitempty"`
-	PmtTpInf       PaymentTypeInformation27                     `xml:"PmtTpInf,omitempty" json:"PmtTpInf,omitempty"`
-	PmtMtd         PaymentMethod4Code                           `xml:"PmtMtd,omitempty" json:"PmtMtd,omitempty"`
-	MndtRltdInf    MandateRelatedData1Choice                    `xml:"MndtRltdInf,omitempty" json:"MndtRltdInf,omitempty"`
-	RmtInf         RemittanceInformation16                      `xml:"RmtInf,omitempty" json:"RmtInf,omitempty"`
-	UltmtDbtr      Party40Choice                                `xml:"UltmtDbtr,omitempty" json:"UltmtDbtr,omitempty"`
-	Dbtr           Party40Choice                                `xml:"Dbtr,omitempty" json:"Dbtr,omitempty"`
-	DbtrAcct       CashAccount38                                `xml:"DbtrAcct,omitempty" json:"DbtrAcct,omitempty"`
-	DbtrAgt        BranchAndFinancialInstitutionIdentification6 `xml:"DbtrAgt,omitempty" json:"DbtrAgt,omitempty"`
-	DbtrAgtAcct    CashAccount38                                `xml:"DbtrAgtAcct,omitempty" json:"DbtrAgtAcct,omitempty"`
-	CdtrAgt        BranchAndFinancialInstitutionIdentification6 `xml:"CdtrAgt,omitempty" json:"CdtrAgt,omitempty"`
-	CdtrAgtAcct    CashAccount38                                `xml:"CdtrAgtAcct,omitempty" json:"CdtrAgtAcct,omitempty"`
-	Cdtr           Party40Choice                                `xml:"Cdtr,omitempty" json:"Cdtr,omitempty"`
-	CdtrAcct       CashAccount38                                `xml:"CdtrAcct,omitempty" json:"CdtrAcct,omitempty"`
-	UltmtCdtr      Party40Choice                                `xml:"UltmtCdtr,omitempty" json:"UltmtCdtr,omitempty"`
-	Purp           Purpose2Choice                               `xml:"Purp,omitempty" json:"Purp,omitempty"`
+	IntrBkSttlmAmt *ActiveOrHistoricCurrencyAndAmount            `xml:"IntrBkSttlmAmt,omitempty" json:"IntrBkSttlmAmt,omitempty"`
+	Amt            *AmountType4Choice                            `xml:"Amt,omitempty" json:"Amt,omitempty"`
+	IntrBkSttlmDt  *ISODate                                      `xml:"IntrBkSttlmDt,omitempty" json:"IntrBkSttlmDt,omitempty"`
+	ReqdColltnDt   *ISODate                                      `xml:"ReqdColltnDt,omitempty" json:"ReqdColltnDt,omitempty"`
+	ReqdExctnDt    *DateAndDateTime2Choice                       `xml:"ReqdExctnDt,omitempty" json:"ReqdExctnDt,omitempty"`
+	CdtrSchmeId    *PartyIdentification135                       `xml:"CdtrSchmeId,omitempty" json:"CdtrSchmeId,omitempty"`
+	SttlmInf       *SettlementInstruction7                       `xml:"SttlmInf,omitempty" json:"SttlmInf,omitempty"`
+	PmtTpInf       *PaymentTypeInformation27                     `xml:"PmtTpInf,omitempty" json:"PmtTpInf,omitempty"`
+	PmtMtd         *PaymentMethod4Code                           `xml:"PmtMtd,omitempty" json:"PmtMtd,omitempty"`
+	MndtRltdInf    *MandateRelatedData1Choice                    `xml:"MndtRltdInf,omitempty" json:"MndtRltdInf,omitempty"`
+	RmtInf         *RemittanceInformation16                      `xml:"RmtInf,omitempty" json:"RmtInf,omitempty"`
+	UltmtDbtr      *Party40Choice                                `xml:"UltmtDbtr,omitempty" json:"UltmtDbtr,omitempty"`
+	Dbtr           *Party40Choice                                `xml:"Dbtr,omitempty" json:"Dbtr,omitempty"`
+	DbtrAcct       *CashAccount38                                `xml:"DbtrAcct,omitempty" json:"DbtrAcct,omitempty"`
+	DbtrAgt        *BranchAndFinancialInstitutionIdentification6 `xml:"DbtrAgt,omitempty" json:"DbtrAgt,omitempty"`
+	DbtrAgtAcct    *CashAccount38                                `xml:"DbtrAgtAcct,omitempty" json:"DbtrAgtAcct,omitempty"`
+	CdtrAgt        *BranchAndFinancialInstitutionIdentification6 `xml:"CdtrAgt,omitempty" json:"CdtrAgt,omitempty"`
+	CdtrAgtAcct    *CashAccount38                                `xml:"CdtrAgtAcct,omitempty" json:"CdtrAgtAcct,omitempty"`
+	Cdtr           *Party40Choice                                `xml:"Cdtr,omitempty" json:"Cdtr,omitempty"`
+	CdtrAcct       *CashAccount38                                `xml:"CdtrAcct,omitempty" json:"CdtrAcct,omitempty"`
+	UltmtCdtr      *Party40Choice                                `xml:"UltmtCdtr,omitempty" json:"UltmtCdtr,omitempty"`
+	Purp           *Purpose2Choice                               `xml:"Purp,omitempty" json:"Purp,omitempty"`
+}
+
+func (o *OriginalTransactionReference31) AddIntrBkSttlmAmt() *ActiveOrHistoricCurrencyAndAmount {
+	o.IntrBkSttlmAmt = new(ActiveOrHistoricCurrencyAndAmount)
+	return o.IntrBkSttlmAmt
+}
+
+func (o *OriginalTransactionReference31) AddAmt() *AmountType4Choice {
+	o.Amt = new(AmountType4Choice)
+	return o.Amt
+}
+
+func (o *OriginalTransactionReference31) SetIntrBkSttlmDt(value string) {
+	o.IntrBkSttlmDt = (*ISODate)(&value)
+}
+
+func (o *OriginalTransactionReference31) SetReqdColltnDt(value string) {
+	o.ReqdColltnDt = (*ISODate)(&value)
+}
+
+func (o *OriginalTransactionReference31) AddReqdExctnDt() *DateAndDateTime2Choice {
+	o.ReqdExctnDt = new(DateAndDateTime2Choice)
+	return o.ReqdExctnDt
+}
+
+func (o *OriginalTransactionReference31) AddCdtrSchmeId() *PartyIdentification135 {
+	o.CdtrSchmeId = new(PartyIdentification135)
+	return o.CdtrSchmeId
+}
+
+func (o *OriginalTransactionReference31) AddSttlmInf() *SettlementInstruction7 {
+	o.SttlmInf = new(SettlementInstruction7)
+	return o.SttlmInf
+}
+
+func (o *OriginalTransactionReference31) AddPmtTpInf() *PaymentTypeInformation27 {
+	o.PmtTpInf = new(PaymentTypeInformation27)
+	return o.PmtTpInf
+}
+
+func (o *OriginalTransactionReference31) SetPmtMtd(value string) {
+	o.PmtMtd = (*PaymentMethod4Code)(&value)
+}
+
+func (o *OriginalTransactionReference31) AddMndtRltdInf() *MandateRelatedData1Choice {
+	o.MndtRltdInf = new(MandateRelatedData1Choice)
+	return o.MndtRltdInf
+}
+
+func (o *OriginalTransactionReference31) AddRmtInf() *RemittanceInformation16 {
+	o.RmtInf = new(RemittanceInformation16)
+	return o.RmtInf
+}
+
+func (o *OriginalTransactionReference31) AddUltmtDbtr() *Party40Choice {
+	o.UltmtDbtr = new(Party40Choice)
+	return o.UltmtDbtr
+}
+
+func (o *OriginalTransactionReference31) AddDbtr() *Party40Choice {
+	o.Dbtr = new(Party40Choice)
+	return o.Dbtr
+}
+
+func (o *OriginalTransactionReference31) AddDbtrAcct() *CashAccount38 {
+	o.DbtrAcct = new(CashAccount38)
+	return o.DbtrAcct
+}
+
+func (o *OriginalTransactionReference31) AddDbtrAgt() *BranchAndFinancialInstitutionIdentification6 {
+	o.DbtrAgt = new(BranchAndFinancialInstitutionIdentification6)
+	return o.DbtrAgt
+}
+
+func (o *OriginalTransactionReference31) AddDbtrAgtAcct() *CashAccount38 {
+	o.DbtrAgtAcct = new(CashAccount38)
+	return o.DbtrAgtAcct
+}
+
+func (o *OriginalTransactionReference31) AddCdtrAgt() *BranchAndFinancialInstitutionIdentification6 {
+	o.CdtrAgt = new(BranchAndFinancialInstitutionIdentification6)
+	return o.CdtrAgt
+}
+
+func (o *OriginalTransactionReference31) AddCdtrAgtAcct() *CashAccount38 {
+	o.CdtrAgtAcct = new(CashAccount38)
+	return o.CdtrAgtAcct
+}
+
+func (o *OriginalTransactionReference31) AddCdtr() *Party40Choice {
+	o.Cdtr = new(Party40Choice)
+	return o.Cdtr
+}
+
+func (o *OriginalTransactionReference31) AddCdtrAcct() *CashAccount38 {
+	o.CdtrAcct = new(CashAccount38)
+	return o.CdtrAcct
+}
+
+func (o *OriginalTransactionReference31) AddUltmtCdtr() *Party40Choice {
+	o.UltmtCdtr = new(Party40Choice)
+	return o.UltmtCdtr
+}
+
+func (o *OriginalTransactionReference31) AddPurp() *Purpose2Choice {
+	o.Purp = new(Purpose2Choice)
+	return o.Purp
 }
 
 type MandateRelatedData1Choice struct {
-	DrctDbtMndt MandateRelatedInformation14 `xml:"DrctDbtMndt,omitempty" json:"DrctDbtMndt,omitempty"`
-	CdtTrfMndt  CreditTransferMandateData1  `xml:"CdtTrfMndt,omitempty" json:"CdtTrfMndt,omitempty"`
+	DrctDbtMndt *MandateRelatedInformation14 `xml:"DrctDbtMndt,omitempty" json:"DrctDbtMndt,omitempty"`
+	CdtTrfMndt  *CreditTransferMandateData1  `xml:"CdtTrfMndt,omitempty" json:"CdtTrfMndt,omitempty"`
+}
+
+func (m *MandateRelatedData1Choice) AddDrctDbtMndt() *MandateRelatedInformation14 {
+	m.DrctDbtMndt = new(MandateRelatedInformation14)
+	return m.DrctDbtMndt
+}
+
+func (m *MandateRelatedData1Choice) AddCdtTrfMndt() *CreditTransferMandateData1 {
+	m.CdtTrfMndt = new(CreditTransferMandateData1)
+	return m.CdtTrfMndt
 }
 
 type CreditTransferMandateData1 struct {
-	MndtId       Max35Text                 `xml:"MndtId,omitempty" json:"MndtId,omitempty"`
-	Tp           MandateTypeInformation2   `xml:"Tp,omitempty" json:"Tp,omitempty"`
-	DtOfSgntr    ISODate                   `xml:"DtOfSgntr,omitempty" json:"DtOfSgntr,omitempty"`
-	DtOfVrfctn   ISODateTime               `xml:"DtOfVrfctn,omitempty" json:"DtOfVrfctn,omitempty"`
-	ElctrncSgntr Max10KBinary              `xml:"ElctrncSgntr,omitempty" json:"ElctrncSgntr,omitempty"`
-	FrstPmtDt    ISODate                   `xml:"FrstPmtDt,omitempty" json:"FrstPmtDt,omitempty"`
-	FnlPmtDt     ISODate                   `xml:"FnlPmtDt,omitempty" json:"FnlPmtDt,omitempty"`
-	Frqcy        Frequency36Choice         `xml:"Frqcy,omitempty" json:"Frqcy,omitempty"`
-	Rsn          MandateSetupReason1Choice `xml:"Rsn,omitempty" json:"Rsn,omitempty"`
+	MndtId       *Max35Text                 `xml:"MndtId,omitempty" json:"MndtId,omitempty"`
+	Tp           *MandateTypeInformation2   `xml:"Tp,omitempty" json:"Tp,omitempty"`
+	DtOfSgntr    *ISODate                   `xml:"DtOfSgntr,omitempty" json:"DtOfSgntr,omitempty"`
+	DtOfVrfctn   *ISODateTime               `xml:"DtOfVrfctn,omitempty" json:"DtOfVrfctn,omitempty"`
+	ElctrncSgntr *Max10KBinary              `xml:"ElctrncSgntr,omitempty" json:"ElctrncSgntr,omitempty"`
+	FrstPmtDt    *ISODate                   `xml:"FrstPmtDt,omitempty" json:"FrstPmtDt,omitempty"`
+	FnlPmtDt     *ISODate                   `xml:"FnlPmtDt,omitempty" json:"FnlPmtDt,omitempty"`
+	Frqcy        *Frequency36Choice         `xml:"Frqcy,omitempty" json:"Frqcy,omitempty"`
+	Rsn          *MandateSetupReason1Choice `xml:"Rsn,omitempty" json:"Rsn,omitempty"`
+}
+
+func (c *CreditTransferMandateData1) SetMndtId(value string) {
+	c.MndtId = (*Max35Text)(&value)
+}
+
+func (c *CreditTransferMandateData1) AddTp() *MandateTypeInformation2 {
+	c.Tp = new(MandateTypeInformation2)
+	return c.Tp
+}
+
+func (c *CreditTransferMandateData1) SetDtOfSgntr(value string) {
+	c.DtOfSgntr = (*ISODate)(&value)
+}
+
+func (c *CreditTransferMandateData1) SetDtOfVrfctn(value string) {
+	c.DtOfVrfctn = (*ISODateTime)(&value)
+}
+
+func (c *CreditTransferMandateData1) SetElctrncSgntr(value string) {
+	c.ElctrncSgntr = (*Max10KBinary)(&value)
+}
+
+func (c *CreditTransferMandateData1) SetFrstPmtDt(value string) {
+	c.FrstPmtDt = (*ISODate)(&value)
+}
+
+func (c *CreditTransferMandateData1) SetFnlPmtDt(value string) {
+	c.FnlPmtDt = (*ISODate)(&value)
+}
+
+func (c *CreditTransferMandateData1) AddFrqcy() *Frequency36Choice {
+	c.Frqcy = new(Frequency36Choice)
+	return c.Frqcy
+}
+
+func (c *CreditTransferMandateData1) AddRsn() *MandateSetupReason1Choice {
+	c.Rsn = new(MandateSetupReason1Choice)
+	return c.Rsn
 }
 
 type MandateTypeInformation2 struct {
-	SvcLvl    ServiceLevel8Choice          `xml:"SvcLvl,omitempty" json:"SvcLvl,omitempty"`
-	LclInstrm LocalInstrument2Choice       `xml:"LclInstrm,omitempty" json:"LclInstrm,omitempty"`
-	CtgyPurp  CategoryPurpose1Choice       `xml:"CtgyPurp,omitempty" json:"CtgyPurp,omitempty"`
-	Clssfctn  MandateClassification1Choice `xml:"Clssfctn,omitempty" json:"Clssfctn,omitempty"`
+	SvcLvl    *ServiceLevel8Choice          `xml:"SvcLvl,omitempty" json:"SvcLvl,omitempty"`
+	LclInstrm *LocalInstrument2Choice       `xml:"LclInstrm,omitempty" json:"LclInstrm,omitempty"`
+	CtgyPurp  *CategoryPurpose1Choice       `xml:"CtgyPurp,omitempty" json:"CtgyPurp,omitempty"`
+	Clssfctn  *MandateClassification1Choice `xml:"Clssfctn,omitempty" json:"Clssfctn,omitempty"`
+}
+
+func (m *MandateTypeInformation2) AddSvcLvl() *ServiceLevel8Choice {
+	m.SvcLvl = new(ServiceLevel8Choice)
+	return m.SvcLvl
+}
+
+func (m *MandateTypeInformation2) AddLclInstrm() *LocalInstrument2Choice {
+	m.LclInstrm = new(LocalInstrument2Choice)
+	return m.LclInstrm
+}
+
+func (m *MandateTypeInformation2) AddCtgyPurp() *CategoryPurpose1Choice {
+	m.CtgyPurp = new(CategoryPurpose1Choice)
+	return m.CtgyPurp
+}
+
+func (m *MandateTypeInformation2) AddClssfctn() *MandateClassification1Choice {
+	m.Clssfctn = new(MandateClassification1Choice)
+	return m.Clssfctn
 }
 
 type MandateClassification1Choice struct {
-	Cd    MandateClassification1Code `xml:"Cd,omitempty" json:"Cd,omitempty"`
-	Prtry Max35Text                  `xml:"Prtry,omitempty" json:"Prtry,omitempty"`
+	Cd    *MandateClassification1Code `xml:"Cd,omitempty" json:"Cd,omitempty"`
+	Prtry *Max35Text                  `xml:"Prtry,omitempty" json:"Prtry,omitempty"`
+}
+
+func (m *MandateClassification1Choice) SetCd(value string) {
+	m.Cd = (*MandateClassification1Code)(&value)
+}
+
+func (m *MandateClassification1Choice) SetPrtry(value string) {
+	m.Prtry = (*Max35Text)(&value)
 }
 
 // May be one of FIXE, USGB, VARI
@@ -2352,10 +2751,28 @@ type MandateClassification1Code string
 // TODO: prxy.001.001.01, json tag
 
 type ProxyRegistration1 struct {
-	RegnTp    ProxyRegistrationType1Code    `xml:"RegnTp" json:"RegnTp"`
-	RegnSubTp ProxyRegistrationSubType1Code `xml:"RegnSubTp,omitempty" json:"RegnSubTp,omitempty"`
-	Prxy      ProxyDefinition1              `xml:"Prxy,omitempty" json:"Prxy,omitempty"`
-	PrxyRegn  ProxyRegistrationAccount1     `xml:"PrxyRegn" json:"PrxyRegn"`
+	RegnTp    *ProxyRegistrationType1Code    `xml:"RegnTp" json:"RegnTp"`
+	RegnSubTp *ProxyRegistrationSubType1Code `xml:"RegnSubTp,omitempty" json:"RegnSubTp,omitempty"`
+	Prxy      *ProxyDefinition1              `xml:"Prxy,omitempty" json:"Prxy,omitempty"`
+	PrxyRegn  *ProxyRegistrationAccount1     `xml:"PrxyRegn" json:"PrxyRegn"`
+}
+
+func (p *ProxyRegistration1) SetRegnTp(value string) {
+	p.RegnTp = (*ProxyRegistrationType1Code)(&value)
+}
+
+func (p *ProxyRegistration1) SetRegnSubTp(value string) {
+	p.RegnSubTp = (*ProxyRegistrationSubType1Code)(&value)
+}
+
+func (p *ProxyRegistration1) AddPrxy() *ProxyDefinition1 {
+	p.Prxy = new(ProxyDefinition1)
+	return p.Prxy
+}
+
+func (p *ProxyRegistration1) AddPrxyRegn() *ProxyRegistrationAccount1 {
+	p.PrxyRegn = new(ProxyRegistrationAccount1)
+	return p.PrxyRegn
 }
 
 // May be one of AMND, DEAC, NEWR, SUSP, ACTV, PORT
@@ -2365,39 +2782,118 @@ type ProxyRegistrationType1Code string
 type ProxyRegistrationSubType1Code string
 
 type ProxyDefinition1 struct {
-	Tp  Max12Text  `xml:"Tp" json:"Tp"`
-	Val Max140Text `xml:"Val" json:"Val"`
+	Tp  *Max12Text  `xml:"Tp" json:"Tp"`
+	Val *Max140Text `xml:"Val" json:"Val"`
+}
+
+func (p *ProxyDefinition1) SetTp(value string) {
+	p.Tp = (*Max12Text)(&value)
+}
+
+func (p *ProxyDefinition1) SetVal(value string) {
+	p.Val = (*Max140Text)(&value)
 }
 
 type ProxyRegistrationAccount1 struct {
-	RegnId      Max35Text                                    `xml:"RegnId,omitempty" json:"RegnId,omitempty"`
-	DsplNm      Max140Text                                   `xml:"DsplNm,omitempty" json:"DsplNm,omitempty"`
-	Agt         BranchAndFinancialInstitutionIdentification5 `xml:"Agt,omitempty" json:"Agt,omitempty"`
-	Acct        CashAccount40                                `xml:"Acct,omitempty" json:"Acct,omitempty"`
-	AcctHldr    Party30Choice                                `xml:"AcctHldr,omitempty" json:"AcctHldr,omitempty"`
-	ScndId      ScndIdDefinition1                            `xml:"ScndId,omitempty" json:"ScndId,omitempty"`
-	RegnSts     ProxyRegistrationStatusCode                  `xml:"RegnSts,omitempty" json:"RegnSts,omitempty"`
-	PreAuthrsd  TrueFalseIndicator                           `xml:"PreAuthrsd,omitempty" json:"PreAuthrsd,omitempty"`
-	SplmtryData []BI_SupplementaryData1                      `xml:"SplmtryData,omitempty" json:"SplmtryData,omitempty"`
+	RegnId      *Max35Text                                    `xml:"RegnId,omitempty" json:"RegnId,omitempty"`
+	DsplNm      *Max140Text                                   `xml:"DsplNm,omitempty" json:"DsplNm,omitempty"`
+	Agt         *BranchAndFinancialInstitutionIdentification5 `xml:"Agt,omitempty" json:"Agt,omitempty"`
+	Acct        *CashAccount40                                `xml:"Acct,omitempty" json:"Acct,omitempty"`
+	AcctHldr    *Party30Choice                                `xml:"AcctHldr,omitempty" json:"AcctHldr,omitempty"`
+	ScndId      *ScndIdDefinition1                            `xml:"ScndId,omitempty" json:"ScndId,omitempty"`
+	RegnSts     *ProxyRegistrationStatusCode                  `xml:"RegnSts,omitempty" json:"RegnSts,omitempty"`
+	PreAuthrsd  *TrueFalseIndicator                           `xml:"PreAuthrsd,omitempty" json:"PreAuthrsd,omitempty"`
+	SplmtryData []*BI_SupplementaryData1                      `xml:"SplmtryData,omitempty" json:"SplmtryData,omitempty"`
+}
+
+func (p *ProxyRegistrationAccount1) SetRegnId(value string) {
+	p.RegnId = (*Max35Text)(&value)
+}
+
+func (p *ProxyRegistrationAccount1) SetDsplNm(value string) {
+	p.DsplNm = (*Max140Text)(&value)
+}
+
+func (p *ProxyRegistrationAccount1) AddAgt() *BranchAndFinancialInstitutionIdentification5 {
+	p.Agt = new(BranchAndFinancialInstitutionIdentification5)
+	return p.Agt
+}
+
+func (p *ProxyRegistrationAccount1) AddAcct() *CashAccount40 {
+	p.Acct = new(CashAccount40)
+	return p.Acct
+}
+
+func (p *ProxyRegistrationAccount1) AddAcctHldr() *Party30Choice {
+	p.AcctHldr = new(Party30Choice)
+	return p.AcctHldr
+}
+
+func (p *ProxyRegistrationAccount1) AddScndId() *ScndIdDefinition1 {
+	p.ScndId = new(ScndIdDefinition1)
+	return p.ScndId
+}
+
+func (p *ProxyRegistrationAccount1) SetRegnSts(value string) {
+	p.RegnSts = (*ProxyRegistrationStatusCode)(&value)
+}
+
+func (p *ProxyRegistrationAccount1) SetPreAuthrsd(value string) {
+	p.PreAuthrsd = (*TrueFalseIndicator)(&value)
+}
+
+func (p *ProxyRegistrationAccount1) AddSplmtryData() *BI_SupplementaryData1 {
+	newValue := new(BI_SupplementaryData1)
+	p.SplmtryData = append(p.SplmtryData, newValue)
+	return newValue
 }
 
 type CashAccount40 struct {
-	Id         AccountIdentification4Choice `xml:"Id" json:"Id"`
-	Tp         CashAccountType2ChoiceProxy  `xml:"Tp,omitempty" json:"Tp,omitempty"`
-	Nm         Max140Text                   `xml:"Nm,omitempty" json:"Nm,omitempty"`
-	AcctHldrTp Max35Text                    `xml:"AcctHldrTp,omitempty" json:"AcctHldrTp,omitempty"`
+	Id         *AccountIdentification4Choice `xml:"Id" json:"Id"`
+	Tp         *CashAccountType2ChoiceProxy  `xml:"Tp,omitempty" json:"Tp,omitempty"`
+	Nm         *Max140Text                   `xml:"Nm,omitempty" json:"Nm,omitempty"`
+	AcctHldrTp *Max35Text                    `xml:"AcctHldrTp,omitempty" json:"AcctHldrTp,omitempty"`
+}
+
+func (c *CashAccount40) AddId() *AccountIdentification4Choice {
+	c.Id = new(AccountIdentification4Choice)
+	return c.Id
+}
+
+func (c *CashAccount40) AddTp() *CashAccountType2ChoiceProxy {
+	c.Tp = new(CashAccountType2ChoiceProxy)
+	return c.Tp
+}
+
+func (c *CashAccount40) SetNm(value string) {
+	c.Nm = (*Max140Text)(&value)
+}
+
+func (c *CashAccount40) SetAcctHldrTp(value string) {
+	c.AcctHldrTp = (*Max35Text)(&value)
 }
 
 type CashAccountType2ChoiceProxy struct {
-	Prtry ProxyAccountType `xml:"Prtry,omitempty" json:"Prtry,omitempty"`
+	Prtry *ProxyAccountType `xml:"Prtry,omitempty" json:"Prtry,omitempty"`
+}
+
+func (c *CashAccountType2ChoiceProxy) SetPrtry(value string) {
+	c.Prtry = (*ProxyAccountType)(&value)
 }
 
 // May be no more than 4 items long
 type ProxyAccountType string
 
 type ScndIdDefinition1 struct {
-	Tp  Max12Text `xml:"Tp" json:"Tp"`
-	Val Max35Text `xml:"Val" json:"Val"`
+	Tp  *Max12Text `xml:"Tp" json:"Tp"`
+	Val *Max35Text `xml:"Val" json:"Val"`
+}
+
+func (s *ScndIdDefinition1) SetTp(value string) {
+	s.Tp = (*Max12Text)(&value)
+}
+func (s *ScndIdDefinition1) SetVal(value string) {
+	s.Val = (*Max35Text)(&value)
 }
 
 // May be no more than 4 items long
@@ -2406,115 +2902,349 @@ type ProxyRegistrationStatusCode string
 // TODO: prxy.002.001.01, json tag
 
 type ProxyRegistrationResponse1 struct {
-	PrxRspnSts     ProxyStatusCode               `xml:"PrxRspnSts" json:"PrxRspnSts"`
-	StsRsnInf      ProxyStatusChoice             `xml:"StsRsnInf,omitempty" json:"StsRsnInf,omitempty"`
-	OrgnlRegnTp    ProxyRegistrationType1Code    `xml:"OrgnlRegnTp" json:"OrgnlRegnTp"`
-	OrgnlRegnSubTp ProxyRegistrationSubType1Code `xml:"OrgnlRegnSubTp,omitempty" json:"OrgnlRegnSubTp,omitempty"`
-	OrgnlPrxy      ProxyDefinition1              `xml:"OrgnlPrxy,omitempty" json:"OrgnlPrxy,omitempty"`
-	PrxyRegn       []ProxyRegistrationAccount1   `xml:"PrxyRegn,omitempty" json:"PrxyRegn,omitempty"`
+	PrxRspnSts     *ProxyStatusCode               `xml:"PrxRspnSts" json:"PrxRspnSts"`
+	StsRsnInf      *ProxyStatusChoice             `xml:"StsRsnInf,omitempty" json:"StsRsnInf,omitempty"`
+	OrgnlRegnTp    *ProxyRegistrationType1Code    `xml:"OrgnlRegnTp" json:"OrgnlRegnTp"`
+	OrgnlRegnSubTp *ProxyRegistrationSubType1Code `xml:"OrgnlRegnSubTp,omitempty" json:"OrgnlRegnSubTp,omitempty"`
+	OrgnlPrxy      *ProxyDefinition1              `xml:"OrgnlPrxy,omitempty" json:"OrgnlPrxy,omitempty"`
+	PrxyRegn       []*ProxyRegistrationAccount1   `xml:"PrxyRegn,omitempty" json:"PrxyRegn,omitempty"`
+}
+
+func (p *ProxyRegistrationResponse1) SetPrxRspnSts(value string) {
+	p.PrxRspnSts = (*ProxyStatusCode)(&value)
+}
+
+func (p *ProxyRegistrationResponse1) AddStsRsnInf() *ProxyStatusChoice {
+	p.StsRsnInf = new(ProxyStatusChoice)
+	return p.StsRsnInf
+}
+
+func (p *ProxyRegistrationResponse1) SetOrgnlRegnTp(value string) {
+	p.OrgnlRegnTp = (*ProxyRegistrationType1Code)(&value)
+}
+
+func (p *ProxyRegistrationResponse1) SetOrgnlRegnSubTp(value string) {
+	p.OrgnlRegnSubTp = (*ProxyRegistrationSubType1Code)(&value)
+}
+
+func (p *ProxyRegistrationResponse1) AddOrgnlPrxy() *ProxyDefinition1 {
+	p.OrgnlPrxy = new(ProxyDefinition1)
+	return p.OrgnlPrxy
+}
+
+func (p *ProxyRegistrationResponse1) AddPrxyRegn() *ProxyRegistrationAccount1 {
+	newValue := new(ProxyRegistrationAccount1)
+	p.PrxyRegn = append(p.PrxyRegn, newValue)
+	return newValue
 }
 
 // May be one of ACTC, RJCT
 type ProxyStatusCode string
 
 type ProxyStatusChoice struct {
-	Cd    ExternalStatusReason1Code `xml:"Cd,omitempty" json:"Cd,omitempty"`
-	Prtry Max35Text                 `xml:"Prtry,omitempty" json:"Prtry,omitempty"`
+	Cd    *ExternalStatusReason1Code `xml:"Cd,omitempty" json:"Cd,omitempty"`
+	Prtry *Max35Text                 `xml:"Prtry,omitempty" json:"Prtry,omitempty"`
+}
+
+func (p *ProxyStatusChoice) SetCd(value string) {
+	p.Cd = (*ExternalStatusReason1Code)(&value)
+}
+
+func (p *ProxyStatusChoice) SetPrtry(value string) {
+	p.Prtry = (*Max35Text)(&value)
 }
 
 // TODO: prxy.003.001.01, json tag
 type ProxyLookUpChoice1 struct {
-	PrxyOnly ProxyLookUp11 `xml:"PrxyOnly" json:"PrxyOnly"`
+	PrxyOnly *ProxyLookUp11 `xml:"PrxyOnly" json:"PrxyOnly"`
+}
+
+func (p *ProxyLookUpChoice1) AddPrxyOnly() *ProxyLookUp11 {
+	p.PrxyOnly = new(ProxyLookUp11)
+	return p.PrxyOnly
 }
 
 type ProxyLookUp11 struct {
-	LkUpTp    ProxyLookUpType1Code `xml:"LkUpTp" json:"LkUpTP"`
-	Id        Max35Text            `xml:"Id" json:"Id"`
-	PrxyRtrvl ProxyDefinition1     `xml:"PrxyRtrvl" json:"PrxyRtrvl"`
+	LkUpTp    *ProxyLookUpType1Code `xml:"LkUpTp" json:"LkUpTP"`
+	Id        *Max35Text            `xml:"Id" json:"Id"`
+	PrxyRtrvl *ProxyDefinition1     `xml:"PrxyRtrvl" json:"PrxyRtrvl"`
+}
+
+func (p *ProxyLookUp11) SetLkUpTp(value string) {
+	p.LkUpTp = (*ProxyLookUpType1Code)(&value)
+}
+
+func (p *ProxyLookUp11) SetId(value string) {
+	p.Id = (*Max35Text)(&value)
+}
+
+func (p *ProxyLookUp11) AddPrxyRtrvl() *ProxyDefinition1 {
+	p.PrxyRtrvl = new(ProxyDefinition1)
+	return p.PrxyRtrvl
 }
 
 type ProxyLookUpType1Code string
 
 // TODO: prxy.004.001.01, json tag
 type ProxyLookUpResponse1 struct {
-	OrgnlId        Max35Text                `xml:"OrgnlId" json:"OrgnlId"`
-	OrgnlPrxyRtrvl ProxyDefinition1         `xml:"OrgnlPrxyRtrvl" json:"OrgnlPrxyRtrvl"`
-	RegnRspn       ProxyLookUpRegistration1 `xml:"RegnRspn" json:"RegnRspn"`
+	OrgnlId        *Max35Text                `xml:"OrgnlId" json:"OrgnlId"`
+	OrgnlPrxyRtrvl *ProxyDefinition1         `xml:"OrgnlPrxyRtrvl" json:"OrgnlPrxyRtrvl"`
+	RegnRspn       *ProxyLookUpRegistration1 `xml:"RegnRspn" json:"RegnRspn"`
+}
+
+func (p *ProxyLookUpResponse1) SetOrgnlId(value string) {
+	p.OrgnlId = (*Max35Text)(&value)
+}
+
+func (p *ProxyLookUpResponse1) AddOrgnlPrxyRtrvl() *ProxyDefinition1 {
+	p.OrgnlPrxyRtrvl = new(ProxyDefinition1)
+	return p.OrgnlPrxyRtrvl
+}
+
+func (p *ProxyLookUpResponse1) AddRegnRspn() *ProxyLookUpRegistration1 {
+	p.RegnRspn = new(ProxyLookUpRegistration1)
+	return p.RegnRspn
 }
 
 type ProxyLookUpRegistration1 struct {
-	PrxRspnSts ProxyStatusCode     `xml:"PrxRspnSts" json:"PrxRspnSts"`
-	StsRsnInf  ProxyStatusChoice   `xml:"StsRsnInf" json:"StsRsnInf"`
-	Prxy       ProxyDefinition1    `xml:"Prxy" json:"Prxy"`
-	Regn       ProxyLookUpAccount1 `xml:"Regn" json:"Regn"`
+	PrxRspnSts *ProxyStatusCode     `xml:"PrxRspnSts" json:"PrxRspnSts"`
+	StsRsnInf  *ProxyStatusChoice   `xml:"StsRsnInf" json:"StsRsnInf"`
+	Prxy       *ProxyDefinition1    `xml:"Prxy" json:"Prxy"`
+	Regn       *ProxyLookUpAccount1 `xml:"Regn" json:"Regn"`
+}
+
+func (p *ProxyLookUpRegistration1) SetPrxRspnSts(value string) {
+	p.PrxRspnSts = (*ProxyStatusCode)(&value)
+}
+
+func (p *ProxyLookUpRegistration1) AddStsRsnInf() *ProxyStatusChoice {
+	p.StsRsnInf = new(ProxyStatusChoice)
+	return p.StsRsnInf
+}
+
+func (p *ProxyLookUpRegistration1) AddPrxy() *ProxyDefinition1 {
+	p.Prxy = new(ProxyDefinition1)
+	return p.Prxy
+}
+
+func (p *ProxyLookUpRegistration1) AddRegn() *ProxyLookUpAccount1 {
+	p.Regn = new(ProxyLookUpAccount1)
+	return p.Regn
 }
 
 type ProxyLookUpAccount1 struct {
-	RegnId Max35Text                                    `xml:"RegnId" json:"RegnId"`
-	DsplNm Max140Text                                   `xml:"DsplNm" json:"DsplNm"`
-	Agt    BranchAndFinancialInstitutionIdentification5 `xml:"Agt" json:"Agt"`
-	Acct   CashAccount40                                `xml:"Acct" json:"Acct"`
+	RegnId *Max35Text                                    `xml:"RegnId" json:"RegnId"`
+	DsplNm *Max140Text                                   `xml:"DsplNm" json:"DsplNm"`
+	Agt    *BranchAndFinancialInstitutionIdentification5 `xml:"Agt" json:"Agt"`
+	Acct   *CashAccount40                                `xml:"Acct" json:"Acct"`
+}
+
+func (p *ProxyLookUpAccount1) SetRegnId(value string) {
+	p.RegnId = (*Max35Text)(&value)
+}
+
+func (p *ProxyLookUpAccount1) SetDsplNm(value string) {
+	p.DsplNm = (*Max140Text)(&value)
+}
+
+func (p *ProxyLookUpAccount1) AddAgt() *BranchAndFinancialInstitutionIdentification5 {
+	p.Agt = new(BranchAndFinancialInstitutionIdentification5)
+	return p.Agt
+}
+
+func (p *ProxyLookUpAccount1) AddAcct() *CashAccount40 {
+	p.Acct = new(CashAccount40)
+	return p.Acct
 }
 
 // TODO: prxy.005.001.01, json tag
 type ProxyEnquiryChoice1 struct {
-	RegnId Max35Text         `xml:"RegnId" json:"RegnId"`
-	ScndId ScndIdDefinition1 `xml:"ScndId" json:"ScndId"`
+	RegnId *Max35Text         `xml:"RegnId" json:"RegnId"`
+	ScndId *ScndIdDefinition1 `xml:"ScndId" json:"ScndId"`
+}
+
+func (p *ProxyEnquiryChoice1) SetRegnId(value string) {
+	p.RegnId = (*Max35Text)(&value)
+}
+
+func (p *ProxyEnquiryChoice1) AddScndId() *ScndIdDefinition1 {
+	p.ScndId = new(ScndIdDefinition1)
+	return p.ScndId
 }
 
 // TODO: prxy.006.001.01, json tag
 type ProxyEnquiryResponse1 struct {
-	PrxRspnSts ProxyStatusCode          `xml:"PrxRspnSts" json:"PrxRspnSts"`
-	StsRsnInf  ProxyStatusChoice        `xml:"StsRsnInf" json:"StsRsnInf"`
-	Rspn       ProxyEnquiryInformation1 `xml:"Rspn" json:"Rspn"`
+	PrxRspnSts *ProxyStatusCode          `xml:"PrxRspnSts" json:"PrxRspnSts"`
+	StsRsnInf  *ProxyStatusChoice        `xml:"StsRsnInf" json:"StsRsnInf"`
+	Rspn       *ProxyEnquiryInformation1 `xml:"Rspn" json:"Rspn"`
+}
+
+func (p *ProxyEnquiryResponse1) SetPrxRspnSts(value string) {
+	p.PrxRspnSts = (*ProxyStatusCode)(&value)
+}
+
+func (p *ProxyEnquiryResponse1) AddStsRsnInf() *ProxyStatusChoice {
+	p.StsRsnInf = new(ProxyStatusChoice)
+	return p.StsRsnInf
+}
+
+func (p *ProxyEnquiryResponse1) AddRspn() *ProxyEnquiryInformation1 {
+	p.Rspn = new(ProxyEnquiryInformation1)
+	return p.Rspn
 }
 
 type ProxyEnquiryInformation1 struct {
-	RegnId      Max35Text                                    `xml:"RegnId" json:"RegnId"`
-	DsplNm      Max140Text                                   `xml:"DsplNm" json:"DsplNm"`
-	Ptcpt       BranchAndFinancialInstitutionIdentification5 `xml:"Ptcpt" json:"Ptcpt"`
-	PrxyInf     ProxyEnquiryDefinition1                      `xml:"PrxyInf" json:"PrxyInf"`
-	AcctInf     ProxyEnquiryAccount1                         `xml:"AcctInf" json:"AcctInf"`
-	SplmtryData BI_SupplementaryData1                        `xml:"SplmtryData" json:"SplmtryData"`
+	RegnId      *Max35Text                                    `xml:"RegnId" json:"RegnId"`
+	DsplNm      *Max140Text                                   `xml:"DsplNm" json:"DsplNm"`
+	Ptcpt       *BranchAndFinancialInstitutionIdentification5 `xml:"Ptcpt" json:"Ptcpt"`
+	PrxyInf     *ProxyEnquiryDefinition1                      `xml:"PrxyInf" json:"PrxyInf"`
+	AcctInf     *ProxyEnquiryAccount1                         `xml:"AcctInf" json:"AcctInf"`
+	SplmtryData *BI_SupplementaryData1                        `xml:"SplmtryData" json:"SplmtryData"`
+}
+
+func (p *ProxyEnquiryInformation1) SetRegnId(value string) {
+	p.RegnId = (*Max35Text)(&value)
+}
+func (p *ProxyEnquiryInformation1) SetDsplNm(value string) {
+	p.DsplNm = (*Max140Text)(&value)
+}
+func (p *ProxyEnquiryInformation1) AddPtcpt() *BranchAndFinancialInstitutionIdentification5 {
+	p.Ptcpt = new(BranchAndFinancialInstitutionIdentification5)
+	return p.Ptcpt
+}
+func (p *ProxyEnquiryInformation1) AddPrxyInf() *ProxyEnquiryDefinition1 {
+	p.PrxyInf = new(ProxyEnquiryDefinition1)
+	return p.PrxyInf
+}
+func (p *ProxyEnquiryInformation1) AddAcctInf() *ProxyEnquiryAccount1 {
+	p.AcctInf = new(ProxyEnquiryAccount1)
+	return p.AcctInf
+}
+func (p *ProxyEnquiryInformation1) AddSplmtryData() *BI_SupplementaryData1 {
+	p.SplmtryData = new(BI_SupplementaryData1)
+	return p.SplmtryData
 }
 
 type ProxyEnquiryDefinition1 struct {
-	Tp  Max12Text              `xml:"Tp" json:"Tp"`
-	Val Max140Text             `xml:"Val" json:"Val"`
-	Sts ProxyEnquiryStatusCode `xml:"Sts" json:"Sts"`
+	Tp  *Max12Text              `xml:"Tp" json:"Tp"`
+	Val *Max140Text             `xml:"Val" json:"Val"`
+	Sts *ProxyEnquiryStatusCode `xml:"Sts" json:"Sts"`
+}
+
+func (p *ProxyEnquiryDefinition1) SetTp(value string) {
+	p.Tp = (*Max12Text)(&value)
+}
+
+func (p *ProxyEnquiryDefinition1) SetVal(value string) {
+	p.Val = (*Max140Text)(&value)
+}
+
+func (p *ProxyEnquiryDefinition1) SetSts(value string) {
+	p.Sts = (*ProxyEnquiryStatusCode)(&value)
 }
 
 type ProxyEnquiryAccount1 struct {
-	Agt BranchAndFinancialInstitutionIdentification5 `xml:"Agt" json:"Agt"`
+	Agt *BranchAndFinancialInstitutionIdentification5 `xml:"Agt" json:"Agt"`
+}
+
+func (p *ProxyEnquiryAccount1) AddAgt() *BranchAndFinancialInstitutionIdentification5 {
+	p.Agt = new(BranchAndFinancialInstitutionIdentification5)
+	return p.Agt
 }
 
 type ProxyEnquiryStatusCode string
 
 // TODO: prxy.901.001.01, json tag
 type ProxyNtfctn1 struct {
-	OrgnlId   Max35Text        `xml:"OrgnlId" json:"OrgnlId"`
-	OrgnlPrxy ProxyDefinition1 `xml:"OrgnlPrxy" json:"OrgnlPrxy"`
-	OrgnlAcct ProxyAccount1    `xml:"OrgnlAcct" json:"OrgnlAcct"`
-	NewAcct   ProxyAccount1    `xml:"NewAcct" json:"NewAcct"`
+	OrgnlId   *Max35Text        `xml:"OrgnlId" json:"OrgnlId"`
+	OrgnlPrxy *ProxyDefinition1 `xml:"OrgnlPrxy" json:"OrgnlPrxy"`
+	OrgnlAcct *ProxyAccount1    `xml:"OrgnlAcct" json:"OrgnlAcct"`
+	NewAcct   *ProxyAccount1    `xml:"NewAcct" json:"NewAcct"`
+}
+
+func (p *ProxyNtfctn1) SetOrgnlId(value string) {
+	p.OrgnlId = (*Max35Text)(&value)
+}
+
+func (p *ProxyNtfctn1) AddOrgnlPrxy() *ProxyDefinition1 {
+	p.OrgnlPrxy = new(ProxyDefinition1)
+	return p.OrgnlPrxy
+}
+
+func (p *ProxyNtfctn1) AddOrgnlAcct() *ProxyAccount1 {
+	p.OrgnlAcct = new(ProxyAccount1)
+	return p.OrgnlAcct
+}
+
+func (p *ProxyNtfctn1) AddNewAcct() *ProxyAccount1 {
+	p.NewAcct = new(ProxyAccount1)
+	return p.NewAcct
 }
 
 type ProxyAccount1 struct {
-	RegnId      Max35Text                                    `xml:"RegnId" json:"RegnId"`
-	DsplNm      Max140Text                                   `xml:"DsplNm" json:"DsplNm"`
-	Agt         BranchAndFinancialInstitutionIdentification5 `xml:"Agt" json:"Agt"`
-	Acct        CashAccount40                                `xml:"Acct" json:"Acct"`
-	SplmtryData BI_SupplementaryData1                        `xml:"SplmtryData" json:"SplmtryData"`
+	RegnId      *Max35Text                                    `xml:"RegnId" json:"RegnId"`
+	DsplNm      *Max140Text                                   `xml:"DsplNm" json:"DsplNm"`
+	Agt         *BranchAndFinancialInstitutionIdentification5 `xml:"Agt" json:"Agt"`
+	Acct        *CashAccount40                                `xml:"Acct" json:"Acct"`
+	SplmtryData *BI_SupplementaryData1                        `xml:"SplmtryData" json:"SplmtryData"`
+}
+
+func (p *ProxyAccount1) SetRegnId(value string) {
+	p.RegnId = (*Max35Text)(&value)
+}
+
+func (p *ProxyAccount1) SetDsplNm(value string) {
+	p.DsplNm = (*Max140Text)(&value)
+}
+
+func (p *ProxyAccount1) AddAgt() *BranchAndFinancialInstitutionIdentification5 {
+	p.Agt = new(BranchAndFinancialInstitutionIdentification5)
+	return p.Agt
+}
+func (p *ProxyAccount1) AddAcct() *CashAccount40 {
+	p.Acct = new(CashAccount40)
+	return p.Acct
+}
+
+func (p *ProxyAccount1) AddSplmtryData() *BI_SupplementaryData1 {
+	p.SplmtryData = new(BI_SupplementaryData1)
+	return p.SplmtryData
 }
 
 type AdminTransactionInformation struct {
-	FnctnCd  Max4NumericText                              `xml:"FnctnCd" json:"FnctnCd"`
-	InstrId  Max35Text                                    `xml:"InstrId" json:"InstrId"`
-	InstgAgt BranchAndFinancialInstitutionIdentification5 `xml:"InstgAgt" json:"InstgAgt"`
+	FnctnCd  *Max4NumericText                              `xml:"FnctnCd" json:"FnctnCd"`
+	InstrId  *Max35Text                                    `xml:"InstrId" json:"InstrId"`
+	InstgAgt *BranchAndFinancialInstitutionIdentification5 `xml:"InstgAgt" json:"InstgAgt"`
+}
+
+func (a *AdminTransactionInformation) SetFnctnCd(value string) {
+	a.FnctnCd = (*Max4NumericText)(&value)
+}
+
+func (a *AdminTransactionInformation) SetInstrId(value string) {
+	a.InstrId = (*Max35Text)(&value)
 }
 
 type AdminResponse struct {
-	InstgAgt     BranchAndFinancialInstitutionIdentification5 `xml:"InstgAgt" json:"InstgAgt"`
-	OrgnlInstrId Max35Text                                    `xml:"OrgnlInstrId" json:"OrgnlInstrId"`
-	FnctnCd      Max4NumericText                              `xml:"FnctnCd" json:"FnctnCd"`
-	TxSts        TransactionIndividualStatus3Code             `xml:"TxSts" json:"TxSts"`
+	InstgAgt     *BranchAndFinancialInstitutionIdentification5 `xml:"InstgAgt" json:"InstgAgt"`
+	OrgnlInstrId *Max35Text                                    `xml:"OrgnlInstrId" json:"OrgnlInstrId"`
+	FnctnCd      *Max4NumericText                              `xml:"FnctnCd" json:"FnctnCd"`
+	TxSts        *TransactionIndividualStatus3Code             `xml:"TxSts" json:"TxSts"`
+}
+
+func (a *AdminResponse) AddInstgAgt() *BranchAndFinancialInstitutionIdentification5 {
+	a.InstgAgt = new(BranchAndFinancialInstitutionIdentification5)
+	return a.InstgAgt
+}
+
+func (a *AdminResponse) SetOrgnlInstrId(value string) {
+	a.OrgnlInstrId = (*Max35Text)(&value)
+}
+
+func (a *AdminResponse) SetFnctnCd(value string) {
+	a.FnctnCd = (*Max4NumericText)(&value)
+}
+
+func (a *AdminResponse) SetTxSts(value string) {
+	a.TxSts = (*TransactionIndividualStatus3Code)(&value)
 }
