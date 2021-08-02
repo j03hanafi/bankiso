@@ -247,131 +247,488 @@ func (o *OriginalGroupHeader17) AddNbOfTxsPerSts() *NumberOfTransactionsPerStatu
 type ExternalPaymentGroupStatus1Code string
 
 type StatusReasonInformation12 struct {
-	Orgtr    PartyIdentification135 `xml:"Orgtr,omitempty" json:"Orgtr,omitempty"`
-	Rsn      StatusReason6Choice    `xml:"Rsn,omitempty" json:"Rsn,omitempty"`
-	AddtlInf []Max105Text           `xml:"AddtlInf,omitempty" json:"AddtlInf,omitempty"`
+	Orgtr    *PartyIdentification135 `xml:"Orgtr,omitempty" json:"Orgtr,omitempty"`
+	Rsn      *StatusReason6Choice    `xml:"Rsn,omitempty" json:"Rsn,omitempty"`
+	AddtlInf []*Max105Text           `xml:"AddtlInf,omitempty" json:"AddtlInf,omitempty"`
+}
+
+func (s *StatusReasonInformation12) AddOrgtr() *PartyIdentification135 {
+	s.Orgtr = new(PartyIdentification135)
+	return s.Orgtr
+}
+
+func (s *StatusReasonInformation12) AddRsn() *StatusReason6Choice {
+	s.Rsn = new(StatusReason6Choice)
+	return s.Rsn
+}
+
+func (s *StatusReasonInformation12) AddAddtlInf(value string) {
+	s.AddtlInf = append(s.AddtlInf, (*Max105Text)(&value))
 }
 
 type PartyIdentification135 struct {
-	Nm        Max140Text      `xml:"Nm,omitempty" json:"Nm,omitempty"`
-	PstlAdr   PostalAddress24 `xml:"PstlAdr,omitempty" json:"PstlAdr,omitempty"`
-	Id        Party38Choice   `xml:"Id,omitempty" json:"Id,omitempty"`
-	CtryOfRes CountryCode     `xml:"CtryOfRes,omitempty" json:"CtryOfRes,omitempty"`
-	CtctDtls  Contact4        `xml:"CtctDtls,omitempty" json:"CtctDtls,omitempty"`
+	Nm        *Max140Text      `xml:"Nm,omitempty" json:"Nm,omitempty"`
+	PstlAdr   *PostalAddress24 `xml:"PstlAdr,omitempty" json:"PstlAdr,omitempty"`
+	Id        *Party38Choice   `xml:"Id,omitempty" json:"Id,omitempty"`
+	CtryOfRes *CountryCode     `xml:"CtryOfRes,omitempty" json:"CtryOfRes,omitempty"`
+	CtctDtls  *Contact4        `xml:"CtctDtls,omitempty" json:"CtctDtls,omitempty"`
+}
+
+func (p *PartyIdentification135) SetNm(value string) {
+	p.Nm = (*Max140Text)(&value)
+}
+
+func (p *PartyIdentification135) AddPstlAdr() *PostalAddress24 {
+	p.PstlAdr = new(PostalAddress24)
+	return p.PstlAdr
+}
+
+func (p *PartyIdentification135) AddId() *Party38Choice {
+	p.Id = new(Party38Choice)
+	return p.Id
+}
+
+func (p *PartyIdentification135) SetCtryOfRes(value string) {
+	p.CtryOfRes = (*CountryCode)(&value)
+}
+
+func (p *PartyIdentification135) AddCtctDtls() *Contact4 {
+	p.CtctDtls = new(Contact4)
+	return p.CtctDtls
 }
 
 type Party38Choice struct {
-	OrgId  OrganisationIdentification29 `xml:"OrgId,omitempty" json:"OrgId,omitempty"`
-	PrvtId PersonIdentification13       `xml:"PrvtId,omitempty" json:"PrvtId,omitempty"`
+	OrgId  *OrganisationIdentification29 `xml:"OrgId,omitempty" json:"OrgId,omitempty"`
+	PrvtId *PersonIdentification13       `xml:"PrvtId,omitempty" json:"PrvtId,omitempty"`
+}
+
+func (p *Party38Choice) AddOrgId() *OrganisationIdentification29 {
+	p.OrgId = new(OrganisationIdentification29)
+	return p.OrgId
+}
+
+func (p *Party38Choice) AddPrvtId() *PersonIdentification13 {
+	p.PrvtId = new(PersonIdentification13)
+	return p.PrvtId
 }
 
 type OrganisationIdentification29 struct {
-	AnyBIC AnyBICIdentifier                     `xml:"AnyBIC,omitempty" json:"AnyBIC,omitempty"`
-	LEI    LEIIdentifier                        `xml:"LEI,omitempty" json:"LEI,omitempty"`
-	Othr   []GenericOrganisationIdentification1 `xml:"Othr,omitempty" json:"Othr,omitempty"`
+	AnyBIC *AnyBICIdentifier                     `xml:"AnyBIC,omitempty" json:"AnyBIC,omitempty"`
+	LEI    *LEIIdentifier                        `xml:"LEI,omitempty" json:"LEI,omitempty"`
+	Othr   []*GenericOrganisationIdentification1 `xml:"Othr,omitempty" json:"Othr,omitempty"`
+}
+
+func (o *OrganisationIdentification29) SetAnyBIC(value string) {
+	o.AnyBIC = (*AnyBICIdentifier)(&value)
+}
+
+func (o *OrganisationIdentification29) SetLEI(value string) {
+	o.LEI = (*LEIIdentifier)(&value)
+}
+
+func (o *OrganisationIdentification29) AddOthr() *GenericOrganisationIdentification1 {
+	newValue := new(GenericOrganisationIdentification1)
+	o.Othr = append(o.Othr, newValue)
+	return newValue
 }
 
 type PersonIdentification13 struct {
-	DtAndPlcOfBirth DateAndPlaceOfBirth1           `xml:"DtAndPlcOfBirth,omitempty" json:"DtAndPlcOfBirth,omitempty"`
-	Othr            []GenericPersonIdentification1 `xml:"Othr,omitempty" json:"Othr,omitempty"`
+	DtAndPlcOfBirth *DateAndPlaceOfBirth1           `xml:"DtAndPlcOfBirth,omitempty" json:"DtAndPlcOfBirth,omitempty"`
+	Othr            []*GenericPersonIdentification1 `xml:"Othr,omitempty" json:"Othr,omitempty"`
+}
+
+func (p *PersonIdentification13) AddDtAndPlcOfBirth() *DateAndPlaceOfBirth1 {
+	p.DtAndPlcOfBirth = new(DateAndPlaceOfBirth1)
+	return p.DtAndPlcOfBirth
+}
+
+func (p *PersonIdentification13) AddOthr() *GenericPersonIdentification1 {
+	newValue := new(GenericPersonIdentification1)
+	p.Othr = append(p.Othr, newValue)
+	return newValue
 }
 
 type DateAndPlaceOfBirth1 struct {
-	BirthDt     ISODate     `xml:"BirthDt" json:"BirthDt"`
-	PrvcOfBirth Max35Text   `xml:"PrvcOfBirth,omitempty" json:"PrvcOfBirth,omitempty"`
-	CityOfBirth Max35Text   `xml:"CityOfBirth" json:"CityOfBirth"`
-	CtryOfBirth CountryCode `xml:"CtryOfBirth" json:"CtryOfBirth"`
+	BirthDt     *ISODate     `xml:"BirthDt" json:"BirthDt"`
+	PrvcOfBirth *Max35Text   `xml:"PrvcOfBirth,omitempty" json:"PrvcOfBirth,omitempty"`
+	CityOfBirth *Max35Text   `xml:"CityOfBirth" json:"CityOfBirth"`
+	CtryOfBirth *CountryCode `xml:"CtryOfBirth" json:"CtryOfBirth"`
+}
+
+func (d *DateAndPlaceOfBirth1) SetBirthDt(value string) {
+	d.BirthDt = (*ISODate)(&value)
+}
+
+func (d *DateAndPlaceOfBirth1) SetPrvcOfBirth(value string) {
+	d.PrvcOfBirth = (*Max35Text)(&value)
+}
+
+func (d *DateAndPlaceOfBirth1) SetCityOfBirth(value string) {
+	d.CityOfBirth = (*Max35Text)(&value)
 }
 
 type Contact4 struct {
-	NmPrfx    NamePrefix2Code             `xml:"NmPrfx,omitempty" json:"NmPrfx,omitempty"`
-	Nm        Max140Text                  `xml:"Nm,omitempty" json:"Nm,omitempty"`
-	PhneNb    PhoneNumber                 `xml:"PhneNb,omitempty" json:"PhneNb,omitempty"`
-	MobNb     PhoneNumber                 `xml:"MobNb,omitempty" json:"MobNb,omitempty"`
-	FaxNb     PhoneNumber                 `xml:"FaxNb,omitempty" json:"FaxNb,omitempty"`
-	EmailAdr  Max2048Text                 `xml:"EmailAdr,omitempty" json:"EmailAdr,omitempty"`
-	EmailPurp Max35Text                   `xml:"EmailPurp,omitempty" json:"EmailPurp,omitempty"`
-	JobTitl   Max35Text                   `xml:"JobTitl,omitempty" json:"JobTitl,omitempty"`
-	Rspnsblty Max35Text                   `xml:"Rspnsblty,omitempty" json:"Rspnsblty,omitempty"`
-	Dept      Max70Text                   `xml:"Dept,omitempty" json:"Dept,omitempty"`
-	Othr      []OtherContact1             `xml:"Othr,omitempty" json:"Othr,omitempty"`
-	PrefrdMtd PreferredContactMethod1Code `xml:"PrefrdMtd,omitempty" json:"PrefrdMtd,omitempty"`
+	NmPrfx    *NamePrefix2Code             `xml:"NmPrfx,omitempty" json:"NmPrfx,omitempty"`
+	Nm        *Max140Text                  `xml:"Nm,omitempty" json:"Nm,omitempty"`
+	PhneNb    *PhoneNumber                 `xml:"PhneNb,omitempty" json:"PhneNb,omitempty"`
+	MobNb     *PhoneNumber                 `xml:"MobNb,omitempty" json:"MobNb,omitempty"`
+	FaxNb     *PhoneNumber                 `xml:"FaxNb,omitempty" json:"FaxNb,omitempty"`
+	EmailAdr  *Max2048Text                 `xml:"EmailAdr,omitempty" json:"EmailAdr,omitempty"`
+	EmailPurp *Max35Text                   `xml:"EmailPurp,omitempty" json:"EmailPurp,omitempty"`
+	JobTitl   *Max35Text                   `xml:"JobTitl,omitempty" json:"JobTitl,omitempty"`
+	Rspnsblty *Max35Text                   `xml:"Rspnsblty,omitempty" json:"Rspnsblty,omitempty"`
+	Dept      *Max70Text                   `xml:"Dept,omitempty" json:"Dept,omitempty"`
+	Othr      []*OtherContact1             `xml:"Othr,omitempty" json:"Othr,omitempty"`
+	PrefrdMtd *PreferredContactMethod1Code `xml:"PrefrdMtd,omitempty" json:"PrefrdMtd,omitempty"`
+}
+
+func (c *Contact4) SetNmPrfx(value string) {
+	c.NmPrfx = (*NamePrefix2Code)(&value)
+}
+
+func (c *Contact4) SetNm(value string) {
+	c.Nm = (*Max140Text)(&value)
+}
+
+func (c *Contact4) SetPhneNb(value string) {
+	c.PhneNb = (*PhoneNumber)(&value)
+}
+
+func (c *Contact4) SetMobNb(value string) {
+	c.MobNb = (*PhoneNumber)(&value)
+}
+
+func (c *Contact4) SetFaxNb(value string) {
+	c.FaxNb = (*PhoneNumber)(&value)
+}
+
+func (c *Contact4) SetEmailAdr(value string) {
+	c.EmailAdr = (*Max2048Text)(&value)
+}
+
+func (c *Contact4) SetJobTitl(value string) {
+	c.JobTitl = (*Max35Text)(&value)
+}
+func (c *Contact4) SetRspnsblty(value string) {
+	c.Rspnsblty = (*Max35Text)(&value)
+}
+
+func (c *Contact4) SetDept(value string) {
+	c.Dept = (*Max70Text)(&value)
+}
+
+// Othr      []*OtherContact1
+func (c *Contact4) AddC() *OtherContact1 {
+	newValue := new(OtherContact1)
+	c.Othr = append(c.Othr, newValue)
+	return newValue
+}
+
+func (c *Contact4) SetPrefrdMtd(value string) {
+	c.PrefrdMtd = (*PreferredContactMethod1Code)(&value)
 }
 
 // May be one of DOCT, MADM, MISS, MIST, MIKS
 type NamePrefix2Code string
 
 type NumberOfTransactionsPerStatus5 struct {
-	DtldNbOfTxs Max15NumericText                      `xml:"DtldNbOfTxs" json:"DtldNbOfTxs"`
-	DtldSts     ExternalPaymentTransactionStatus1Code `xml:"DtldSts" json:"DtldSts"`
-	DtldCtrlSum DecimalNumber                         `xml:"DtldCtrlSum,omitempty" json:"DtldCtrlSum,omitempty"`
+	DtldNbOfTxs *Max15NumericText                      `xml:"DtldNbOfTxs" json:"DtldNbOfTxs"`
+	DtldSts     *ExternalPaymentTransactionStatus1Code `xml:"DtldSts" json:"DtldSts"`
+	DtldCtrlSum *DecimalNumber                         `xml:"DtldCtrlSum,omitempty" json:"DtldCtrlSum,omitempty"`
+}
+
+func (n *NumberOfTransactionsPerStatus5) SetDtldNbOfTxs(value string) {
+	n.DtldNbOfTxs = (*Max15NumericText)(&value)
+}
+
+func (n *NumberOfTransactionsPerStatus5) SetDtldSts(value string) {
+	n.DtldSts = (*ExternalPaymentTransactionStatus1Code)(&value)
+}
+
+func (n *NumberOfTransactionsPerStatus5) SetDtldCtrlSum(value string) {
+	n.DtldCtrlSum = (*DecimalNumber)(&value)
 }
 
 // May be no more than 4 items long
 type ExternalPaymentTransactionStatus1Code string
 
 type PaymentTransaction110 struct {
-	StsId             Max35Text                                    `xml:"StsId,omitempty" json:"StsId,omitempty"`
-	OrgnlGrpInf       OriginalGroupInformation29                   `xml:"OrgnlGrpInf,omitempty" json:"OrgnlGrpInf,omitempty"`
-	OrgnlInstrId      Max35Text                                    `xml:"OrgnlInstrId,omitempty" json:"OrgnlInstrId,omitempty"`
-	OrgnlEndToEndId   Max35Text                                    `xml:"OrgnlEndToEndId,omitempty" json:"OrgnlEndToEndId,omitempty"`
-	OrgnlTxId         Max35Text                                    `xml:"OrgnlTxId,omitempty" json:"OrgnlTxId,omitempty"`
-	OrgnlUETR         UUIDv4Identifier                             `xml:"OrgnlUETR,omitempty" json:"OrgnlUETR,omitempty"`
-	TxSts             ExternalPaymentTransactionStatus1Code        `xml:"TxSts,omitempty" json:"TxSts,omitempty"`
-	StsRsnInf         []StatusReasonInformation12                  `xml:"StsRsnInf,omitempty" json:"StsRsnInf,omitempty"`
-	ChrgsInf          []Charges7                                   `xml:"ChrgsInf,omitempty" json:"ChrgsInf,omitempty"`
-	AccptncDtTm       ISODateTime                                  `xml:"AccptncDtTm,omitempty" json:"AccptncDtTm,omitempty"`
-	FctvIntrBkSttlmDt DateAndDateTime2Choice                       `xml:"FctvIntrBkSttlmDt,omitempty" json:"FctvIntrBkSttlmDt,omitempty"`
-	AcctSvcrRef       Max35Text                                    `xml:"AcctSvcrRef,omitempty" json:"AcctSvcrRef,omitempty"`
-	ClrSysRef         Max35Text                                    `xml:"ClrSysRef,omitempty" json:"ClrSysRef,omitempty"`
-	InstgAgt          BranchAndFinancialInstitutionIdentification6 `xml:"InstgAgt,omitempty" json:"InstgAgt,omitempty"`
-	InstdAgt          BranchAndFinancialInstitutionIdentification6 `xml:"InstdAgt,omitempty" json:"InstdAgt,omitempty"`
-	OrgnlTxRef        OriginalTransactionReference28               `xml:"OrgnlTxRef,omitempty" json:"OrgnlTxRef,omitempty"`
-	SplmtryData       []BI_SupplementaryData1                      `xml:"SplmtryData,omitempty" json:"SplmtryData,omitempty"`
+	StsId             *Max35Text                                    `xml:"StsId,omitempty" json:"StsId,omitempty"`
+	OrgnlGrpInf       *OriginalGroupInformation29                   `xml:"OrgnlGrpInf,omitempty" json:"OrgnlGrpInf,omitempty"`
+	OrgnlInstrId      *Max35Text                                    `xml:"OrgnlInstrId,omitempty" json:"OrgnlInstrId,omitempty"`
+	OrgnlEndToEndId   *Max35Text                                    `xml:"OrgnlEndToEndId,omitempty" json:"OrgnlEndToEndId,omitempty"`
+	OrgnlTxId         *Max35Text                                    `xml:"OrgnlTxId,omitempty" json:"OrgnlTxId,omitempty"`
+	OrgnlUETR         *UUIDv4Identifier                             `xml:"OrgnlUETR,omitempty" json:"OrgnlUETR,omitempty"`
+	TxSts             *ExternalPaymentTransactionStatus1Code        `xml:"TxSts,omitempty" json:"TxSts,omitempty"`
+	StsRsnInf         []*StatusReasonInformation12                  `xml:"StsRsnInf,omitempty" json:"StsRsnInf,omitempty"`
+	ChrgsInf          []*Charges7                                   `xml:"ChrgsInf,omitempty" json:"ChrgsInf,omitempty"`
+	AccptncDtTm       *ISODateTime                                  `xml:"AccptncDtTm,omitempty" json:"AccptncDtTm,omitempty"`
+	FctvIntrBkSttlmDt *DateAndDateTime2Choice                       `xml:"FctvIntrBkSttlmDt,omitempty" json:"FctvIntrBkSttlmDt,omitempty"`
+	AcctSvcrRef       *Max35Text                                    `xml:"AcctSvcrRef,omitempty" json:"AcctSvcrRef,omitempty"`
+	ClrSysRef         *Max35Text                                    `xml:"ClrSysRef,omitempty" json:"ClrSysRef,omitempty"`
+	InstgAgt          *BranchAndFinancialInstitutionIdentification6 `xml:"InstgAgt,omitempty" json:"InstgAgt,omitempty"`
+	InstdAgt          *BranchAndFinancialInstitutionIdentification6 `xml:"InstdAgt,omitempty" json:"InstdAgt,omitempty"`
+	OrgnlTxRef        *OriginalTransactionReference28               `xml:"OrgnlTxRef,omitempty" json:"OrgnlTxRef,omitempty"`
+	SplmtryData       []*BI_SupplementaryData1                      `xml:"SplmtryData,omitempty" json:"SplmtryData,omitempty"`
+}
+
+func (p *PaymentTransaction110) SetStsId(value string) {
+	p.StsId = (*Max35Text)(&value)
+}
+
+func (p *PaymentTransaction110) AddC() *OriginalGroupInformation29 {
+	p.OrgnlGrpInf = new(OriginalGroupInformation29)
+	return p.OrgnlGrpInf
+}
+
+func (p *PaymentTransaction110) SetOrgnlInstrId(value string) {
+	p.OrgnlInstrId = (*Max35Text)(&value)
+}
+
+func (p *PaymentTransaction110) SetOrgnlEndToEndId(value string) {
+	p.OrgnlEndToEndId = (*Max35Text)(&value)
+}
+
+func (p *PaymentTransaction110) SetOrgnlTxId(value string) {
+	p.OrgnlTxId = (*Max35Text)(&value)
+}
+
+func (p *PaymentTransaction110) SetOrgnlUETR(value string) {
+	p.OrgnlUETR = (*UUIDv4Identifier)(&value)
+}
+
+func (p *PaymentTransaction110) SetTxSts(value string) {
+	p.TxSts = (*ExternalPaymentTransactionStatus1Code)(&value)
+}
+
+func (p *PaymentTransaction110) AddStsRsnInf() *StatusReasonInformation12 {
+	newValue := new(StatusReasonInformation12)
+	p.StsRsnInf = append(p.StsRsnInf, newValue)
+	return newValue
+}
+
+func (p *PaymentTransaction110) AddChrgsInf() *Charges7 {
+	newValue := new(Charges7)
+	p.ChrgsInf = append(p.ChrgsInf, newValue)
+	return newValue
+}
+
+func (p *PaymentTransaction110) SetAccptncDtTm(value string) {
+	p.AccptncDtTm = (*ISODateTime)(&value)
+}
+
+func (p *PaymentTransaction110) AddFctvIntrBkSttlmDt() *DateAndDateTime2Choice {
+	p.FctvIntrBkSttlmDt = new(DateAndDateTime2Choice)
+	return p.FctvIntrBkSttlmDt
+}
+
+func (p *PaymentTransaction110) SetAcctSvcrRef(value string) {
+	p.AcctSvcrRef = (*Max35Text)(&value)
+}
+
+func (p *PaymentTransaction110) SetClrSysRef(value string) {
+	p.ClrSysRef = (*Max35Text)(&value)
+}
+
+func (p *PaymentTransaction110) AddInstgAgt() *BranchAndFinancialInstitutionIdentification6 {
+	p.InstgAgt = new(BranchAndFinancialInstitutionIdentification6)
+	return p.InstgAgt
+}
+
+func (p *PaymentTransaction110) AddInstdAgt() *BranchAndFinancialInstitutionIdentification6 {
+	p.InstdAgt = new(BranchAndFinancialInstitutionIdentification6)
+	return p.InstdAgt
+}
+
+func (p *PaymentTransaction110) AddOrgnlTxRef() *OriginalTransactionReference28 {
+	p.OrgnlTxRef = new(OriginalTransactionReference28)
+	return p.OrgnlTxRef
+}
+
+func (p *PaymentTransaction110) AddSplmtryData() *BI_SupplementaryData1 {
+	newValue := new(BI_SupplementaryData1)
+	p.SplmtryData = append(p.SplmtryData, newValue)
+	return newValue
 }
 
 type OriginalGroupInformation29 struct {
-	OrgnlMsgId   Max35Text   `xml:"OrgnlMsgId" json:"OrgnlMsgId"`
-	OrgnlMsgNmId Max35Text   `xml:"OrgnlMsgNmId" json:"OrgnlMsgNmId"`
-	OrgnlCreDtTm ISODateTime `xml:"OrgnlCreDtTm,omitempty" json:"OrgnlCreDtTm,omitempty"`
+	OrgnlMsgId   *Max35Text   `xml:"OrgnlMsgId" json:"OrgnlMsgId"`
+	OrgnlMsgNmId *Max35Text   `xml:"OrgnlMsgNmId" json:"OrgnlMsgNmId"`
+	OrgnlCreDtTm *ISODateTime `xml:"OrgnlCreDtTm,omitempty" json:"OrgnlCreDtTm,omitempty"`
+}
+
+func (o *OriginalGroupInformation29) SetOrgnlMsgId(value string) {
+	o.OrgnlMsgId = (*Max35Text)(&value)
+}
+
+func (o *OriginalGroupInformation29) SetOrgnlMsgNmId(value string) {
+	o.OrgnlMsgNmId = (*Max35Text)(&value)
+}
+
+func (o *OriginalGroupInformation29) SetOrgnlCreDtTm(value string) {
+	o.OrgnlCreDtTm = (*ISODateTime)(&value)
 }
 
 // Must match the pattern [a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}
 type UUIDv4Identifier string
 
 type Charges7 struct {
-	Amt ActiveOrHistoricCurrencyAndAmount            `xml:"Amt" json:"Amt"`
-	Agt BranchAndFinancialInstitutionIdentification6 `xml:"Agt" json:"Agt"`
+	Amt *ActiveOrHistoricCurrencyAndAmount            `xml:"Amt" json:"Amt"`
+	Agt *BranchAndFinancialInstitutionIdentification6 `xml:"Agt" json:"Agt"`
+}
+
+func (c *Charges7) AddAmt() *ActiveOrHistoricCurrencyAndAmount {
+	c.Amt = new(ActiveOrHistoricCurrencyAndAmount)
+	return c.Amt
+}
+
+func (c *Charges7) AddAgt() *BranchAndFinancialInstitutionIdentification6 {
+	c.Agt = new(BranchAndFinancialInstitutionIdentification6)
+	return c.Agt
 }
 
 type DateAndDateTime2Choice struct {
-	Dt   ISODate     `xml:"Dt,omitempty" json:"Dt,omitempty"`
-	DtTm ISODateTime `xml:"DtTm,omitempty" json:"DtTm,omitempty"`
+	Dt   *ISODate     `xml:"Dt,omitempty" json:"Dt,omitempty"`
+	DtTm *ISODateTime `xml:"DtTm,omitempty" json:"DtTm,omitempty"`
+}
+
+func (d *DateAndDateTime2Choice) SetDt(value string) {
+	d.Dt = (*ISODate)(&value)
+}
+
+func (d *DateAndDateTime2Choice) SetDtTm(value string) {
+	d.DtTm = (*ISODateTime)(&value)
 }
 
 type OriginalTransactionReference28 struct {
-	IntrBkSttlmAmt ActiveOrHistoricCurrencyAndAmount            `xml:"IntrBkSttlmAmt,omitempty" json:"IntrBkSttlmAmt,omitempty"`
-	Amt            AmountType4Choice                            `xml:"Amt,omitempty" json:"Amt,omitempty"`
-	IntrBkSttlmDt  ISODate                                      `xml:"IntrBkSttlmDt,omitempty" json:"IntrBkSttlmDt,omitempty"`
-	ReqdColltnDt   ISODate                                      `xml:"ReqdColltnDt,omitempty" json:"ReqdColltnDt,omitempty"`
-	ReqdExctnDt    DateAndDateTime2Choice                       `xml:"ReqdExctnDt,omitempty" json:"ReqdExctnDt,omitempty"`
-	CdtrSchmeId    PartyIdentification135                       `xml:"CdtrSchmeId,omitempty" json:"CdtrSchmeId,omitempty"`
-	SttlmInf       SettlementInstruction7                       `xml:"SttlmInf,omitempty" json:"SttlmInf,omitempty"`
-	PmtTpInf       PaymentTypeInformation27                     `xml:"PmtTpInf,omitempty" json:"PmtTpInf,omitempty"`
-	PmtMtd         PaymentMethod4Code                           `xml:"PmtMtd,omitempty" json:"PmtMtd,omitempty"`
-	MndtRltdInf    MandateRelatedInformation14                  `xml:"MndtRltdInf,omitempty" json:"MndtRltdInf,omitempty"`
-	RmtInf         RemittanceInformation16                      `xml:"RmtInf,omitempty" json:"RmtInf,omitempty"`
-	UltmtDbtr      Party40Choice                                `xml:"UltmtDbtr,omitempty" json:"UltmtDbtr,omitempty"`
-	Dbtr           Party40Choice                                `xml:"Dbtr,omitempty" json:"Dbtr,omitempty"`
-	DbtrAcct       CashAccount38                                `xml:"DbtrAcct,omitempty" json:"DbtrAcct,omitempty"`
-	DbtrAgt        BranchAndFinancialInstitutionIdentification6 `xml:"DbtrAgt,omitempty" json:"DbtrAgt,omitempty"`
-	DbtrAgtAcct    CashAccount38                                `xml:"DbtrAgtAcct,omitempty" json:"DbtrAgtAcct,omitempty"`
-	CdtrAgt        BranchAndFinancialInstitutionIdentification6 `xml:"CdtrAgt,omitempty" json:"CdtrAgt,omitempty"`
-	CdtrAgtAcct    CashAccount38                                `xml:"CdtrAgtAcct,omitempty" json:"CdtrAgtAcct,omitempty"`
-	Cdtr           Party40Choice                                `xml:"Cdtr,omitempty" json:"Cdtr,omitempty"`
-	CdtrAcct       CashAccount38                                `xml:"CdtrAcct,omitempty" json:"CdtrAcct,omitempty"`
-	UltmtCdtr      Party40Choice                                `xml:"UltmtCdtr,omitempty" json:"UltmtCdtr,omitempty"`
-	Purp           Purpose2Choice                               `xml:"Purp,omitempty" json:"Purp,omitempty"`
+	IntrBkSttlmAmt *ActiveOrHistoricCurrencyAndAmount            `xml:"IntrBkSttlmAmt,omitempty" json:"IntrBkSttlmAmt,omitempty"`
+	Amt            *AmountType4Choice                            `xml:"Amt,omitempty" json:"Amt,omitempty"`
+	IntrBkSttlmDt  *ISODate                                      `xml:"IntrBkSttlmDt,omitempty" json:"IntrBkSttlmDt,omitempty"`
+	ReqdColltnDt   *ISODate                                      `xml:"ReqdColltnDt,omitempty" json:"ReqdColltnDt,omitempty"`
+	ReqdExctnDt    *DateAndDateTime2Choice                       `xml:"ReqdExctnDt,omitempty" json:"ReqdExctnDt,omitempty"`
+	CdtrSchmeId    *PartyIdentification135                       `xml:"CdtrSchmeId,omitempty" json:"CdtrSchmeId,omitempty"`
+	SttlmInf       *SettlementInstruction7                       `xml:"SttlmInf,omitempty" json:"SttlmInf,omitempty"`
+	PmtTpInf       *PaymentTypeInformation27                     `xml:"PmtTpInf,omitempty" json:"PmtTpInf,omitempty"`
+	PmtMtd         *PaymentMethod4Code                           `xml:"PmtMtd,omitempty" json:"PmtMtd,omitempty"`
+	MndtRltdInf    *MandateRelatedInformation14                  `xml:"MndtRltdInf,omitempty" json:"MndtRltdInf,omitempty"`
+	RmtInf         *RemittanceInformation16                      `xml:"RmtInf,omitempty" json:"RmtInf,omitempty"`
+	UltmtDbtr      *Party40Choice                                `xml:"UltmtDbtr,omitempty" json:"UltmtDbtr,omitempty"`
+	Dbtr           *Party40Choice                                `xml:"Dbtr,omitempty" json:"Dbtr,omitempty"`
+	DbtrAcct       *CashAccount38                                `xml:"DbtrAcct,omitempty" json:"DbtrAcct,omitempty"`
+	DbtrAgt        *BranchAndFinancialInstitutionIdentification6 `xml:"DbtrAgt,omitempty" json:"DbtrAgt,omitempty"`
+	DbtrAgtAcct    *CashAccount38                                `xml:"DbtrAgtAcct,omitempty" json:"DbtrAgtAcct,omitempty"`
+	CdtrAgt        *BranchAndFinancialInstitutionIdentification6 `xml:"CdtrAgt,omitempty" json:"CdtrAgt,omitempty"`
+	CdtrAgtAcct    *CashAccount38                                `xml:"CdtrAgtAcct,omitempty" json:"CdtrAgtAcct,omitempty"`
+	Cdtr           *Party40Choice                                `xml:"Cdtr,omitempty" json:"Cdtr,omitempty"`
+	CdtrAcct       *CashAccount38                                `xml:"CdtrAcct,omitempty" json:"CdtrAcct,omitempty"`
+	UltmtCdtr      *Party40Choice                                `xml:"UltmtCdtr,omitempty" json:"UltmtCdtr,omitempty"`
+	Purp           *Purpose2Choice                               `xml:"Purp,omitempty" json:"Purp,omitempty"`
+}
+
+func (o *OriginalTransactionReference28) AddIntrBkSttlmAmt() *ActiveOrHistoricCurrencyAndAmount {
+	o.IntrBkSttlmAmt = new(ActiveOrHistoricCurrencyAndAmount)
+	return o.IntrBkSttlmAmt
+}
+
+func (o *OriginalTransactionReference28) AddAmt() *AmountType4Choice {
+	o.Amt = new(AmountType4Choice)
+	return o.Amt
+}
+
+func (o *OriginalTransactionReference28) SetIntrBkSttlmDt(value string) {
+	o.IntrBkSttlmDt = (*ISODate)(&value)
+}
+
+func (o *OriginalTransactionReference28) SetReqdColltnDt(value string) {
+	o.ReqdColltnDt = (*ISODate)(&value)
+}
+
+func (o *OriginalTransactionReference28) AddReqdExctnDt() *DateAndDateTime2Choice {
+	o.ReqdExctnDt = new(DateAndDateTime2Choice)
+	return o.ReqdExctnDt
+}
+
+func (o *OriginalTransactionReference28) AddCdtrSchmeId() *PartyIdentification135 {
+	o.CdtrSchmeId = new(PartyIdentification135)
+	return o.CdtrSchmeId
+}
+
+func (o *OriginalTransactionReference28) AddSttlmInf() *SettlementInstruction7 {
+	o.SttlmInf = new(SettlementInstruction7)
+	return o.SttlmInf
+}
+
+func (o *OriginalTransactionReference28) AddPmtTpInf() *PaymentTypeInformation27 {
+	o.PmtTpInf = new(PaymentTypeInformation27)
+	return o.PmtTpInf
+}
+
+func (o *OriginalTransactionReference28) SetPmtMtd(value string) {
+	o.PmtMtd = (*PaymentMethod4Code)(&value)
+}
+
+func (o *OriginalTransactionReference28) AddMndtRltdInf() *MandateRelatedInformation14 {
+	o.MndtRltdInf = new(MandateRelatedInformation14)
+	return o.MndtRltdInf
+}
+func (o *OriginalTransactionReference28) AddRmtInf() *RemittanceInformation16 {
+	o.RmtInf = new(RemittanceInformation16)
+	return o.RmtInf
+}
+
+func (o *OriginalTransactionReference28) AddUltmtDbtr() *Party40Choice {
+	o.UltmtDbtr = new(Party40Choice)
+	return o.UltmtDbtr
+}
+
+func (o *OriginalTransactionReference28) AddDbtr() *Party40Choice {
+	o.Dbtr = new(Party40Choice)
+	return o.Dbtr
+}
+
+func (o *OriginalTransactionReference28) AddDbtrAcct() *CashAccount38 {
+	o.DbtrAcct = new(CashAccount38)
+	return o.DbtrAcct
+}
+
+func (o *OriginalTransactionReference28) AddDbtrAgt() *BranchAndFinancialInstitutionIdentification6 {
+	o.DbtrAgt = new(BranchAndFinancialInstitutionIdentification6)
+	return o.DbtrAgt
+}
+
+func (o *OriginalTransactionReference28) AddDbtrAgtAcct() *CashAccount38 {
+	o.DbtrAgtAcct = new(CashAccount38)
+	return o.DbtrAgtAcct
+}
+
+func (o *OriginalTransactionReference28) AddCdtrAgt() *BranchAndFinancialInstitutionIdentification6 {
+	o.CdtrAgt = new(BranchAndFinancialInstitutionIdentification6)
+	return o.CdtrAgt
+}
+
+func (o *OriginalTransactionReference28) AddCdtrAgtAcct() *CashAccount38 {
+	o.CdtrAgtAcct = new(CashAccount38)
+	return o.CdtrAgtAcct
+}
+
+func (o *OriginalTransactionReference28) AddCdtr() *Party40Choice {
+	o.Cdtr = new(Party40Choice)
+	return o.Cdtr
+}
+
+func (o *OriginalTransactionReference28) AddCdtrAcct() *CashAccount38 {
+	o.CdtrAcct = new(CashAccount38)
+	return o.CdtrAcct
+}
+
+func (o *OriginalTransactionReference28) AddUltmtCdtr() *Party40Choice {
+	o.UltmtCdtr = new(Party40Choice)
+	return o.UltmtCdtr
+}
+
+func (o *OriginalTransactionReference28) AddPurp() *Purpose2Choice {
+	o.Purp = new(Purpose2Choice)
+	return o.Purp
 }
 
 type SettlementInstruction7 struct {
@@ -390,14 +747,45 @@ func (s *SettlementInstruction7) SetSttlmMtd(value string) {
 	s.SttlmMtd = (*SettlementMethod1Code)(&value)
 }
 
-// SttlmAcct            *CashAccount38
-// ClrSys               *ClearingSystemIdentification3Choice
-// InstgRmbrsmntAgt     *BranchAndFinancialInstitutionIdentification6
-// InstgRmbrsmntAgtAcct *CashAccount38
-// InstdRmbrsmntAgt     *BranchAndFinancialInstitutionIdentification6
-// InstdRmbrsmntAgtAcct *CashAccount38
-// ThrdRmbrsmntAgt      *BranchAndFinancialInstitutionIdentification6
-// ThrdRmbrsmntAgtAcct  *CashAccount38
+func (s *SettlementInstruction7) AddSttlmAcct() *CashAccount38 {
+	s.SttlmAcct = new(CashAccount38)
+	return s.SttlmAcct
+}
+
+func (s *SettlementInstruction7) AddClrSys() *ClearingSystemIdentification3Choice {
+	s.ClrSys = new(ClearingSystemIdentification3Choice)
+	return s.ClrSys
+}
+
+func (s *SettlementInstruction7) AddInstgRmbrsmntAgt() *BranchAndFinancialInstitutionIdentification6 {
+	s.InstgRmbrsmntAgt = new(BranchAndFinancialInstitutionIdentification6)
+	return s.InstgRmbrsmntAgt
+}
+
+func (s *SettlementInstruction7) AddInstgRmbrsmntAgtAcct() *CashAccount38 {
+	s.InstgRmbrsmntAgtAcct = new(CashAccount38)
+	return s.InstgRmbrsmntAgtAcct
+}
+
+func (s *SettlementInstruction7) AddInstdRmbrsmntAgt() *BranchAndFinancialInstitutionIdentification6 {
+	s.InstdRmbrsmntAgt = new(BranchAndFinancialInstitutionIdentification6)
+	return s.InstdRmbrsmntAgt
+}
+
+func (s *SettlementInstruction7) AddInstdRmbrsmntAgtAcct() *CashAccount38 {
+	s.InstdRmbrsmntAgtAcct = new(CashAccount38)
+	return s.InstdRmbrsmntAgtAcct
+}
+
+func (s *SettlementInstruction7) AddThrdRmbrsmntAgt() *BranchAndFinancialInstitutionIdentification6 {
+	s.ThrdRmbrsmntAgt = new(BranchAndFinancialInstitutionIdentification6)
+	return s.ThrdRmbrsmntAgt
+}
+
+func (s *SettlementInstruction7) AddThrdRmbrsmntAgtAcct() *CashAccount38 {
+	s.ThrdRmbrsmntAgtAcct = new(CashAccount38)
+	return s.ThrdRmbrsmntAgtAcct
+}
 
 type CashAccount38 struct {
 	Id   *AccountIdentification4Choice `xml:"Id" json:"Id"`
@@ -407,11 +795,29 @@ type CashAccount38 struct {
 	Prxy *ProxyAccountIdentification1  `xml:"Prxy,omitempty" json:"Prxy,omitempty"`
 }
 
-// Id   *AccountIdentification4Choice
-// Tp   *CashAccountType2Choice
-// Ccy  *ActiveOrHistoricCurrencyCode
-// Nm   *Max70Text
-// Prxy *ProxyAccountIdentification1
+func (c *CashAccount38) AddId() *AccountIdentification4Choice {
+	c.Id = new(AccountIdentification4Choice)
+	return c.Id
+}
+
+func (c *CashAccount38) AddTp() *CashAccountType2Choice {
+	c.Tp = new(CashAccountType2Choice)
+	return c.Tp
+}
+
+func (c *CashAccount38) SetCcy(value string) {
+	c.Ccy = (*ActiveOrHistoricCurrencyCode)(&value)
+}
+
+func (c *CashAccount38) SetNm(value string) {
+	c.Nm = (*Max70Text)(&value)
+}
+
+func (c *CashAccount38) AddPrxy() *ProxyAccountIdentification1 {
+	c.Prxy = new(ProxyAccountIdentification1)
+	return c.Prxy
+}
+
 type ProxyAccountIdentification1 struct {
 	Tp *ProxyAccountType1Choice `xml:"Tp,omitempty" json:"Tp,omitempty"`
 	Id *Max2048Text             `xml:"Id" json:"Id"`
@@ -443,40 +849,167 @@ func (p *ProxyAccountType1Choice) SetPrtry(value string) {
 type ExternalProxyAccountType1Code string
 
 type PaymentTypeInformation27 struct {
-	InstrPrty Priority2Code          `xml:"InstrPrty,omitempty" json:"InstrPrty,omitempty"`
-	ClrChanl  ClearingChannel2Code   `xml:"ClrChanl,omitempty" json:"ClrChanl,omitempty"`
-	SvcLvl    []ServiceLevel8Choice  `xml:"SvcLvl,omitempty" json:"SvcLvl,omitempty"`
-	LclInstrm LocalInstrument2Choice `xml:"LclInstrm,omitempty" json:"LclInstrm,omitempty"`
-	SeqTp     SequenceType3Code      `xml:"SeqTp,omitempty" json:"SeqTp,omitempty"`
-	CtgyPurp  CategoryPurpose1Choice `xml:"CtgyPurp,omitempty" json:"CtgyPurp,omitempty"`
+	InstrPrty *Priority2Code          `xml:"InstrPrty,omitempty" json:"InstrPrty,omitempty"`
+	ClrChanl  *ClearingChannel2Code   `xml:"ClrChanl,omitempty" json:"ClrChanl,omitempty"`
+	SvcLvl    []*ServiceLevel8Choice  `xml:"SvcLvl,omitempty" json:"SvcLvl,omitempty"`
+	LclInstrm *LocalInstrument2Choice `xml:"LclInstrm,omitempty" json:"LclInstrm,omitempty"`
+	SeqTp     *SequenceType3Code      `xml:"SeqTp,omitempty" json:"SeqTp,omitempty"`
+	CtgyPurp  *CategoryPurpose1Choice `xml:"CtgyPurp,omitempty" json:"CtgyPurp,omitempty"`
+}
+
+func (p *PaymentTypeInformation27) SetTp(value string) {
+	p.InstrPrty = (*Priority2Code)(&value)
+}
+
+func (p *PaymentTypeInformation27) SetlrChanl(value string) {
+	p.ClrChanl = (*ClearingChannel2Code)(&value)
+}
+
+func (p *PaymentTypeInformation27) AddSvcLvl() *ServiceLevel8Choice {
+	newValue := new(ServiceLevel8Choice)
+	p.SvcLvl = append(p.SvcLvl, newValue)
+	return newValue
+}
+
+func (p *PaymentTypeInformation27) AddLclInstrm() *LocalInstrument2Choice {
+	p.LclInstrm = new(LocalInstrument2Choice)
+	return p.LclInstrm
+}
+
+func (p *PaymentTypeInformation27) SetSeqTp(value string) {
+	p.SeqTp = (*SequenceType3Code)(&value)
+}
+
+func (p *PaymentTypeInformation27) AddCtgyPurp() *CategoryPurpose1Choice {
+	p.CtgyPurp = new(CategoryPurpose1Choice)
+	return p.CtgyPurp
 }
 
 type MandateRelatedInformation14 struct {
-	MndtId        Max35Text                     `xml:"MndtId,omitempty" json:"MndtId,omitempty"`
-	DtOfSgntr     ISODate                       `xml:"DtOfSgntr,omitempty" json:"DtOfSgntr,omitempty"`
-	AmdmntInd     TrueFalseIndicator            `xml:"AmdmntInd,omitempty" json:"AmdmntInd,omitempty"`
-	AmdmntInfDtls AmendmentInformationDetails13 `xml:"AmdmntInfDtls,omitempty" json:"AmdmntInfDtls,omitempty"`
-	ElctrncSgntr  Max1025Text                   `xml:"ElctrncSgntr,omitempty" json:"ElctrncSgntr,omitempty"`
-	FrstColltnDt  ISODate                       `xml:"FrstColltnDt,omitempty" json:"FrstColltnDt,omitempty"`
-	FnlColltnDt   ISODate                       `xml:"FnlColltnDt,omitempty" json:"FnlColltnDt,omitempty"`
-	Frqcy         Frequency36Choice             `xml:"Frqcy,omitempty" json:"Frqcy,omitempty"`
-	Rsn           MandateSetupReason1Choice     `xml:"Rsn,omitempty" json:"Rsn,omitempty"`
-	TrckgDays     Exact2NumericText             `xml:"TrckgDays,omitempty" json:"TrckgDays,omitempty"`
+	MndtId        *Max35Text                     `xml:"MndtId,omitempty" json:"MndtId,omitempty"`
+	DtOfSgntr     *ISODate                       `xml:"DtOfSgntr,omitempty" json:"DtOfSgntr,omitempty"`
+	AmdmntInd     *TrueFalseIndicator            `xml:"AmdmntInd,omitempty" json:"AmdmntInd,omitempty"`
+	AmdmntInfDtls *AmendmentInformationDetails13 `xml:"AmdmntInfDtls,omitempty" json:"AmdmntInfDtls,omitempty"`
+	ElctrncSgntr  *Max1025Text                   `xml:"ElctrncSgntr,omitempty" json:"ElctrncSgntr,omitempty"`
+	FrstColltnDt  *ISODate                       `xml:"FrstColltnDt,omitempty" json:"FrstColltnDt,omitempty"`
+	FnlColltnDt   *ISODate                       `xml:"FnlColltnDt,omitempty" json:"FnlColltnDt,omitempty"`
+	Frqcy         *Frequency36Choice             `xml:"Frqcy,omitempty" json:"Frqcy,omitempty"`
+	Rsn           *MandateSetupReason1Choice     `xml:"Rsn,omitempty" json:"Rsn,omitempty"`
+	TrckgDays     *Exact2NumericText             `xml:"TrckgDays,omitempty" json:"TrckgDays,omitempty"`
+}
+
+func (m *MandateRelatedInformation14) SetMndtId(value string) {
+	m.MndtId = (*Max35Text)(&value)
+}
+
+func (m *MandateRelatedInformation14) SetDtOfSgntr(value string) {
+	m.DtOfSgntr = (*ISODate)(&value)
+}
+
+func (m *MandateRelatedInformation14) SetAmdmntInd(value string) {
+	m.AmdmntInd = (*TrueFalseIndicator)(&value)
+}
+
+func (m *MandateRelatedInformation14) AddAmdmntInfDtls() *AmendmentInformationDetails13 {
+	m.AmdmntInfDtls = new(AmendmentInformationDetails13)
+	return m.AmdmntInfDtls
+}
+
+func (m *MandateRelatedInformation14) SetElctrncSgntr(value string) {
+	m.ElctrncSgntr = (*Max1025Text)(&value)
+}
+
+func (m *MandateRelatedInformation14) SetFrstColltnDt(value string) {
+	m.FrstColltnDt = (*ISODate)(&value)
+}
+
+func (m *MandateRelatedInformation14) SetFnlColltnDt(value string) {
+	m.FnlColltnDt = (*ISODate)(&value)
+}
+
+func (m *MandateRelatedInformation14) AddFrqcy() *Frequency36Choice {
+	m.Frqcy = new(Frequency36Choice)
+	return m.Frqcy
+}
+func (m *MandateRelatedInformation14) AddRsn() *MandateSetupReason1Choice {
+	m.Rsn = new(MandateSetupReason1Choice)
+	return m.Rsn
+}
+
+func (m *MandateRelatedInformation14) SetTrckgDays(value string) {
+	m.TrckgDays = (*Exact2NumericText)(&value)
 }
 
 type AmendmentInformationDetails13 struct {
-	OrgnlMndtId      Max35Text                                    `xml:"OrgnlMndtId,omitempty" json:"OrgnlMndtId,omitempty"`
-	OrgnlCdtrSchmeId PartyIdentification135                       `xml:"OrgnlCdtrSchmeId,omitempty" json:"OrgnlCdtrSchmeId,omitempty"`
-	OrgnlCdtrAgt     BranchAndFinancialInstitutionIdentification6 `xml:"OrgnlCdtrAgt,omitempty" json:"OrgnlCdtrAgt,omitempty"`
-	OrgnlCdtrAgtAcct CashAccount38                                `xml:"OrgnlCdtrAgtAcct,omitempty" json:"OrgnlCdtrAgtAcct,omitempty"`
-	OrgnlDbtr        PartyIdentification135                       `xml:"OrgnlDbtr,omitempty" json:"OrgnlDbtr,omitempty"`
-	OrgnlDbtrAcct    CashAccount38                                `xml:"OrgnlDbtrAcct,omitempty" json:"OrgnlDbtrAcct,omitempty"`
-	OrgnlDbtrAgt     BranchAndFinancialInstitutionIdentification6 `xml:"OrgnlDbtrAgt,omitempty" json:"OrgnlDbtrAgt,omitempty"`
-	OrgnlDbtrAgtAcct CashAccount38                                `xml:"OrgnlDbtrAgtAcct,omitempty" json:"OrgnlDbtrAgtAcct,omitempty"`
-	OrgnlFnlColltnDt ISODate                                      `xml:"OrgnlFnlColltnDt,omitempty" json:"OrgnlFnlColltnDt,omitempty"`
-	OrgnlFrqcy       Frequency36Choice                            `xml:"OrgnlFrqcy,omitempty" json:"OrgnlFrqcy,omitempty"`
-	OrgnlRsn         MandateSetupReason1Choice                    `xml:"OrgnlRsn,omitempty" json:"OrgnlRsn,omitempty"`
-	OrgnlTrckgDays   Exact2NumericText                            `xml:"OrgnlTrckgDays,omitempty" json:"OrgnlTrckgDays,omitempty"`
+	OrgnlMndtId      *Max35Text                                    `xml:"OrgnlMndtId,omitempty" json:"OrgnlMndtId,omitempty"`
+	OrgnlCdtrSchmeId *PartyIdentification135                       `xml:"OrgnlCdtrSchmeId,omitempty" json:"OrgnlCdtrSchmeId,omitempty"`
+	OrgnlCdtrAgt     *BranchAndFinancialInstitutionIdentification6 `xml:"OrgnlCdtrAgt,omitempty" json:"OrgnlCdtrAgt,omitempty"`
+	OrgnlCdtrAgtAcct *CashAccount38                                `xml:"OrgnlCdtrAgtAcct,omitempty" json:"OrgnlCdtrAgtAcct,omitempty"`
+	OrgnlDbtr        *PartyIdentification135                       `xml:"OrgnlDbtr,omitempty" json:"OrgnlDbtr,omitempty"`
+	OrgnlDbtrAcct    *CashAccount38                                `xml:"OrgnlDbtrAcct,omitempty" json:"OrgnlDbtrAcct,omitempty"`
+	OrgnlDbtrAgt     *BranchAndFinancialInstitutionIdentification6 `xml:"OrgnlDbtrAgt,omitempty" json:"OrgnlDbtrAgt,omitempty"`
+	OrgnlDbtrAgtAcct *CashAccount38                                `xml:"OrgnlDbtrAgtAcct,omitempty" json:"OrgnlDbtrAgtAcct,omitempty"`
+	OrgnlFnlColltnDt *ISODate                                      `xml:"OrgnlFnlColltnDt,omitempty" json:"OrgnlFnlColltnDt,omitempty"`
+	OrgnlFrqcy       *Frequency36Choice                            `xml:"OrgnlFrqcy,omitempty" json:"OrgnlFrqcy,omitempty"`
+	OrgnlRsn         *MandateSetupReason1Choice                    `xml:"OrgnlRsn,omitempty" json:"OrgnlRsn,omitempty"`
+	OrgnlTrckgDays   *Exact2NumericText                            `xml:"OrgnlTrckgDays,omitempty" json:"OrgnlTrckgDays,omitempty"`
+}
+
+func (a *AmendmentInformationDetails13) SetOrgnlMndtId(value string) {
+	a.OrgnlMndtId = (*Max35Text)(&value)
+}
+
+func (a *AmendmentInformationDetails13) AddOrgnlCdtrSchmeId() *PartyIdentification135 {
+	a.OrgnlCdtrSchmeId = new(PartyIdentification135)
+	return a.OrgnlCdtrSchmeId
+}
+
+func (a *AmendmentInformationDetails13) AddOrgnlCdtrAgt() *BranchAndFinancialInstitutionIdentification6 {
+	a.OrgnlCdtrAgt = new(BranchAndFinancialInstitutionIdentification6)
+	return a.OrgnlCdtrAgt
+}
+
+func (a *AmendmentInformationDetails13) AddOrgnlCdtrAgtAcct() *CashAccount38 {
+	a.OrgnlCdtrAgtAcct = new(CashAccount38)
+	return a.OrgnlCdtrAgtAcct
+}
+
+func (a *AmendmentInformationDetails13) AddOrgnlDbtr() *PartyIdentification135 {
+	a.OrgnlDbtr = new(PartyIdentification135)
+	return a.OrgnlDbtr
+}
+
+func (a *AmendmentInformationDetails13) AddOrgnlDbtrAcct() *CashAccount38 {
+	a.OrgnlDbtrAcct = new(CashAccount38)
+	return a.OrgnlDbtrAcct
+}
+
+func (a *AmendmentInformationDetails13) AddOrgnlDbtrAgt() *BranchAndFinancialInstitutionIdentification6 {
+	a.OrgnlDbtrAgt = new(BranchAndFinancialInstitutionIdentification6)
+	return a.OrgnlDbtrAgt
+}
+
+func (a *AmendmentInformationDetails13) AddOrgnlDbtrAgtAcct() *CashAccount38 {
+	a.OrgnlDbtrAcct = new(CashAccount38)
+	return a.OrgnlDbtrAcct
+}
+
+func (a *AmendmentInformationDetails13) SetOrgnlFnlColltnDt(value string) {
+	a.OrgnlFnlColltnDt = (*ISODate)(&value)
+}
+
+func (a *AmendmentInformationDetails13) AddOrgnlFrqcy() *Frequency36Choice {
+	a.OrgnlFrqcy = new(Frequency36Choice)
+	return a.OrgnlFrqcy
+}
+
+func (a *AmendmentInformationDetails13) AddOrgnlRsn() *MandateSetupReason1Choice {
+	a.OrgnlRsn = new(MandateSetupReason1Choice)
+	return a.OrgnlRsn
+}
+
+func (a *AmendmentInformationDetails13) SetTrckgDays(value string) {
+	a.OrgnlTrckgDays = (*Exact2NumericText)(&value)
 }
 
 type Frequency36Choice struct {
