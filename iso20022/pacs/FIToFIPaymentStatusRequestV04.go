@@ -11,6 +11,12 @@ type Document02800104 struct {
 	Message *FIToFIPaymentStatusRequestV04 `xml:"FIToFIPmtStsReq" json:"FIToFIPmtStsReq"`
 }
 
+// res.AddMessage()
+func (d *Document02800104) AddMessage() *FIToFIPaymentStatusRequestV04 {
+	d.Message = new(FIToFIPaymentStatusRequestV04)
+	return d.Message
+}
+
 type FIToFIPaymentStatusRequestV04 struct {
 
 	// Set of characteristics shared by all individual transactions included in the message.
@@ -22,4 +28,17 @@ type FIToFIPaymentStatusRequestV04 struct {
 
 	// Additional information that cannot be captured in the structured elements and/or any other specific block.
 	SupplementaryData []*iso20022.SupplementaryData1 `xml:"SplmtryData,omitempty" json:"SplmtryData,omitempty"`
+}
+
+// res.AddMessage().AddGroupHeader()
+func (f *FIToFIPaymentStatusRequestV04) AddGroupHeader() *iso20022.GroupHeader91 {
+	f.GroupHeader = new(iso20022.GroupHeader91)
+	return f.GroupHeader
+}
+
+// res.AddMessage(). AddTxInf()
+func (f *FIToFIPaymentStatusRequestV04) AddTxInf() *iso20022.PaymentTransaction121 {
+	newValue := new(iso20022.PaymentTransaction121)
+	f.TxInf = append(f.TxInf, newValue)
+	return newValue
 }
