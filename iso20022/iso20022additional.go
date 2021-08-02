@@ -1013,118 +1013,437 @@ func (a *AmendmentInformationDetails13) SetTrckgDays(value string) {
 }
 
 type Frequency36Choice struct {
-	Tp     Frequency6Code      `xml:"Tp,omitempty" json:"Tp,omitempty"`
-	Prd    FrequencyPeriod1    `xml:"Prd,omitempty" json:"Prd,omitempty"`
-	PtInTm FrequencyAndMoment1 `xml:"PtInTm,omitempty" json:"PtInTm,omitempty"`
+	Tp     *Frequency6Code      `xml:"Tp,omitempty" json:"Tp,omitempty"`
+	Prd    *FrequencyPeriod1    `xml:"Prd,omitempty" json:"Prd,omitempty"`
+	PtInTm *FrequencyAndMoment1 `xml:"PtInTm,omitempty" json:"PtInTm,omitempty"`
+}
+
+func (f *Frequency36Choice) SetTp(value string) {
+	f.Tp = (*Frequency6Code)(&value)
+}
+
+func (f *Frequency36Choice) AddPrd() *FrequencyPeriod1 {
+	f.Prd = new(FrequencyPeriod1)
+	return f.Prd
+}
+
+func (f *Frequency36Choice) AddPtInTm() *FrequencyAndMoment1 {
+	f.PtInTm = new(FrequencyAndMoment1)
+	return f.PtInTm
 }
 
 type FrequencyAndMoment1 struct {
-	Tp     Frequency6Code    `xml:"Tp" json:"Tp"`
-	PtInTm Exact2NumericText `xml:"PtInTm" json:"PtInTm"`
+	Tp     *Frequency6Code    `xml:"Tp" json:"Tp"`
+	PtInTm *Exact2NumericText `xml:"PtInTm" json:"PtInTm"`
+}
+
+func (f *FrequencyAndMoment1) SetTp(value string) {
+	f.Tp = (*Frequency6Code)(&value)
+}
+
+func (f *FrequencyAndMoment1) SetPtInTm(value string) {
+	f.PtInTm = (*Exact2NumericText)(&value)
 }
 
 // Must match the pattern [0-9]{2}
 type Exact2NumericText string
 
 type RemittanceInformation16 struct {
-	Ustrd []Max140Text                        `xml:"Ustrd,omitempty" json:"Ustrd,omitempty"`
-	Strd  []StructuredRemittanceInformation16 `xml:"Strd,omitempty" json:"Strd,omitempty"`
+	Ustrd []*Max140Text                        `xml:"Ustrd,omitempty" json:"Ustrd,omitempty"`
+	Strd  []*StructuredRemittanceInformation16 `xml:"Strd,omitempty" json:"Strd,omitempty"`
+}
+
+func (r *RemittanceInformation16) AddUstrd(value string) {
+	r.Ustrd = append(r.Ustrd, (*Max140Text)(&value))
+}
+
+func (r *RemittanceInformation16) AddStrd() *StructuredRemittanceInformation16 {
+	newValue := new(StructuredRemittanceInformation16)
+	r.Strd = append(r.Strd, newValue)
+	return newValue
 }
 
 type StructuredRemittanceInformation16 struct {
-	RfrdDocInf  []ReferredDocumentInformation7 `xml:"RfrdDocInf,omitempty" json:"RfrdDocInf,omitempty"`
-	RfrdDocAmt  RemittanceAmount2              `xml:"RfrdDocAmt,omitempty" json:"RfrdDocAmt,omitempty"`
-	CdtrRefInf  CreditorReferenceInformation2  `xml:"CdtrRefInf,omitempty" json:"CdtrRefInf,omitempty"`
-	Invcr       PartyIdentification135         `xml:"Invcr,omitempty" json:"Invcr,omitempty"`
-	Invcee      PartyIdentification135         `xml:"Invcee,omitempty" json:"Invcee,omitempty"`
-	TaxRmt      TaxInformation7                `xml:"TaxRmt,omitempty" json:"TaxRmt,omitempty"`
-	GrnshmtRmt  Garnishment3                   `xml:"GrnshmtRmt,omitempty" json:"GrnshmtRmt,omitempty"`
-	AddtlRmtInf []Max140Text                   `xml:"AddtlRmtInf,omitempty" json:"AddtlRmtInf,omitempty"`
+	RfrdDocInf  []*ReferredDocumentInformation7 `xml:"RfrdDocInf,omitempty" json:"RfrdDocInf,omitempty"`
+	RfrdDocAmt  *RemittanceAmount2              `xml:"RfrdDocAmt,omitempty" json:"RfrdDocAmt,omitempty"`
+	CdtrRefInf  *CreditorReferenceInformation2  `xml:"CdtrRefInf,omitempty" json:"CdtrRefInf,omitempty"`
+	Invcr       *PartyIdentification135         `xml:"Invcr,omitempty" json:"Invcr,omitempty"`
+	Invcee      *PartyIdentification135         `xml:"Invcee,omitempty" json:"Invcee,omitempty"`
+	TaxRmt      *TaxInformation7                `xml:"TaxRmt,omitempty" json:"TaxRmt,omitempty"`
+	GrnshmtRmt  *Garnishment3                   `xml:"GrnshmtRmt,omitempty" json:"GrnshmtRmt,omitempty"`
+	AddtlRmtInf []*Max140Text                   `xml:"AddtlRmtInf,omitempty" json:"AddtlRmtInf,omitempty"`
+}
+
+func (s *StructuredRemittanceInformation16) AddRfrdDocInf() *ReferredDocumentInformation7 {
+	newValue := new(ReferredDocumentInformation7)
+	s.RfrdDocInf = append(s.RfrdDocInf, newValue)
+	return newValue
+}
+
+func (s *StructuredRemittanceInformation16) AddRfrdDocAmt() *RemittanceAmount2 {
+	s.RfrdDocAmt = new(RemittanceAmount2)
+	return s.RfrdDocAmt
+}
+
+func (s *StructuredRemittanceInformation16) AddCdtrRefInf() *CreditorReferenceInformation2 {
+	s.CdtrRefInf = new(CreditorReferenceInformation2)
+	return s.CdtrRefInf
+}
+
+func (s *StructuredRemittanceInformation16) AddInvcr() *PartyIdentification135 {
+	s.Invcr = new(PartyIdentification135)
+	return s.Invcr
+}
+
+func (s *StructuredRemittanceInformation16) AddInvcee() *PartyIdentification135 {
+	s.Invcee = new(PartyIdentification135)
+	return s.Invcee
+}
+
+func (s *StructuredRemittanceInformation16) AddTaxRmt() *TaxInformation7 {
+	s.TaxRmt = new(TaxInformation7)
+	return s.TaxRmt
+}
+
+func (s *StructuredRemittanceInformation16) AddGrnshmtRmt() *Garnishment3 {
+	s.GrnshmtRmt = new(Garnishment3)
+	return s.GrnshmtRmt
+}
+
+func (s *StructuredRemittanceInformation16) AddAddtlRmtInf(value string) {
+	s.AddtlRmtInf = append(s.AddtlRmtInf, (*Max140Text)(&value))
 }
 
 type TaxInformation7 struct {
-	Cdtr            TaxParty1                         `xml:"Cdtr,omitempty" json:"Cdtr,omitempty"`
-	Dbtr            TaxParty2                         `xml:"Dbtr,omitempty" json:"Dbtr,omitempty"`
-	UltmtDbtr       TaxParty2                         `xml:"UltmtDbtr,omitempty" json:"UltmtDbtr,omitempty"`
-	AdmstnZone      Max35Text                         `xml:"AdmstnZone,omitempty" json:"AdmstnZone,omitempty"`
-	RefNb           Max140Text                        `xml:"RefNb,omitempty" json:"RefNb,omitempty"`
-	Mtd             Max35Text                         `xml:"Mtd,omitempty" json:"Mtd,omitempty"`
-	TtlTaxblBaseAmt ActiveOrHistoricCurrencyAndAmount `xml:"TtlTaxblBaseAmt,omitempty" json:"TtlTaxblBaseAmt,omitempty"`
-	TtlTaxAmt       ActiveOrHistoricCurrencyAndAmount `xml:"TtlTaxAmt,omitempty" json:"TtlTaxAmt,omitempty"`
-	Dt              ISODate                           `xml:"Dt,omitempty" json:"Dt,omitempty"`
-	SeqNb           DecimalNumber                     `xml:"SeqNb,omitempty" json:"SeqNb,omitempty"`
-	Rcrd            []TaxRecord2                      `xml:"Rcrd,omitempty" json:"Rcrd,omitempty"`
+	Cdtr            *TaxParty1                         `xml:"Cdtr,omitempty" json:"Cdtr,omitempty"`
+	Dbtr            *TaxParty2                         `xml:"Dbtr,omitempty" json:"Dbtr,omitempty"`
+	UltmtDbtr       *TaxParty2                         `xml:"UltmtDbtr,omitempty" json:"UltmtDbtr,omitempty"`
+	AdmstnZone      *Max35Text                         `xml:"AdmstnZone,omitempty" json:"AdmstnZone,omitempty"`
+	RefNb           *Max140Text                        `xml:"RefNb,omitempty" json:"RefNb,omitempty"`
+	Mtd             *Max35Text                         `xml:"Mtd,omitempty" json:"Mtd,omitempty"`
+	TtlTaxblBaseAmt *ActiveOrHistoricCurrencyAndAmount `xml:"TtlTaxblBaseAmt,omitempty" json:"TtlTaxblBaseAmt,omitempty"`
+	TtlTaxAmt       *ActiveOrHistoricCurrencyAndAmount `xml:"TtlTaxAmt,omitempty" json:"TtlTaxAmt,omitempty"`
+	Dt              *ISODate                           `xml:"Dt,omitempty" json:"Dt,omitempty"`
+	SeqNb           *DecimalNumber                     `xml:"SeqNb,omitempty" json:"SeqNb,omitempty"`
+	Rcrd            []*TaxRecord2                      `xml:"Rcrd,omitempty" json:"Rcrd,omitempty"`
+}
+
+// Cdtr            *TaxParty1
+func (t *TaxInformation7) AddCdtr() *TaxParty1 {
+	t.Cdtr = new(TaxParty1)
+	return t.Cdtr
+}
+
+// Dbtr            *TaxParty2
+func (t *TaxInformation7) AddDbtr() *TaxParty2 {
+	t.Dbtr = new(TaxParty2)
+	return t.Dbtr
+}
+
+// UltmtDbtr       *TaxParty2
+func (t *TaxInformation7) AddUltmtDbtr() *TaxParty2 {
+	t.UltmtDbtr = new(TaxParty2)
+	return t.UltmtDbtr
+}
+
+// AdmstnZone      *Max35Text
+func (t *TaxInformation7) SetAdmstnZone(value string) {
+	t.AdmstnZone = (*Max35Text)(&value)
+}
+
+// RefNb           *Max140Text
+func (t *TaxInformation7) SetRefNb(value string) {
+	t.RefNb = (*Max140Text)(&value)
+}
+
+// Mtd             *Max35Text
+func (t *TaxInformation7) SetMtd(value string) {
+	t.Mtd = (*Max35Text)(&value)
+}
+
+// TtlTaxblBaseAmt *ActiveOrHistoricCurrencyAndAmount
+func (t *TaxInformation7) AddTtlTaxblBaseAmt() *ActiveOrHistoricCurrencyAndAmount {
+	t.TtlTaxblBaseAmt = new(ActiveOrHistoricCurrencyAndAmount)
+	return t.TtlTaxblBaseAmt
+}
+
+// TtlTaxAmt       *ActiveOrHistoricCurrencyAndAmount
+func (t *TaxInformation7) AddTtlTaxAmt() *ActiveOrHistoricCurrencyAndAmount {
+	t.TtlTaxAmt = new(ActiveOrHistoricCurrencyAndAmount)
+	return t.TtlTaxAmt
+}
+
+// Dt              *ISODate
+func (t *TaxInformation7) SetDt(value string) {
+	t.Dt = (*ISODate)(&value)
+}
+
+// SeqNb           *DecimalNumber
+func (t *TaxInformation7) SetSeqNb(value string) {
+	t.SeqNb = (*DecimalNumber)(&value)
+}
+
+// Rcrd            []*TaxRecord2
+func (t *TaxInformation7) AddC() *TaxRecord2 {
+	newValue := new(TaxRecord2)
+	t.Rcrd = append(t.Rcrd, newValue)
+	return newValue
 }
 
 type TaxRecord2 struct {
-	Tp       Max35Text  `xml:"Tp,omitempty" json:"Tp,omitempty"`
-	Ctgy     Max35Text  `xml:"Ctgy,omitempty" json:"Ctgy,omitempty"`
-	CtgyDtls Max35Text  `xml:"CtgyDtls,omitempty" json:"CtgyDtls,omitempty"`
-	DbtrSts  Max35Text  `xml:"DbtrSts,omitempty" json:"DbtrSts,omitempty"`
-	CertId   Max35Text  `xml:"CertId,omitempty" json:"CertId,omitempty"`
-	FrmsCd   Max35Text  `xml:"FrmsCd,omitempty" json:"FrmsCd,omitempty"`
-	Prd      TaxPeriod2 `xml:"Prd,omitempty" json:"Prd,omitempty"`
-	TaxAmt   TaxAmount2 `xml:"TaxAmt,omitempty" json:"TaxAmt,omitempty"`
-	AddtlInf Max140Text `xml:"AddtlInf,omitempty" json:"AddtlInf,omitempty"`
+	Tp       *Max35Text  `xml:"Tp,omitempty" json:"Tp,omitempty"`
+	Ctgy     *Max35Text  `xml:"Ctgy,omitempty" json:"Ctgy,omitempty"`
+	CtgyDtls *Max35Text  `xml:"CtgyDtls,omitempty" json:"CtgyDtls,omitempty"`
+	DbtrSts  *Max35Text  `xml:"DbtrSts,omitempty" json:"DbtrSts,omitempty"`
+	CertId   *Max35Text  `xml:"CertId,omitempty" json:"CertId,omitempty"`
+	FrmsCd   *Max35Text  `xml:"FrmsCd,omitempty" json:"FrmsCd,omitempty"`
+	Prd      *TaxPeriod2 `xml:"Prd,omitempty" json:"Prd,omitempty"`
+	TaxAmt   *TaxAmount2 `xml:"TaxAmt,omitempty" json:"TaxAmt,omitempty"`
+	AddtlInf *Max140Text `xml:"AddtlInf,omitempty" json:"AddtlInf,omitempty"`
+}
+
+func (t *TaxRecord2) SetTp(value string) {
+	t.Tp = (*Max35Text)(&value)
+}
+
+func (t *TaxRecord2) SetCtgy(value string) {
+	t.Ctgy = (*Max35Text)(&value)
+}
+
+func (t *TaxRecord2) SetCtgyDtls(value string) {
+	t.CtgyDtls = (*Max35Text)(&value)
+}
+
+func (t *TaxRecord2) SetDbtrSts(value string) {
+	t.DbtrSts = (*Max35Text)(&value)
+}
+
+func (t *TaxRecord2) SetCertId(value string) {
+	t.CertId = (*Max35Text)(&value)
+}
+
+func (t *TaxRecord2) SetFrmsCd(value string) {
+	t.FrmsCd = (*Max35Text)(&value)
+}
+
+func (t *TaxRecord2) AddPrd() *TaxPeriod2 {
+	t.Prd = new(TaxPeriod2)
+	return t.Prd
+}
+
+func (t *TaxRecord2) AddTtlTaxAmt() *TaxAmount2 {
+	t.TaxAmt = new(TaxAmount2)
+	return t.TaxAmt
+}
+
+func (t *TaxRecord2) SetAddtlInf(value string) {
+	t.AddtlInf = (*Max140Text)(&value)
 }
 
 type TaxPeriod2 struct {
-	Yr     ISODate              `xml:"Yr,omitempty" json:"Yr,omitempty"`
-	Tp     TaxRecordPeriod1Code `xml:"Tp,omitempty" json:"Tp,omitempty"`
-	FrToDt DatePeriod2          `xml:"FrToDt,omitempty" json:"FrToDt,omitempty"`
+	Yr     *ISODate              `xml:"Yr,omitempty" json:"Yr,omitempty"`
+	Tp     *TaxRecordPeriod1Code `xml:"Tp,omitempty" json:"Tp,omitempty"`
+	FrToDt *DatePeriod2          `xml:"FrToDt,omitempty" json:"FrToDt,omitempty"`
+}
+
+func (t *TaxPeriod2) SetYr(value string) {
+	t.Yr = (*ISODate)(&value)
+}
+
+func (t *TaxPeriod2) SetTp(value string) {
+	t.Tp = (*TaxRecordPeriod1Code)(&value)
+}
+
+func (t *TaxPeriod2) AddFrToDt() *DatePeriod2 {
+	t.FrToDt = new(DatePeriod2)
+	return t.FrToDt
 }
 
 type DatePeriod2 struct {
-	FrDt ISODate `xml:"FrDt" json:"FrDt"`
-	ToDt ISODate `xml:"ToDt" json:"ToDt"`
+	FrDt *ISODate `xml:"FrDt" json:"FrDt"`
+	ToDt *ISODate `xml:"ToDt" json:"ToDt"`
+}
+
+func (d *DatePeriod2) SetFrDt(value string) {
+	d.FrDt = (*ISODate)(&value)
+}
+
+func (d *DatePeriod2) SetToDt(value string) {
+	d.ToDt = (*ISODate)(&value)
 }
 
 type TaxAmount2 struct {
-	Rate         DecimalNumber                     `xml:"Rate,omitempty" json:"Rate,omitempty"`
-	TaxblBaseAmt ActiveOrHistoricCurrencyAndAmount `xml:"TaxblBaseAmt,omitempty" json:"TaxblBaseAmt,omitempty"`
-	TtlAmt       ActiveOrHistoricCurrencyAndAmount `xml:"TtlAmt,omitempty" json:"TtlAmt,omitempty"`
-	Dtls         []TaxRecordDetails2               `xml:"Dtls,omitempty" json:"Dtls,omitempty"`
+	Rate         *DecimalNumber                     `xml:"Rate,omitempty" json:"Rate,omitempty"`
+	TaxblBaseAmt *ActiveOrHistoricCurrencyAndAmount `xml:"TaxblBaseAmt,omitempty" json:"TaxblBaseAmt,omitempty"`
+	TtlAmt       *ActiveOrHistoricCurrencyAndAmount `xml:"TtlAmt,omitempty" json:"TtlAmt,omitempty"`
+	Dtls         []*TaxRecordDetails2               `xml:"Dtls,omitempty" json:"Dtls,omitempty"`
+}
+
+func (t *TaxAmount2) SetRate(value string) {
+	t.Rate = (*DecimalNumber)(&value)
+}
+
+func (t *TaxAmount2) AddTaxblBaseAmt() *ActiveOrHistoricCurrencyAndAmount {
+	t.TaxblBaseAmt = new(ActiveOrHistoricCurrencyAndAmount)
+	return t.TaxblBaseAmt
+}
+
+func (t *TaxAmount2) AddTtlAmt() *ActiveOrHistoricCurrencyAndAmount {
+	t.TtlAmt = new(ActiveOrHistoricCurrencyAndAmount)
+	return t.TtlAmt
+}
+
+func (t *TaxAmount2) AddDtls() *TaxRecordDetails2 {
+	newValue := new(TaxRecordDetails2)
+	t.Dtls = append(t.Dtls, newValue)
+	return newValue
 }
 
 type TaxRecordDetails2 struct {
-	Prd TaxPeriod2                        `xml:"Prd,omitempty" json:"Prd,omitempty"`
-	Amt ActiveOrHistoricCurrencyAndAmount `xml:"Amt" json:"Amt"`
+	Prd *TaxPeriod2                        `xml:"Prd,omitempty" json:"Prd,omitempty"`
+	Amt *ActiveOrHistoricCurrencyAndAmount `xml:"Amt" json:"Amt"`
+}
+
+func (t *TaxRecordDetails2) AddPrd() *TaxPeriod2 {
+	t.Prd = new(TaxPeriod2)
+	return t.Prd
+}
+
+func (t *TaxRecordDetails2) AddAmt() *ActiveOrHistoricCurrencyAndAmount {
+	t.Amt = new(ActiveOrHistoricCurrencyAndAmount)
+	return t.Amt
 }
 
 type Garnishment3 struct {
-	Tp                GarnishmentType1                  `xml:"Tp" json:"Tp"`
-	Grnshee           PartyIdentification135            `xml:"Grnshee,omitempty" json:"Grnshee,omitempty"`
-	GrnshmtAdmstr     PartyIdentification135            `xml:"GrnshmtAdmstr,omitempty" json:"GrnshmtAdmstr,omitempty"`
-	RefNb             Max140Text                        `xml:"RefNb,omitempty" json:"RefNb,omitempty"`
-	Dt                ISODate                           `xml:"Dt,omitempty" json:"Dt,omitempty"`
-	RmtdAmt           ActiveOrHistoricCurrencyAndAmount `xml:"RmtdAmt,omitempty" json:"RmtdAmt,omitempty"`
-	FmlyMdclInsrncInd TrueFalseIndicator                `xml:"FmlyMdclInsrncInd,omitempty" json:"FmlyMdclInsrncInd,omitempty"`
-	MplyeeTermntnInd  TrueFalseIndicator                `xml:"MplyeeTermntnInd,omitempty" json:"MplyeeTermntnInd,omitempty"`
+	Tp                *GarnishmentType1                  `xml:"Tp" json:"Tp"`
+	Grnshee           *PartyIdentification135            `xml:"Grnshee,omitempty" json:"Grnshee,omitempty"`
+	GrnshmtAdmstr     *PartyIdentification135            `xml:"GrnshmtAdmstr,omitempty" json:"GrnshmtAdmstr,omitempty"`
+	RefNb             *Max140Text                        `xml:"RefNb,omitempty" json:"RefNb,omitempty"`
+	Dt                *ISODate                           `xml:"Dt,omitempty" json:"Dt,omitempty"`
+	RmtdAmt           *ActiveOrHistoricCurrencyAndAmount `xml:"RmtdAmt,omitempty" json:"RmtdAmt,omitempty"`
+	FmlyMdclInsrncInd *TrueFalseIndicator                `xml:"FmlyMdclInsrncInd,omitempty" json:"FmlyMdclInsrncInd,omitempty"`
+	MplyeeTermntnInd  *TrueFalseIndicator                `xml:"MplyeeTermntnInd,omitempty" json:"MplyeeTermntnInd,omitempty"`
+}
+
+func (g *Garnishment3) AddTp() *GarnishmentType1 {
+	g.Tp = new(GarnishmentType1)
+	return g.Tp
+}
+
+func (g *Garnishment3) AddGrnshee() *PartyIdentification135 {
+	g.Grnshee = new(PartyIdentification135)
+	return g.Grnshee
+}
+
+func (g *Garnishment3) AddGrnshmtAdmstr() *PartyIdentification135 {
+	g.GrnshmtAdmstr = new(PartyIdentification135)
+	return g.GrnshmtAdmstr
+}
+
+func (g *Garnishment3) SetRefNb(value string) {
+	g.RefNb = (*Max140Text)(&value)
+}
+
+func (g *Garnishment3) SetDt(value string) {
+	g.Dt = (*ISODate)(&value)
+}
+
+func (g *Garnishment3) AddRmtdAmt() *ActiveOrHistoricCurrencyAndAmount {
+	g.RmtdAmt = new(ActiveOrHistoricCurrencyAndAmount)
+	return g.RmtdAmt
+}
+
+func (g *Garnishment3) SetFmlyMdclInsrncInd(value string) {
+	g.FmlyMdclInsrncInd = (*TrueFalseIndicator)(&value)
+}
+
+func (g *Garnishment3) SetMplyeeTermntnInd(value string) {
+	g.MplyeeTermntnInd = (*TrueFalseIndicator)(&value)
 }
 
 type Party40Choice struct {
-	Pty PartyIdentification135                       `xml:"Pty,omitempty" json:"Pty,omitempty"`
-	Agt BranchAndFinancialInstitutionIdentification6 `xml:"Agt,omitempty" json:"Agt,omitempty"`
+	Pty *PartyIdentification135                       `xml:"Pty,omitempty" json:"Pty,omitempty"`
+	Agt *BranchAndFinancialInstitutionIdentification6 `xml:"Agt,omitempty" json:"Agt,omitempty"`
+}
+
+func (p *Party40Choice) AddPty() *PartyIdentification135 {
+	p.Pty = new(PartyIdentification135)
+	return p.Pty
+}
+
+func (p *Party40Choice) AddAgt() *BranchAndFinancialInstitutionIdentification6 {
+	p.Agt = new(BranchAndFinancialInstitutionIdentification6)
+	return p.Agt
 }
 
 type BI_SupplementaryData1 struct {
-	PlcAndNm Max350Text                    `xml:"PlcAndNm,omitempty" json:"PlcAndNm,omitempty"`
-	Envlp    BI_SupplementaryDataEnvelope1 `xml:"Envlp" json:"Envlp"`
+	PlcAndNm *Max350Text                    `xml:"PlcAndNm,omitempty" json:"PlcAndNm,omitempty"`
+	Envlp    *BI_SupplementaryDataEnvelope1 `xml:"Envlp" json:"Envlp"`
+}
+
+func (b *BI_SupplementaryData1) SetPlcAndNm(value string) {
+	b.PlcAndNm = (*Max350Text)(&value)
+}
+
+func (b *BI_SupplementaryData1) AddEnvlp() *BI_SupplementaryDataEnvelope1 {
+	b.Envlp = new(BI_SupplementaryDataEnvelope1)
+	return b.Envlp
 }
 
 type BI_SupplementaryDataEnvelope1 struct {
-	Dbtr        BI_AddtlCstmrInf `xml:"Dbtr,omitempty" json:"Dbtr,omitempty"`
-	Cdtr        BI_AddtlCstmrInf `xml:"Cdtr,omitempty" json:"Cdtr,omitempty"`
-	DbtrAgtAcct CashAccount38    `xml:"DbtrAgtAcct,omitempty" json:"DbtrAgtAcct,omitempty"`
-	CdtrAgtAcct CashAccount38    `xml:"CdtrAgtAcct,omitempty" json:"CdtrAgtAcct,omitempty"`
-	Cstmr       BI_AddtlCstmrInf `xml:"Cstmr,omitempty" json:"Cstmr,omitempty"`
+	Dbtr        *BI_AddtlCstmrInf `xml:"Dbtr,omitempty" json:"Dbtr,omitempty"`
+	Cdtr        *BI_AddtlCstmrInf `xml:"Cdtr,omitempty" json:"Cdtr,omitempty"`
+	DbtrAgtAcct *CashAccount38    `xml:"DbtrAgtAcct,omitempty" json:"DbtrAgtAcct,omitempty"`
+	CdtrAgtAcct *CashAccount38    `xml:"CdtrAgtAcct,omitempty" json:"CdtrAgtAcct,omitempty"`
+	Cstmr       *BI_AddtlCstmrInf `xml:"Cstmr,omitempty" json:"Cstmr,omitempty"`
+}
+
+func (b *BI_SupplementaryDataEnvelope1) AddDbtr() *BI_AddtlCstmrInf {
+	b.Dbtr = new(BI_AddtlCstmrInf)
+	return b.Dbtr
+}
+
+func (b *BI_SupplementaryDataEnvelope1) AddCdtr() *BI_AddtlCstmrInf {
+	b.Cdtr = new(BI_AddtlCstmrInf)
+	return b.Cdtr
+}
+
+func (b *BI_SupplementaryDataEnvelope1) AddDbtrAgtAcct() *CashAccount38 {
+	b.DbtrAgtAcct = new(CashAccount38)
+	return b.DbtrAgtAcct
+}
+
+func (b *BI_SupplementaryDataEnvelope1) AddCdtrAgtAcct() *CashAccount38 {
+	b.CdtrAgtAcct = new(CashAccount38)
+	return b.CdtrAgtAcct
+}
+
+func (b *BI_SupplementaryDataEnvelope1) AddCstmr() *BI_AddtlCstmrInf {
+	b.Cstmr = new(BI_AddtlCstmrInf)
+	return b.Cstmr
 }
 
 type BI_AddtlCstmrInf struct {
-	Tp       Max35Text `xml:"Tp,omitempty" json:"Tp,omitempty"`
-	Id       Max35Text `xml:"Id,omitempty" json:"Id,omitempty"`
-	RsdntSts Max35Text `xml:"RsdntSts,omitempty" json:"RsdntSts,omitempty"`
-	TwnNm    Max35Text `xml:"TwnNm,omitempty" json:"TwnNm,omitempty"`
+	Tp       *Max35Text `xml:"Tp,omitempty" json:"Tp,omitempty"`
+	Id       *Max35Text `xml:"Id,omitempty" json:"Id,omitempty"`
+	RsdntSts *Max35Text `xml:"RsdntSts,omitempty" json:"RsdntSts,omitempty"`
+	TwnNm    *Max35Text `xml:"TwnNm,omitempty" json:"TwnNm,omitempty"`
+}
+
+func (b *BI_AddtlCstmrInf) SetTp(value string) {
+	b.Tp = (*Max35Text)(&value)
+}
+
+func (b *BI_AddtlCstmrInf) SetId(value string) {
+	b.Id = (*Max35Text)(&value)
+}
+
+func (b *BI_AddtlCstmrInf) SetRsdntSts(value string) {
+	b.RsdntSts = (*Max35Text)(&value)
+}
+
+func (b *BI_AddtlCstmrInf) SetTwnNm(value string) {
+	b.TwnNm = (*Max35Text)(&value)
 }
 
 // TODO: pacs.008.001.08, json tag
@@ -1275,46 +1594,369 @@ type CreditTransferTransaction39 struct {
 	SplmtryData       []*BI_SupplementaryData1                      `xml:"SplmtryData,omitempty" json:"SplmtryData,omitempty"`
 }
 
-// res.AddMessage(). AddCreditTransferTransactionInformation().SetChrgBr("val")
+func (c *CreditTransferTransaction39) AddPmtId() *PaymentIdentification7 {
+	c.PmtId = new(PaymentIdentification7)
+	return c.PmtId
+}
+
+func (c *CreditTransferTransaction39) AddPmtTpInf() *PaymentTypeInformation28 {
+	c.PmtTpInf = new(PaymentTypeInformation28)
+	return c.PmtTpInf
+}
+
+func (c *CreditTransferTransaction39) AddIntrBkSttlmAmt() *ActiveCurrencyAndAmount {
+	c.IntrBkSttlmAmt = new(ActiveCurrencyAndAmount)
+	return c.IntrBkSttlmAmt
+}
+
+func (c *CreditTransferTransaction39) SetIntrBkSttlmDt(value string) {
+	c.IntrBkSttlmDt = (*ISODate)(&value)
+}
+
+func (c *CreditTransferTransaction39) SetSttlmPrty(value string) {
+	c.SttlmPrty = (*Priority3Code)(&value)
+}
+
+func (c *CreditTransferTransaction39) AddSttlmTmIndctn() *SettlementDateTimeIndication1 {
+	c.SttlmTmIndctn = new(SettlementDateTimeIndication1)
+	return c.SttlmTmIndctn
+}
+
+func (c *CreditTransferTransaction39) AddSttlmTmReq() *SettlementTimeRequest2 {
+	c.SttlmTmReq = new(SettlementTimeRequest2)
+	return c.SttlmTmReq
+}
+
+func (c *CreditTransferTransaction39) SetAccptncDtTm(value string) {
+	c.AccptncDtTm = (*ISODateTime)(&value)
+}
+
+func (c *CreditTransferTransaction39) SetPoolgAdjstmntDt(value string) {
+	c.PoolgAdjstmntDt = (*ISODate)(&value)
+}
+
+func (c *CreditTransferTransaction39) AddInstdAmt() *ActiveOrHistoricCurrencyAndAmount {
+	c.InstdAmt = new(ActiveOrHistoricCurrencyAndAmount)
+	return c.InstdAmt
+}
+
+func (c *CreditTransferTransaction39) SetXchgRate(value string) {
+	c.XchgRate = (*DecimalNumber)(&value)
+}
+
 func (c *CreditTransferTransaction39) SetChrgBr(value string) {
 	c.ChrgBr = (*ChargeBearerType1Code)(&value)
 }
 
+func (c *CreditTransferTransaction39) AddChrgsInf() *Charges7 {
+	newValue := new(Charges7)
+	c.ChrgsInf = append(c.ChrgsInf, newValue)
+	return newValue
+}
+
+func (c *CreditTransferTransaction39) AddPrvsInstgAgt1() *BranchAndFinancialInstitutionIdentification6 {
+	c.PrvsInstgAgt1 = new(BranchAndFinancialInstitutionIdentification6)
+	return c.PrvsInstgAgt1
+}
+
+func (c *CreditTransferTransaction39) AddPrvsInstgAgt1Acct() *CashAccount38 {
+	c.PrvsInstgAgt1Acct = new(CashAccount38)
+	return c.PrvsInstgAgt1Acct
+}
+
+func (c *CreditTransferTransaction39) AddPrvsInstgAgt2() *BranchAndFinancialInstitutionIdentification6 {
+	c.PrvsInstgAgt2 = new(BranchAndFinancialInstitutionIdentification6)
+	return c.PrvsInstgAgt2
+}
+
+func (c *CreditTransferTransaction39) AddPrvsInstgAgt2Acct() *CashAccount38 {
+	c.PrvsInstgAgt2Acct = new(CashAccount38)
+	return c.PrvsInstgAgt2Acct
+}
+
+func (c *CreditTransferTransaction39) AddPrvsInstgAgt3() *BranchAndFinancialInstitutionIdentification6 {
+	c.PrvsInstgAgt3 = new(BranchAndFinancialInstitutionIdentification6)
+	return c.PrvsInstgAgt3
+}
+
+func (c *CreditTransferTransaction39) AddPrvsInstgAgt3Acct() *CashAccount38 {
+	c.PrvsInstgAgt3Acct = new(CashAccount38)
+	return c.PrvsInstgAgt3Acct
+}
+
+func (c *CreditTransferTransaction39) AddInstgAgt() *BranchAndFinancialInstitutionIdentification6 {
+	c.InstgAgt = new(BranchAndFinancialInstitutionIdentification6)
+	return c.InstgAgt
+}
+
+func (c *CreditTransferTransaction39) AddInstdAgt() *BranchAndFinancialInstitutionIdentification6 {
+	c.InstdAgt = new(BranchAndFinancialInstitutionIdentification6)
+	return c.InstdAgt
+}
+
+func (c *CreditTransferTransaction39) AddIntrmyAgt1() *BranchAndFinancialInstitutionIdentification6 {
+	c.IntrmyAgt1 = new(BranchAndFinancialInstitutionIdentification6)
+	return c.IntrmyAgt1
+}
+
+func (c *CreditTransferTransaction39) AddIntrmyAgt1Acct() *CashAccount38 {
+	c.IntrmyAgt1Acct = new(CashAccount38)
+	return c.IntrmyAgt1Acct
+}
+
+func (c *CreditTransferTransaction39) AddIntrmyAgt2() *BranchAndFinancialInstitutionIdentification6 {
+	c.IntrmyAgt2 = new(BranchAndFinancialInstitutionIdentification6)
+	return c.IntrmyAgt2
+}
+
+func (c *CreditTransferTransaction39) AddIntrmyAgt2Acct() *CashAccount38 {
+	c.IntrmyAgt2Acct = new(CashAccount38)
+	return c.IntrmyAgt2Acct
+}
+
+func (c *CreditTransferTransaction39) AddIntrmyAgt3() *BranchAndFinancialInstitutionIdentification6 {
+	c.IntrmyAgt3 = new(BranchAndFinancialInstitutionIdentification6)
+	return c.IntrmyAgt3
+}
+
+func (c *CreditTransferTransaction39) AddIntrmyAgt3Acct() *CashAccount38 {
+	c.IntrmyAgt3Acct = new(CashAccount38)
+	return c.IntrmyAgt3Acct
+}
+
+func (c *CreditTransferTransaction39) AddUltmtDbtr() *PartyIdentification135 {
+	c.UltmtDbtr = new(PartyIdentification135)
+	return c.UltmtDbtr
+}
+
+func (c *CreditTransferTransaction39) AddInitgPty() *PartyIdentification135 {
+	c.InitgPty = new(PartyIdentification135)
+	return c.InitgPty
+}
+
+func (c *CreditTransferTransaction39) AddDbtr() *PartyIdentification135 {
+	c.Dbtr = new(PartyIdentification135)
+	return c.Dbtr
+}
+
+func (c *CreditTransferTransaction39) AddDbtrAcct() *CashAccount38 {
+	c.DbtrAcct = new(CashAccount38)
+	return c.DbtrAcct
+}
+
+func (c *CreditTransferTransaction39) AddDbtrAgt() *BranchAndFinancialInstitutionIdentification6 {
+	c.DbtrAgt = new(BranchAndFinancialInstitutionIdentification6)
+	return c.DbtrAgt
+}
+
+func (c *CreditTransferTransaction39) AddDbtrAgtAcct() *CashAccount38 {
+	c.DbtrAgtAcct = new(CashAccount38)
+	return c.DbtrAgtAcct
+}
+
+func (c *CreditTransferTransaction39) AddCdtrAgt() *BranchAndFinancialInstitutionIdentification6 {
+	c.CdtrAgt = new(BranchAndFinancialInstitutionIdentification6)
+	return c.CdtrAgt
+}
+
+func (c *CreditTransferTransaction39) AddCdtrAgtAcct() *CashAccount38 {
+	c.CdtrAgtAcct = new(CashAccount38)
+	return c.CdtrAgtAcct
+}
+
+func (c *CreditTransferTransaction39) AddCdtr() *PartyIdentification135 {
+	c.Cdtr = new(PartyIdentification135)
+	return c.Cdtr
+}
+
+func (c *CreditTransferTransaction39) AddCdtrAcct() *CashAccount38 {
+	c.CdtrAcct = new(CashAccount38)
+	return c.CdtrAcct
+}
+
+func (c *CreditTransferTransaction39) AddUltmtCdtr() *PartyIdentification135 {
+	c.UltmtCdtr = new(PartyIdentification135)
+	return c.UltmtCdtr
+}
+
+func (c *CreditTransferTransaction39) AddInstrForCdtrAgt() *InstructionForCreditorAgent1 {
+	newValue := new(InstructionForCreditorAgent1)
+	c.InstrForCdtrAgt = append(c.InstrForCdtrAgt, newValue)
+	return newValue
+}
+
+func (c *CreditTransferTransaction39) AddInstrForNxtAgt() *InstructionForNextAgent1 {
+	newValue := new(InstructionForNextAgent1)
+	c.InstrForNxtAgt = append(c.InstrForNxtAgt, newValue)
+	return newValue
+}
+
+func (c *CreditTransferTransaction39) AddPurp() *Purpose2Choice {
+	c.Purp = new(Purpose2Choice)
+	return c.Purp
+}
+
+func (c *CreditTransferTransaction39) AddRgltryRptg() *RegulatoryReporting3 {
+	newValue := new(RegulatoryReporting3)
+	c.RgltryRptg = append(c.RgltryRptg, newValue)
+	return newValue
+}
+
+func (c *CreditTransferTransaction39) AddTax() *TaxInformation8 {
+	c.Tax = new(TaxInformation8)
+	return c.Tax
+}
+
+func (c *CreditTransferTransaction39) AddRltdRmtInf() *RemittanceLocation7 {
+	newValue := new(RemittanceLocation7)
+	c.RltdRmtInf = append(c.RltdRmtInf, newValue)
+	return newValue
+}
+
+func (c *CreditTransferTransaction39) AddRmtInf() *RemittanceInformation16 {
+	c.RmtInf = new(RemittanceInformation16)
+	return c.RmtInf
+}
+
+func (c *CreditTransferTransaction39) AddSplmtryData() *BI_SupplementaryData1 {
+	newValue := new(BI_SupplementaryData1)
+	c.SplmtryData = append(c.SplmtryData, newValue)
+	return newValue
+}
+
 type PaymentIdentification7 struct {
-	InstrId    Max35Text        `xml:"InstrId,omitempty" json:"InstrId,omitempty"`
-	EndToEndId Max35Text        `xml:"EndToEndId" json:"EndToEndId"`
-	TxId       Max35Text        `xml:"TxId,omitempty" json:"TxId,omitempty"`
-	UETR       UUIDv4Identifier `xml:"UETR,omitempty" json:"UETR,omitempty"`
-	ClrSysRef  Max35Text        `xml:"ClrSysRef,omitempty" json:"ClrSysRef,omitempty"`
+	InstrId    *Max35Text        `xml:"InstrId,omitempty" json:"InstrId,omitempty"`
+	EndToEndId *Max35Text        `xml:"EndToEndId" json:"EndToEndId"`
+	TxId       *Max35Text        `xml:"TxId,omitempty" json:"TxId,omitempty"`
+	UETR       *UUIDv4Identifier `xml:"UETR,omitempty" json:"UETR,omitempty"`
+	ClrSysRef  *Max35Text        `xml:"ClrSysRef,omitempty" json:"ClrSysRef,omitempty"`
+}
+
+func (p *PaymentIdentification7) SetInstrId(value string) {
+	p.InstrId = (*Max35Text)(&value)
+}
+
+func (p *PaymentIdentification7) SetEndToEndId(value string) {
+	p.EndToEndId = (*Max35Text)(&value)
+}
+
+func (p *PaymentIdentification7) SetTxId(value string) {
+	p.TxId = (*Max35Text)(&value)
+}
+
+func (p *PaymentIdentification7) SetUETR(value string) {
+	p.UETR = (*UUIDv4Identifier)(&value)
+}
+
+func (p *PaymentIdentification7) SetClrSysRef(value string) {
+	p.ClrSysRef = (*Max35Text)(&value)
 }
 
 type TaxInformation8 struct {
-	Cdtr            TaxParty1                         `xml:"Cdtr,omitempty" json:"Cdtr,omitempty"`
-	Dbtr            TaxParty2                         `xml:"Dbtr,omitempty" json:"Dbtr,omitempty"`
-	AdmstnZone      Max35Text                         `xml:"AdmstnZone,omitempty" json:"AdmstnZone,omitempty"`
-	RefNb           Max140Text                        `xml:"RefNb,omitempty" json:"RefNb,omitempty"`
-	Mtd             Max35Text                         `xml:"Mtd,omitempty" json:"Mtd,omitempty"`
-	TtlTaxblBaseAmt ActiveOrHistoricCurrencyAndAmount `xml:"TtlTaxblBaseAmt,omitempty" json:"TtlTaxblBaseAmt,omitempty"`
-	TtlTaxAmt       ActiveOrHistoricCurrencyAndAmount `xml:"TtlTaxAmt,omitempty" json:"TtlTaxAmt,omitempty"`
-	Dt              ISODate                           `xml:"Dt,omitempty" json:"Dt,omitempty"`
-	SeqNb           DecimalNumber                     `xml:"SeqNb,omitempty" json:"SeqNb,omitempty"`
-	Rcrd            []TaxRecord2                      `xml:"Rcrd,omitempty" json:"Rcrd,omitempty"`
+	Cdtr            *TaxParty1                         `xml:"Cdtr,omitempty" json:"Cdtr,omitempty"`
+	Dbtr            *TaxParty2                         `xml:"Dbtr,omitempty" json:"Dbtr,omitempty"`
+	AdmstnZone      *Max35Text                         `xml:"AdmstnZone,omitempty" json:"AdmstnZone,omitempty"`
+	RefNb           *Max140Text                        `xml:"RefNb,omitempty" json:"RefNb,omitempty"`
+	Mtd             *Max35Text                         `xml:"Mtd,omitempty" json:"Mtd,omitempty"`
+	TtlTaxblBaseAmt *ActiveOrHistoricCurrencyAndAmount `xml:"TtlTaxblBaseAmt,omitempty" json:"TtlTaxblBaseAmt,omitempty"`
+	TtlTaxAmt       *ActiveOrHistoricCurrencyAndAmount `xml:"TtlTaxAmt,omitempty" json:"TtlTaxAmt,omitempty"`
+	Dt              *ISODate                           `xml:"Dt,omitempty" json:"Dt,omitempty"`
+	SeqNb           *DecimalNumber                     `xml:"SeqNb,omitempty" json:"SeqNb,omitempty"`
+	Rcrd            []*TaxRecord2                      `xml:"Rcrd,omitempty" json:"Rcrd,omitempty"`
+}
+
+func (t *TaxInformation8) AddCdtr() *TaxParty1 {
+	t.Cdtr = new(TaxParty1)
+	return t.Cdtr
+}
+
+func (t *TaxInformation8) AddDbtr() *TaxParty2 {
+	t.Dbtr = new(TaxParty2)
+	return t.Dbtr
+}
+
+func (t *TaxInformation8) SetAdmstnZone(value string) {
+	t.AdmstnZone = (*Max35Text)(&value)
+}
+
+func (t *TaxInformation8) SetRefNb(value string) {
+	t.RefNb = (*Max140Text)(&value)
+}
+
+func (t *TaxInformation8) SetMtd(value string) {
+	t.Mtd = (*Max35Text)(&value)
+}
+
+func (t *TaxInformation8) AddTtlTaxblBaseAmt() *ActiveOrHistoricCurrencyAndAmount {
+	t.TtlTaxblBaseAmt = new(ActiveOrHistoricCurrencyAndAmount)
+	return t.TtlTaxblBaseAmt
+}
+
+func (t *TaxInformation8) AddTtlTaxAmt() *ActiveOrHistoricCurrencyAndAmount {
+	t.TtlTaxAmt = new(ActiveOrHistoricCurrencyAndAmount)
+	return t.TtlTaxAmt
+}
+
+func (t *TaxInformation8) SetDt(value string) {
+	t.Dt = (*ISODate)(&value)
+}
+
+func (t *TaxInformation8) SetSeqNb(value string) {
+	t.SeqNb = (*DecimalNumber)(&value)
+}
+
+func (t *TaxInformation8) AddRcrd() *TaxRecord2 {
+	newValue := new(TaxRecord2)
+	t.Rcrd = append(t.Rcrd, newValue)
+	return newValue
 }
 
 type RemittanceLocation7 struct {
-	RmtId       Max35Text                 `xml:"RmtId,omitempty" json:"RmtId,omitempty"`
-	RmtLctnDtls []RemittanceLocationData1 `xml:"RmtLctnDtls,omitempty" json:"RmtLctnDtls,omitempty"`
+	RmtId       *Max35Text                 `xml:"RmtId,omitempty" json:"RmtId,omitempty"`
+	RmtLctnDtls []*RemittanceLocationData1 `xml:"RmtLctnDtls,omitempty" json:"RmtLctnDtls,omitempty"`
+}
+
+func (r *RemittanceLocation7) SetRmtId(value string) {
+	r.RmtId = (*Max35Text)(&value)
+}
+
+func (r *RemittanceLocation7) AddRmtLctnDtls() *RemittanceLocationData1 {
+	newValue := new(RemittanceLocationData1)
+	r.RmtLctnDtls = append(r.RmtLctnDtls, newValue)
+	return newValue
 }
 
 type RemittanceLocationData1 struct {
-	Mtd        RemittanceLocationMethod2Code `xml:"Mtd" json:"Mtd"`
-	ElctrncAdr Max2048Text                   `xml:"ElctrncAdr,omitempty" json:"ElctrncAdr,omitempty"`
-	PstlAdr    NameAndAddress16              `xml:"PstlAdr,omitempty" json:"PstlAdr,omitempty"`
+	Mtd        *RemittanceLocationMethod2Code `xml:"Mtd" json:"Mtd"`
+	ElctrncAdr *Max2048Text                   `xml:"ElctrncAdr,omitempty" json:"ElctrncAdr,omitempty"`
+	PstlAdr    *NameAndAddress16              `xml:"PstlAdr,omitempty" json:"PstlAdr,omitempty"`
+}
+
+func (r *RemittanceLocationData1) SetMtd(value string) {
+	r.Mtd = (*RemittanceLocationMethod2Code)(&value)
+}
+
+func (r *RemittanceLocationData1) SetElctrncAdr(value string) {
+	r.ElctrncAdr = (*Max2048Text)(&value)
+}
+
+func (r *RemittanceLocationData1) AddPstlAdr() *NameAndAddress16 {
+	r.PstlAdr = new(NameAndAddress16)
+	return r.PstlAdr
 }
 
 type NameAndAddress16 struct {
-	Nm  Max140Text      `xml:"Nm" json:"Nm"`
-	Adr PostalAddress24 `xml:"Adr" json:"Adr"`
+	Nm  *Max140Text      `xml:"Nm" json:"Nm"`
+	Adr *PostalAddress24 `xml:"Adr" json:"Adr"`
+}
+
+func (n *NameAndAddress16) SetNm(value string) {
+	n.Nm = (*Max140Text)(&value)
+}
+
+func (n *NameAndAddress16) AddPstlAdr() *PostalAddress24 {
+	n.Adr = new(PostalAddress24)
+	return n.Adr
 }
 
 // TODO: pacs.009.001.09, json tag
@@ -1378,9 +2020,123 @@ func (c *CreditTransferTransaction44) SetIntrBkSttlmDt(value string) {
 	c.IntrBkSttlmDt = (*ISODate)(&value)
 }
 
+func (c *CreditTransferTransaction44) SetSttlmPrty(value string) {
+	c.SttlmPrty = (*Priority3Code)(&value)
+}
+
+func (c *CreditTransferTransaction44) AddSttlmTmIndctn() *SettlementDateTimeIndication1 {
+	c.SttlmTmIndctn = new(SettlementDateTimeIndication1)
+	return c.SttlmTmIndctn
+}
+
+func (c *CreditTransferTransaction44) AddSttlmTmReq() *SettlementTimeRequest2 {
+	c.SttlmTmReq = new(SettlementTimeRequest2)
+	return c.SttlmTmReq
+}
+
+func (c *CreditTransferTransaction44) AddPrvsInstgAgt1() *BranchAndFinancialInstitutionIdentification6 {
+	c.PrvsInstgAgt1 = new(BranchAndFinancialInstitutionIdentification6)
+	return c.PrvsInstgAgt1
+}
+
+func (c *CreditTransferTransaction44) AddPrvsInstgAgt1Acct() *CashAccount38 {
+	c.PrvsInstgAgt1Acct = new(CashAccount38)
+	return c.PrvsInstgAgt1Acct
+}
+
+func (c *CreditTransferTransaction44) AddPrvsInstgAgt2() *BranchAndFinancialInstitutionIdentification6 {
+	c.PrvsInstgAgt2 = new(BranchAndFinancialInstitutionIdentification6)
+	return c.PrvsInstgAgt2
+}
+
+func (c *CreditTransferTransaction44) AddPrvsInstgAgt2Acct() *CashAccount38 {
+	c.PrvsInstgAgt2Acct = new(CashAccount38)
+	return c.PrvsInstgAgt2Acct
+}
+
+func (c *CreditTransferTransaction44) AddPrvsInstgAgt3() *BranchAndFinancialInstitutionIdentification6 {
+	c.PrvsInstgAgt3 = new(BranchAndFinancialInstitutionIdentification6)
+	return c.PrvsInstgAgt3
+}
+
+func (c *CreditTransferTransaction44) AddPrvsInstgAgt3Acct() *CashAccount38 {
+	c.PrvsInstgAgt3Acct = new(CashAccount38)
+	return c.PrvsInstgAgt3Acct
+}
+
+func (c *CreditTransferTransaction44) AddInstgAgt() *BranchAndFinancialInstitutionIdentification6 {
+	c.InstgAgt = new(BranchAndFinancialInstitutionIdentification6)
+	return c.InstgAgt
+}
+
+func (c *CreditTransferTransaction44) AddInstdAgt() *BranchAndFinancialInstitutionIdentification6 {
+	c.InstdAgt = new(BranchAndFinancialInstitutionIdentification6)
+	return c.InstdAgt
+}
+
+func (c *CreditTransferTransaction44) AddIntrmyAgt1() *BranchAndFinancialInstitutionIdentification6 {
+	c.IntrmyAgt1 = new(BranchAndFinancialInstitutionIdentification6)
+	return c.IntrmyAgt1
+}
+
+func (c *CreditTransferTransaction44) AddIntrmyAgt1Acct() *CashAccount38 {
+	c.IntrmyAgt1Acct = new(CashAccount38)
+	return c.IntrmyAgt1Acct
+}
+
+func (c *CreditTransferTransaction44) AddIntrmyAgt2() *BranchAndFinancialInstitutionIdentification6 {
+	c.IntrmyAgt2 = new(BranchAndFinancialInstitutionIdentification6)
+	return c.IntrmyAgt2
+}
+
+func (c *CreditTransferTransaction44) AddIntrmyAgt2Acct() *CashAccount38 {
+	c.IntrmyAgt2Acct = new(CashAccount38)
+	return c.IntrmyAgt2Acct
+}
+
+func (c *CreditTransferTransaction44) AddIntrmyAgt3() *BranchAndFinancialInstitutionIdentification6 {
+	c.IntrmyAgt3 = new(BranchAndFinancialInstitutionIdentification6)
+	return c.IntrmyAgt3
+}
+
+func (c *CreditTransferTransaction44) AddIntrmyAgt3Acct() *CashAccount38 {
+	c.IntrmyAgt3Acct = new(CashAccount38)
+	return c.IntrmyAgt3Acct
+}
+
+func (c *CreditTransferTransaction44) AddUltmtDbtr() *BranchAndFinancialInstitutionIdentification6 {
+	c.UltmtDbtr = new(BranchAndFinancialInstitutionIdentification6)
+	return c.UltmtDbtr
+}
+
 func (c *CreditTransferTransaction44) AddDbtr() *BranchAndFinancialInstitutionIdentification6 {
 	c.Dbtr = new(BranchAndFinancialInstitutionIdentification6)
 	return c.Dbtr
+}
+
+func (c *CreditTransferTransaction44) AddDbtrAcct() *CashAccount38 {
+	c.DbtrAcct = new(CashAccount38)
+	return c.DbtrAcct
+}
+
+func (c *CreditTransferTransaction44) AddDbtrAgt() *BranchAndFinancialInstitutionIdentification6 {
+	c.DbtrAgt = new(BranchAndFinancialInstitutionIdentification6)
+	return c.DbtrAgt
+}
+
+func (c *CreditTransferTransaction44) AddDbtrAgtAcct() *CashAccount38 {
+	c.DbtrAgtAcct = new(CashAccount38)
+	return c.DbtrAgtAcct
+}
+
+func (c *CreditTransferTransaction44) AddCdtrAgt() *BranchAndFinancialInstitutionIdentification6 {
+	c.CdtrAgt = new(BranchAndFinancialInstitutionIdentification6)
+	return c.CdtrAgt
+}
+
+func (c *CreditTransferTransaction44) AddCdtrAgtAcct() *CashAccount38 {
+	c.CdtrAgtAcct = new(CashAccount38)
+	return c.CdtrAgtAcct
 }
 
 func (c *CreditTransferTransaction44) AddCdtr() *BranchAndFinancialInstitutionIdentification6 {
@@ -1388,9 +2144,47 @@ func (c *CreditTransferTransaction44) AddCdtr() *BranchAndFinancialInstitutionId
 	return c.Cdtr
 }
 
+func (c *CreditTransferTransaction44) AddCdtrAcct() *CashAccount38 {
+	c.CdtrAcct = new(CashAccount38)
+	return c.CdtrAcct
+}
+
+func (c *CreditTransferTransaction44) AddUltmtCdtr() *BranchAndFinancialInstitutionIdentification6 {
+	c.UltmtCdtr = new(BranchAndFinancialInstitutionIdentification6)
+	return c.UltmtCdtr
+}
+
+func (c *CreditTransferTransaction44) AddInstrForCdtrAgt() *InstructionForCreditorAgent3 {
+	newValue := new(InstructionForCreditorAgent3)
+	c.InstrForCdtrAgt = append(c.InstrForCdtrAgt, newValue)
+	return newValue
+}
+
+func (c *CreditTransferTransaction44) AddInstrForNxtAgt() *InstructionForNextAgent1 {
+	newValue := new(InstructionForNextAgent1)
+	c.InstrForNxtAgt = append(c.InstrForNxtAgt, newValue)
+	return newValue
+}
+
+func (c *CreditTransferTransaction44) AddPurp() *Purpose2Choice {
+	c.Purp = new(Purpose2Choice)
+	return c.Purp
+}
+
 func (c *CreditTransferTransaction44) AddRmtInf() *RemittanceInformation2 {
 	c.RmtInf = new(RemittanceInformation2)
 	return c.RmtInf
+}
+
+func (c *CreditTransferTransaction44) AddUndrlygCstmrCdtTrf() *CreditTransferTransaction45 {
+	c.UndrlygCstmrCdtTrf = new(CreditTransferTransaction45)
+	return c.UndrlygCstmrCdtTrf
+}
+
+func (c *CreditTransferTransaction44) AddSplmtryData() *SupplementaryData1 {
+	newValue := new(SupplementaryData1)
+	c.SplmtryData = append(c.SplmtryData, newValue)
+	return newValue
 }
 
 type PaymentIdentification13 struct {
@@ -1401,12 +2195,24 @@ type PaymentIdentification13 struct {
 	ClrSysRef  *Max35Text        `xml:"ClrSysRef,omitempty" json:"ClrSysRef,omitempty"`
 }
 
+func (p *PaymentIdentification13) SetInstrId(value string) {
+	p.InstrId = (*Max35Text)(&value)
+}
+
 func (p *PaymentIdentification13) SetEndToEndId(value string) {
 	p.EndToEndId = (*Max35Text)(&value)
 }
 
 func (p *PaymentIdentification13) SetTxId(value string) {
 	p.TxId = (*Max35Text)(&value)
+}
+
+func (p *PaymentIdentification13) SetUETR(value string) {
+	p.UETR = (*UUIDv4Identifier)(&value)
+}
+
+func (p *PaymentIdentification13) SetClrSysRef(value string) {
+	p.ClrSysRef = (*Max35Text)(&value)
 }
 
 type InstructionForCreditorAgent3 struct {
