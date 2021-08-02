@@ -11,15 +11,24 @@ type Document00500101 struct {
 	Message *ProxyEnquiryV01 `xml:"PrxyNqryReq" json:"PrxyNqryReq"`
 }
 
-type ProxyEnquiryV01 struct {
-	GroupHeader *iso20022.GroupHeader59 `xml:"GrpHdr" json:"GrpHdr"`
-
-	Nqry *iso20022.ProxyEnquiryChoice1 `xml:"Nqry" json:"Nqry"`
-}
-
 func (d *Document00500101) AddMessage() *ProxyEnquiryV01 {
 	d.Message = new(ProxyEnquiryV01)
 	return d.Message
+}
+
+type ProxyEnquiryV01 struct {
+	GroupHeader *iso20022.GroupHeader59       `xml:"GrpHdr" json:"GrpHdr"`
+	Nqry        *iso20022.ProxyEnquiryChoice1 `xml:"Nqry" json:"Nqry"`
+}
+
+func (p *ProxyEnquiryV01) AddGroupHeader() *iso20022.GroupHeader59 {
+	p.GroupHeader = new(iso20022.GroupHeader59)
+	return p.GroupHeader
+}
+
+func (p *ProxyEnquiryV01) AddNqry() *iso20022.ProxyEnquiryChoice1 {
+	p.Nqry = new(iso20022.ProxyEnquiryChoice1)
+	return p.Nqry
 }
 
 func (d *Document00500101) String() (result string, ok bool) { return }

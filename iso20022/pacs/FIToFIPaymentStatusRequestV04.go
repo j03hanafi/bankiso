@@ -36,6 +36,12 @@ func (f *FIToFIPaymentStatusRequestV04) AddGroupHeader() *iso20022.GroupHeader91
 	return f.GroupHeader
 }
 
+func (f *FIToFIPaymentStatusRequestV04) AddOrgnlGrpInf() *iso20022.OriginalGroupInformation27 {
+	newValue := new(iso20022.OriginalGroupInformation27)
+	f.OrgnlGrpInf = append(f.OrgnlGrpInf, newValue)
+	return newValue
+}
+
 // res.AddMessage(). AddTxInf()
 func (f *FIToFIPaymentStatusRequestV04) AddTxInf() *iso20022.PaymentTransaction121 {
 	newValue := new(iso20022.PaymentTransaction121)
