@@ -68,7 +68,7 @@ func (f *FinancialInstitutionIdentification18) SetNm(value string) {
 	f.Nm = (*Max140Text)(&value)
 }
 
-func (f *FinancialInstitutionIdentification18) AddOthr(value string) *GenericFinancialIdentification1 {
+func (f *FinancialInstitutionIdentification18) AddOthr() *GenericFinancialIdentification1 {
 	f.Othr = new(GenericFinancialIdentification1)
 	return f.Othr
 }
@@ -1604,9 +1604,8 @@ func (c *CreditTransferTransaction39) AddPmtTpInf() *PaymentTypeInformation28 {
 	return c.PmtTpInf
 }
 
-func (c *CreditTransferTransaction39) AddIntrBkSttlmAmt() *ActiveCurrencyAndAmount {
-	c.IntrBkSttlmAmt = new(ActiveCurrencyAndAmount)
-	return c.IntrBkSttlmAmt
+func (c *CreditTransferTransaction39) SetInterbankSettlementAmount(value, currency string) {
+	c.IntrBkSttlmAmt = NewActiveCurrencyAndAmount(value, currency)
 }
 
 func (c *CreditTransferTransaction39) SetIntrBkSttlmDt(value string) {
