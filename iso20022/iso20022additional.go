@@ -1399,7 +1399,7 @@ func (b *BI_SupplementaryData2) SetPlcAndNm(value string) {
 	b.PlcAndNm = (*Max350Text)(&value)
 }
 
-func (b *BI_SupplementaryData2) AddDtl() *BI_SupplementaryDataEnvelope2 {
+func (b *BI_SupplementaryData2) AddEnvlp() *BI_SupplementaryDataEnvelope2 {
 	b.Envlp = new(BI_SupplementaryDataEnvelope2)
 	return b.Envlp
 }
