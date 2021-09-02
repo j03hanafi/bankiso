@@ -24,7 +24,7 @@ type ProxyRegistrationV01 struct {
 	Regn *iso20022.ProxyRegistration1 `xml:"Regn" json:"Regn"`
 
 	// Additional information that cannot be captured in the structured elements and/or any other specific block.
-	SupplementaryData []*iso20022.BI_SupplementaryData1 `xml:"SplmtryData,omitempty" json:"SplmtryData,omitempty"`
+	SupplementaryData []*iso20022.BI_SupplementaryData2 `xml:"SplmtryData,omitempty" json:"SplmtryData,omitempty"`
 }
 
 func (p *ProxyRegistrationV01) AddGroupHeader() *iso20022.GroupHeader59 {
@@ -37,8 +37,8 @@ func (p *ProxyRegistrationV01) AddRegn() *iso20022.ProxyRegistration1 {
 	return p.Regn
 }
 
-func (p *ProxyRegistrationV01) AddSupplementaryData() *iso20022.BI_SupplementaryData1 {
-	newValue := new(iso20022.BI_SupplementaryData1)
+func (p *ProxyRegistrationV01) AddSupplementaryData() *iso20022.BI_SupplementaryData2 {
+	newValue := new(iso20022.BI_SupplementaryData2)
 	p.SupplementaryData = append(p.SupplementaryData, newValue)
 	return newValue
 }

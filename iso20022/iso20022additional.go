@@ -1390,6 +1390,20 @@ func (b *BI_SupplementaryData1) AddEnvlp() *BI_SupplementaryDataEnvelope1 {
 	return b.Envlp
 }
 
+type BI_SupplementaryData2 struct {
+	PlcAndNm *Max350Text                    `xml:"PlcAndNm,omitempty" json:"PlcAndNm,omitempty"`
+	Envlp    *BI_SupplementaryDataEnvelope2 `xml:"Envlp" json:"Envlp"`
+}
+
+func (b *BI_SupplementaryData2) SetPlcAndNm(value string) {
+	b.PlcAndNm = (*Max350Text)(&value)
+}
+
+func (b *BI_SupplementaryData2) AddDtl() *BI_SupplementaryDataEnvelope2 {
+	b.Envlp = new(BI_SupplementaryDataEnvelope2)
+	return b.Envlp
+}
+
 type BI_SupplementaryDataEnvelope1 struct {
 	Dbtr        *BI_AddtlCstmrInf `xml:"Dbtr,omitempty" json:"Dbtr,omitempty"`
 	Cdtr        *BI_AddtlCstmrInf `xml:"Cdtr,omitempty" json:"Cdtr,omitempty"`
@@ -1421,6 +1435,15 @@ func (b *BI_SupplementaryDataEnvelope1) AddCdtrAgtAcct() *CashAccount38 {
 func (b *BI_SupplementaryDataEnvelope1) AddCstmr() *BI_AddtlCstmrInf {
 	b.Cstmr = new(BI_AddtlCstmrInf)
 	return b.Cstmr
+}
+
+type BI_SupplementaryDataEnvelope2 struct {
+	Dtl *BI_SupplementaryDataEnvelope1 `xml:"Dtl,omitempty" json:"Dtl,omitempty"`
+}
+
+func (b *BI_SupplementaryDataEnvelope2) AddCstmr() *BI_SupplementaryDataEnvelope1 {
+	b.Dtl = new(BI_SupplementaryDataEnvelope1)
+	return b.Dtl
 }
 
 type BI_AddtlCstmrInf struct {
@@ -3143,8 +3166,8 @@ func (p *ProxyEnquiryDefinition1) SetSts(value string) {
 }
 
 type ProxyEnquiryAccount1 struct {
-	Agt *BranchAndFinancialInstitutionIdentification5 `xml:"Agt" json:"Agt"`
-	Acct *CashAccount40 `xml:"Acct" json:"Acct"`
+	Agt  *BranchAndFinancialInstitutionIdentification5 `xml:"Agt" json:"Agt"`
+	Acct *CashAccount40                                `xml:"Acct" json:"Acct"`
 }
 
 func (p *ProxyEnquiryAccount1) AddAgt() *BranchAndFinancialInstitutionIdentification5 {
