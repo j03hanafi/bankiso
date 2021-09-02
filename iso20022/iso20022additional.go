@@ -3081,7 +3081,7 @@ func (p *ProxyLookUpAccount1) AddAcct() *CashAccount40 {
 
 // TODO: prxy.005.001.01, json tag
 type ProxyEnquiryChoice1 struct {
-	RegnId *Max35Text         `xml:"RegnId" json:"RegnId"`
+	RegnId *Max35Text         `xml:"RegnId,omitempty" json:"RegnId,omitempty"`
 	ScndId *ScndIdDefinition1 `xml:"ScndId" json:"ScndId"`
 }
 
