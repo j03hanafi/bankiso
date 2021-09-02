@@ -3144,6 +3144,7 @@ func (p *ProxyEnquiryDefinition1) SetSts(value string) {
 
 type ProxyEnquiryAccount1 struct {
 	Agt *BranchAndFinancialInstitutionIdentification5 `xml:"Agt" json:"Agt"`
+	Acct *CashAccount40 `xml:"Acct" json:"Acct"`
 }
 
 func (p *ProxyEnquiryAccount1) AddAgt() *BranchAndFinancialInstitutionIdentification5 {

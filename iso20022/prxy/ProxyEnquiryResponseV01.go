@@ -7,12 +7,12 @@ import (
 )
 
 type Document00600101 struct {
-	XMLName xml.Name         `xml:"urn:iso:std:iso:20022:tech:xsd:prxy.006.001.01 Document" json:"Document"`
-	Message *ProxyEnquiryV01 `xml:"PrxyNqryRspn" json:"PrxyNqryRspn"`
+	XMLName xml.Name                 `xml:"urn:iso:std:iso:20022:tech:xsd:prxy.006.001.01 Document" json:"Document"`
+	Message *ProxyEnquiryResponseV01 `xml:"PrxyNqryRspn" json:"PrxyNqryRspn"`
 }
 
-func (d *Document00600101) AddMessage() *ProxyEnquiryV01 {
-	d.Message = new(ProxyEnquiryV01)
+func (d *Document00600101) AddMessage() *ProxyEnquiryResponseV01 {
+	d.Message = new(ProxyEnquiryResponseV01)
 	return d.Message
 }
 
