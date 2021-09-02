@@ -418,7 +418,7 @@ func (c *Contact4) SetDept(value string) {
 }
 
 // Othr      []*OtherContact1
-func (c *Contact4) AddC() *OtherContact1 {
+func (c *Contact4) AddOthr() *OtherContact1 {
 	newValue := new(OtherContact1)
 	c.Othr = append(c.Othr, newValue)
 	return newValue
@@ -2750,10 +2750,10 @@ type MandateClassification1Code string
 // TODO: prxy.001.001.01, json tag
 
 type ProxyRegistration1 struct {
-	RegnTp    *ProxyRegistrationType1Code    `xml:"RegnTp" json:"RegnTp"`
+	RegnTp    *ProxyRegistrationType1Code    `xml:"RegnTp,omitempty" json:"RegnTp,omitempty"`
 	RegnSubTp *ProxyRegistrationSubType1Code `xml:"RegnSubTp,omitempty" json:"RegnSubTp,omitempty"`
 	Prxy      *ProxyDefinition1              `xml:"Prxy,omitempty" json:"Prxy,omitempty"`
-	PrxyRegn  *ProxyRegistrationAccount1     `xml:"PrxyRegn" json:"PrxyRegn"`
+	PrxyRegn  *ProxyRegistrationAccount1     `xml:"PrxyRegn,omitempty" json:"PrxyRegn,omitempty"`
 }
 
 func (p *ProxyRegistration1) SetRegnTp(value string) {
