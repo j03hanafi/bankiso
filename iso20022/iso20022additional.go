@@ -1441,7 +1441,7 @@ type BI_SupplementaryDataEnvelope2 struct {
 	Dtl *BI_SupplementaryDataEnvelope1 `xml:"Dtl,omitempty" json:"Dtl,omitempty"`
 }
 
-func (b *BI_SupplementaryDataEnvelope2) AddCstmr() *BI_SupplementaryDataEnvelope1 {
+func (b *BI_SupplementaryDataEnvelope2) AddDtl() *BI_SupplementaryDataEnvelope1 {
 	b.Dtl = new(BI_SupplementaryDataEnvelope1)
 	return b.Dtl
 }
