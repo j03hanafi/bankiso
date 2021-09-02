@@ -7,7 +7,8 @@ import (
 )
 
 type Document00300101 struct {
-	XMLName xml.Name        `xml:"urn:iso:std:iso:20022:tech:xsd:prxy.003.001.01 Document" json:"Document"`
+	XMLName xml.Name `xml:"urn:iso:std:iso:20022:tech:xsd:prxy.003.001.01 Document" json:"-"`
+
 	Message *ProxyLookUpV01 `xml:"PrxyLookUp" json:"PrxyLookUp"`
 }
 
@@ -19,12 +20,12 @@ func (d *Document00300101) AddMessage() *ProxyLookUpV01 {
 type ProxyLookUpV01 struct {
 
 	// Set of characteristics shared by all individual transactions included in the message.
-	GroupHeader *iso20022.GroupHeader69      `xml:"GrpHdr" json:"GrpHdr"`
+	GroupHeader *iso20022.GroupHeader59      `xml:"GrpHdr" json:"GrpHdr"`
 	LookUp      *iso20022.ProxyLookUpChoice1 `xml:"LookUp" json:"LookUp"`
 }
 
-func (p *ProxyLookUpV01) AddGroupHeader() *iso20022.GroupHeader69 {
-	p.GroupHeader = new(iso20022.GroupHeader69)
+func (p *ProxyLookUpV01) AddGroupHeader() *iso20022.GroupHeader59 {
+	p.GroupHeader = new(iso20022.GroupHeader59)
 	return p.GroupHeader
 }
 

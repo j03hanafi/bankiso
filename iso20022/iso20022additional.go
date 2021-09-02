@@ -2987,7 +2987,7 @@ func (p *ProxyLookUpChoice1) AddPrxyOnly() *ProxyLookUp11 {
 }
 
 type ProxyLookUp11 struct {
-	LkUpTp    *ProxyLookUpType1Code `xml:"LkUpTp" json:"LkUpTP"`
+	LkUpTp    *ProxyLookUpType1Code `xml:"LkUpTp" json:"LkUpTp"`
 	Id        *Max35Text            `xml:"Id" json:"Id"`
 	PrxyRtrvl *ProxyDefinition1     `xml:"PrxyRtrvl" json:"PrxyRtrvl"`
 }
