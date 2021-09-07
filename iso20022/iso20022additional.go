@@ -1378,15 +1378,15 @@ func (p *Party40Choice) AddAgt() *BranchAndFinancialInstitutionIdentification6 {
 
 type BI_SupplementaryData1 struct {
 	PlcAndNm *Max350Text                    `xml:"PlcAndNm,omitempty" json:"PlcAndNm,omitempty"`
-	Envlp    *BI_SupplementaryDataEnvelope1 `xml:"Envlp" json:"Envlp"`
+	Envlp    *BI_SupplementaryDataEnvelope2 `xml:"Envlp" json:"Envlp"`
 }
 
 func (b *BI_SupplementaryData1) SetPlcAndNm(value string) {
 	b.PlcAndNm = (*Max350Text)(&value)
 }
 
-func (b *BI_SupplementaryData1) AddEnvlp() *BI_SupplementaryDataEnvelope1 {
-	b.Envlp = new(BI_SupplementaryDataEnvelope1)
+func (b *BI_SupplementaryData2) AddEnvlp() *BI_SupplementaryDataEnvelope1 {
+	b.Envlp = new(BI_SupplementaryDataEnvelope2)
 	return b.Envlp
 }
 
