@@ -21,7 +21,7 @@ type ProxyLookUpResponseV01 struct {
 	GroupHeader *iso20022.GroupHeader60             `xml:"GrpHdr" json:"GrpHdr"`
 	OrgnlGrpInf *iso20022.OriginalGroupInformation3 `xml:"OrgnlGrpInf" json:"OrgnlGrpInf"`
 	LkUpRspn    *iso20022.ProxyLookUpResponse1      `xml:"LkUpRspn" json:"LkUpRspn"`
-	SplmtryData *iso20022.BI_SupplementaryData1     `xml:"SplmtryData" json:"SplmtryData"`
+	SplmtryData []*iso20022.BI_SupplementaryData1   `xml:"SplmtryData" json:"SplmtryData"`
 }
 
 func (p *ProxyLookUpResponseV01) AddGroupHeader() *iso20022.GroupHeader60 {
@@ -40,7 +40,8 @@ func (p *ProxyLookUpResponseV01) AddLkUpRspn() *iso20022.ProxyLookUpResponse1 {
 }
 
 func (p *ProxyLookUpResponseV01) AddSplmtryData() *iso20022.BI_SupplementaryData1 {
-	p.SplmtryData = new(iso20022.BI_SupplementaryData1)
+	newValue := new(iso20022.BI_SupplementaryData1)
+	p.SplmtryData = append(p.SplmtryData, newValue)
 	return p.SplmtryData
 }
 
