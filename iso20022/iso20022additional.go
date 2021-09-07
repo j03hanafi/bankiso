@@ -3096,9 +3096,9 @@ func (p *ProxyEnquiryChoice1) AddScndId() *ScndIdDefinition1 {
 
 // TODO: prxy.006.001.01, json tag
 type ProxyEnquiryResponse1 struct {
-	PrxRspnSts *ProxyStatusCode          `xml:"PrxRspnSts" json:"PrxRspnSts"`
-	StsRsnInf  *ProxyStatusChoice        `xml:"StsRsnInf" json:"StsRsnInf"`
-	Rspn       *ProxyEnquiryInformation1 `xml:"Rspn" json:"Rspn"`
+	PrxRspnSts *ProxyStatusCode            `xml:"PrxRspnSts" json:"PrxRspnSts"`
+	StsRsnInf  *ProxyStatusChoice          `xml:"StsRsnInf" json:"StsRsnInf"`
+	Rspn       []*ProxyEnquiryInformation1 `xml:"Rspn" json:"Rspn"`
 }
 
 func (p *ProxyEnquiryResponse1) SetPrxRspnSts(value string) {
@@ -3111,8 +3111,9 @@ func (p *ProxyEnquiryResponse1) AddStsRsnInf() *ProxyStatusChoice {
 }
 
 func (p *ProxyEnquiryResponse1) AddRspn() *ProxyEnquiryInformation1 {
-	p.Rspn = new(ProxyEnquiryInformation1)
-	return p.Rspn
+	newValue := new(ProxyEnquiryInformation1)
+	p.Rspn = append(p.Rspn, newValue)
+	return newValue
 }
 
 type ProxyEnquiryInformation1 struct {
@@ -3121,7 +3122,7 @@ type ProxyEnquiryInformation1 struct {
 	Ptcpt       *BranchAndFinancialInstitutionIdentification5 `xml:"Ptcpt" json:"Ptcpt"`
 	PrxyInf     *ProxyEnquiryDefinition1                      `xml:"PrxyInf" json:"PrxyInf"`
 	AcctInf     *ProxyEnquiryAccount1                         `xml:"AcctInf" json:"AcctInf"`
-	SplmtryData *BI_SupplementaryData1                        `xml:"SplmtryData" json:"SplmtryData"`
+	SplmtryData *BI_SupplementaryData2                        `xml:"SplmtryData" json:"SplmtryData"`
 }
 
 func (p *ProxyEnquiryInformation1) SetRegnId(value string) {
@@ -3142,8 +3143,8 @@ func (p *ProxyEnquiryInformation1) AddAcctInf() *ProxyEnquiryAccount1 {
 	p.AcctInf = new(ProxyEnquiryAccount1)
 	return p.AcctInf
 }
-func (p *ProxyEnquiryInformation1) AddSplmtryData() *BI_SupplementaryData1 {
-	p.SplmtryData = new(BI_SupplementaryData1)
+func (p *ProxyEnquiryInformation1) AddSplmtryData() *BI_SupplementaryData2 {
+	p.SplmtryData = new(BI_SupplementaryData2)
 	return p.SplmtryData
 }
 
