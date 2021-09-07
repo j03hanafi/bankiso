@@ -545,8 +545,8 @@ func (p *PaymentTransaction110) AddOrgnlTxRef() *OriginalTransactionReference28 
 	return p.OrgnlTxRef
 }
 
-func (p *PaymentTransaction110) AddSplmtryData() *BI_SupplementaryData1 {
-	newValue := new(BI_SupplementaryData1)
+func (p *PaymentTransaction110) AddSplmtryData() *BI_SupplementaryData2 {
+	newValue := new(BI_SupplementaryData2)
 	p.SplmtryData = append(p.SplmtryData, newValue)
 	return newValue
 }
@@ -2864,8 +2864,8 @@ func (p *ProxyRegistrationAccount1) SetPreAuthrsd(value string) {
 	p.PreAuthrsd = (*TrueFalseIndicator)(&value)
 }
 
-func (p *ProxyRegistrationAccount1) AddSplmtryData() *BI_SupplementaryData1 {
-	newValue := new(BI_SupplementaryData1)
+func (p *ProxyRegistrationAccount1) AddSplmtryData() *BI_SupplementaryData2 {
+	newValue := new(BI_SupplementaryData2)
 	p.SplmtryData = append(p.SplmtryData, newValue)
 	return newValue
 }
