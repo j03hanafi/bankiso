@@ -469,7 +469,7 @@ type PaymentTransaction110 struct {
 	InstgAgt          *BranchAndFinancialInstitutionIdentification6 `xml:"InstgAgt,omitempty" json:"InstgAgt,omitempty"`
 	InstdAgt          *BranchAndFinancialInstitutionIdentification6 `xml:"InstdAgt,omitempty" json:"InstdAgt,omitempty"`
 	OrgnlTxRef        *OriginalTransactionReference28               `xml:"OrgnlTxRef,omitempty" json:"OrgnlTxRef,omitempty"`
-	SplmtryData       []*BI_SupplementaryData1                      `xml:"SplmtryData,omitempty" json:"SplmtryData,omitempty"`
+	SplmtryData       []*BI_SupplementaryData2                      `xml:"SplmtryData,omitempty" json:"SplmtryData,omitempty"`
 }
 
 func (p *PaymentTransaction110) SetStsId(value string) {
@@ -2825,7 +2825,7 @@ type ProxyRegistrationAccount1 struct {
 	ScndId      *ScndIdDefinition1                            `xml:"ScndId,omitempty" json:"ScndId,omitempty"`
 	RegnSts     *ProxyRegistrationStatusCode                  `xml:"RegnSts,omitempty" json:"RegnSts,omitempty"`
 	PreAuthrsd  *TrueFalseIndicator                           `xml:"PreAuthrsd,omitempty" json:"PreAuthrsd,omitempty"`
-	SplmtryData []*BI_SupplementaryData1                      `xml:"SplmtryData,omitempty" json:"SplmtryData,omitempty"`
+	SplmtryData []*BI_SupplementaryData2                      `xml:"SplmtryData,omitempty" json:"SplmtryData,omitempty"`
 }
 
 func (p *ProxyRegistrationAccount1) SetRegnId(value string) {
