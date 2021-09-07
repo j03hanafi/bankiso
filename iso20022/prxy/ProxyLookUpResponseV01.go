@@ -39,7 +39,7 @@ func (p *ProxyLookUpResponseV01) AddLkUpRspn() *iso20022.ProxyLookUpResponse1 {
 	return p.LkUpRspn
 }
 
-func (p *ProxyLookUpResponseV01) AddSplmtryData() *iso20022.BI_SupplementaryData1 {
+func (p *ProxyLookUpResponseV01) AddSplmtryData() []*iso20022.BI_SupplementaryData1 {
 	newValue := new(iso20022.BI_SupplementaryData1)
 	p.SplmtryData = append(p.SplmtryData, newValue)
 	return p.SplmtryData
