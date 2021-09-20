@@ -1405,11 +1405,12 @@ func (b *BI_SupplementaryData2) AddEnvlp() *BI_SupplementaryDataEnvelope2 {
 }
 
 type BI_SupplementaryDataEnvelope1 struct {
-	Dbtr        *BI_AddtlCstmrInf `xml:"Dbtr,omitempty" json:"Dbtr,omitempty"`
-	Cdtr        *BI_AddtlCstmrInf `xml:"Cdtr,omitempty" json:"Cdtr,omitempty"`
-	DbtrAgtAcct *CashAccount38    `xml:"DbtrAgtAcct,omitempty" json:"DbtrAgtAcct,omitempty"`
-	CdtrAgtAcct *CashAccount38    `xml:"CdtrAgtAcct,omitempty" json:"CdtrAgtAcct,omitempty"`
-	Cstmr       *BI_AddtlCstmrInf `xml:"Cstmr,omitempty" json:"Cstmr,omitempty"`
+	Dbtr           *BI_AddtlCstmrInf `xml:"Dbtr,omitempty" json:"Dbtr,omitempty"`
+	Cdtr           *BI_AddtlCstmrInf `xml:"Cdtr,omitempty" json:"Cdtr,omitempty"`
+	DbtrAgtAcct    *CashAccount38    `xml:"DbtrAgtAcct,omitempty" json:"DbtrAgtAcct,omitempty"`
+	CdtrAgtAcct    *CashAccount38    `xml:"CdtrAgtAcct,omitempty" json:"CdtrAgtAcct,omitempty"`
+	Cstmr          *BI_AddtlCstmrInf `xml:"Cstmr,omitempty" json:"Cstmr,omitempty"`
+	RltdEndToEndId *Max34Text        `xml:"RltdEndToEndId,omitempty" json:"RltdEndToEndId,omitempty"`
 }
 
 func (b *BI_SupplementaryDataEnvelope1) AddDbtr() *BI_AddtlCstmrInf {
@@ -1435,6 +1436,10 @@ func (b *BI_SupplementaryDataEnvelope1) AddCdtrAgtAcct() *CashAccount38 {
 func (b *BI_SupplementaryDataEnvelope1) AddCstmr() *BI_AddtlCstmrInf {
 	b.Cstmr = new(BI_AddtlCstmrInf)
 	return b.Cstmr
+}
+
+func (b *BI_SupplementaryDataEnvelope1) setRltdEndToEndId(value string) {
+	b.RltdEndToEndId = (*Max34Text)(&value)
 }
 
 type BI_SupplementaryDataEnvelope2 struct {
@@ -1614,7 +1619,7 @@ type CreditTransferTransaction39 struct {
 	Tax               *TaxInformation8                              `xml:"Tax,omitempty" json:"Tax,omitempty"`
 	RltdRmtInf        []*RemittanceLocation7                        `xml:"RltdRmtInf,omitempty" json:"RltdRmtInf,omitempty"`
 	RmtInf            *RemittanceInformation16                      `xml:"RmtInf,omitempty" json:"RmtInf,omitempty"`
-	SplmtryData       []*BI_SupplementaryData1                      `xml:"SplmtryData,omitempty" json:"SplmtryData,omitempty"`
+	SplmtryData       []*BI_SupplementaryData2                      `xml:"SplmtryData,omitempty" json:"SplmtryData,omitempty"`
 }
 
 func (c *CreditTransferTransaction39) AddPmtId() *PaymentIdentification7 {
@@ -3210,7 +3215,7 @@ type ProxyAccount1 struct {
 	DsplNm      *Max140Text                                   `xml:"DsplNm" json:"DsplNm"`
 	Agt         *BranchAndFinancialInstitutionIdentification5 `xml:"Agt" json:"Agt"`
 	Acct        *CashAccount40                                `xml:"Acct" json:"Acct"`
-	SplmtryData *BI_SupplementaryData1                        `xml:"SplmtryData" json:"SplmtryData"`
+	SplmtryData *BI_SupplementaryData2                        `xml:"SplmtryData" json:"SplmtryData"`
 }
 
 func (p *ProxyAccount1) SetRegnId(value string) {
