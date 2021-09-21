@@ -1845,8 +1845,8 @@ func (c *CreditTransferTransaction39) AddRmtInf() *RemittanceInformation16 {
 	return c.RmtInf
 }
 
-func (c *CreditTransferTransaction39) AddSplmtryData() *BI_SupplementaryData1 {
-	newValue := new(BI_SupplementaryData1)
+func (c *CreditTransferTransaction39) AddSplmtryData() *BI_SupplementaryData2 {
+	newValue := new(BI_SupplementaryData2)
 	c.SplmtryData = append(c.SplmtryData, newValue)
 	return newValue
 }
@@ -3235,8 +3235,8 @@ func (p *ProxyAccount1) AddAcct() *CashAccount40 {
 	return p.Acct
 }
 
-func (p *ProxyAccount1) AddSplmtryData() *BI_SupplementaryData1 {
-	p.SplmtryData = new(BI_SupplementaryData1)
+func (p *ProxyAccount1) AddSplmtryData() *BI_SupplementaryData2 {
+	p.SplmtryData = new(BI_SupplementaryData2)
 	return p.SplmtryData
 }
 
