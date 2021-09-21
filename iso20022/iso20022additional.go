@@ -1438,7 +1438,7 @@ func (b *BI_SupplementaryDataEnvelope1) AddCstmr() *BI_AddtlCstmrInf {
 	return b.Cstmr
 }
 
-func (b *BI_SupplementaryDataEnvelope1) setRltdEndToEndId(value string) {
+func (b *BI_SupplementaryDataEnvelope1) SetRltdEndToEndId(value string) {
 	b.RltdEndToEndId = (*Max34Text)(&value)
 }
 
