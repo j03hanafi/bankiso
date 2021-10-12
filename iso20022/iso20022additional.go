@@ -216,7 +216,7 @@ func (o *OriginalGroupHeader17) SetOrgnlMsgNmId(value string) {
 }
 
 func (o *OriginalGroupHeader17) SetOrgnlCreDtTm(value string) {
-	o.OrgnlCreDtTm = (*Max35Text)(&value)
+	o.OrgnlCreDtTm = (*ISODateTime)(&value)
 }
 
 func (o *OriginalGroupHeader17) SetOrgnlNbOfTxs(value string) {
