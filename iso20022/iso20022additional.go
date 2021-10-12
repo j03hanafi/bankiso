@@ -216,7 +216,7 @@ func (o *OriginalGroupHeader17) SetOrgnlMsgNmId(value string) {
 }
 
 func (o *OriginalGroupHeader17) SetOrgnlCreDtTm(value string) {
-	o.OrgnlMsgNmId = (*Max35Text)(&value)
+	o.OrgnlCreDtTm = (*Max35Text)(&value)
 }
 
 func (o *OriginalGroupHeader17) SetOrgnlNbOfTxs(value string) {
