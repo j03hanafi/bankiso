@@ -24,6 +24,8 @@ type ProxyRegistrationResponseV01 struct {
 	OrgnlGrpInf *iso20022.OriginalGroupInformation3 `xml:"OrgnlGrpInf" json:"OrgnlGrpInf"`
 
 	RegnRspn *iso20022.ProxyRegistrationResponse1 `xml:"RegnRspn" json:"RegnRspn"`
+
+	SplmtryData []*iso20022.BI_SupplementaryData2 `xml:"SplmtryData,omitempty" json:"SplmtryData,omitempty"`
 }
 
 func (p *ProxyRegistrationResponseV01) AddGroupHeader() *iso20022.GroupHeader60 {
@@ -39,6 +41,12 @@ func (p *ProxyRegistrationResponseV01) AddOrgnlGrpInf() *iso20022.OriginalGroupI
 func (p *ProxyRegistrationResponseV01) AddRegnRspn() *iso20022.ProxyRegistrationResponse1 {
 	p.RegnRspn = new(iso20022.ProxyRegistrationResponse1)
 	return p.RegnRspn
+}
+
+func (p *ProxyRegistrationResponseV01) AddSplmtryData() *iso20022.BI_SupplementaryData2 {
+	newValue := new(iso20022.BI_SupplementaryData2)
+	p.SplmtryData = append(p.SplmtryData, newValue)
+	return newValue
 }
 
 func (d *Document00200101) String() (result string, ok bool) { return }
