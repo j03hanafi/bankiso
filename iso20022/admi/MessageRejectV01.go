@@ -8,7 +8,7 @@ import (
 
 type Document00200101 struct {
 	XMLName xml.Name          `xml:"urn:iso:std:iso:20022:tech:xsd:admi.002.001.01 Document" json:"-"`
-	Message *MessageRejectV01 `xml:"admi.002.001.01" json:"admi.002.001.01" json:"MessageReject"`
+	Message *MessageRejectV01 `xml:"MessageReject" json:"MessageReject"`
 }
 
 func (d *Document00200101) AddMessage() *MessageRejectV01 {
