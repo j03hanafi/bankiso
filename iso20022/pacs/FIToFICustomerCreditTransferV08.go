@@ -9,7 +9,7 @@ import (
 // res := new(pacs.Document00800108)
 type Document00800108 struct {
 	XMLName xml.Name                         `xml:"urn:iso:std:iso:20022:tech:xsd:pacs.008.001.08 Document" json:"-"`
-	Message *FIToFICustomerCreditTransferV08 `xml:"FIToFICstmrCdtTrf" json:"FIToFICstmrCdtTrf"`
+	Message *FIToFICustomerCreditTransferV08 `xml:"FIToFICstmrCdtTrf" json:"FItoFICstmrCdtTrf"`
 }
 
 // res.AddMessage()
