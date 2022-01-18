@@ -820,7 +820,7 @@ func (c *CashAccount38) AddPrxy() *ProxyAccountIdentification1 {
 
 type ProxyAccountIdentification1 struct {
 	Tp *ProxyAccountType1Choice `xml:"Tp,omitempty" json:"Tp,omitempty"`
-	Id *Max2048Text             `xml:"Id" json:"Id"`
+	Id *Max2048Text             `xml:"Id,omitempty" json:"Id,omitempty"`
 }
 
 func (p *ProxyAccountIdentification1) AddTp() *ProxyAccountType1Choice {
