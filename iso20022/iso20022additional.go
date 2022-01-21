@@ -1632,7 +1632,7 @@ func (c *CreditTransferTransaction39) AddPmtTpInf() *PaymentTypeInformation28 {
 	return c.PmtTpInf
 }
 
-func (c *CreditTransferTransaction39) SetInterbankSettlementAmount(value, currency string) {
+func (c *CreditTransferTransaction39) SetInterbankSettlementAmount(value interface{}, currency string) {
 	c.IntrBkSttlmAmt = NewActiveCurrencyAndAmount(value, currency)
 }
 
