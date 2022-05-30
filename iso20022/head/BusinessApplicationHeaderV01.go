@@ -67,7 +67,7 @@ type BusinessApplicationHeaderV01 struct {
 	// This will guarantee business idempotent behaviour.
 	//
 	// NOTE: this is named "PossResend" in FIX - this is an application level resend not a network level retransmission
-	PossibleDuplicate *iso20022.YesNoIndicator `xml:"PssblDplct,omitempty" json:"PssblDplct,omitempty"`
+	PossibleDuplicate *iso20022.YesNoIndicator2 `xml:"PssblDplct,omitempty" json:"PssblDplct,omitempty"`
 
 	// Relative indication of the processing precedence of the message over a (set of) Business Messages with assigned priorities.
 	Priority *iso20022.BusinessMessagePriorityCode `xml:"Prty,omitempty" json:"Prty,omitempty"`
