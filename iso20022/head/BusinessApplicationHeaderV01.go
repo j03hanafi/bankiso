@@ -2,6 +2,7 @@ package head
 
 import (
 	"encoding/xml"
+	"reflect"
 
 	"github.com/j03hanafi/bankiso/iso20022"
 )
@@ -114,8 +115,18 @@ func (b *BusinessApplicationHeaderV01) SetCopyDuplicate(value string) {
 	b.CopyDuplicate = (*iso20022.CopyDuplicate1Code)(&value)
 }
 
-func (b *BusinessApplicationHeaderV01) SetPossibleDuplicate(value string) {
-	b.PossibleDuplicate = (*iso20022.YesNoIndicator)(&value)
+func (b *BusinessApplicationHeaderV01) SetPossibleDuplicate(value interface{}) {
+	status := true
+	if reflect.TypeOf(value) == reflect.TypeOf("string") {
+		if value == "true" {
+			status = true
+		} else {
+			status = false
+		}
+	} else if reflect.TypeOf(value) == reflect.TypeOf(true) {
+		status = value.(bool)
+	}
+	b.PossibleDuplicate = (*iso20022.YesNoIndicator2)(&status)
 }
 
 func (b *BusinessApplicationHeaderV01) SetPriority(value string) {

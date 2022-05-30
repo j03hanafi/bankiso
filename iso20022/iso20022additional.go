@@ -1,7 +1,7 @@
 package iso20022
 
 // TODO: pacs.002.001.10, json tag
-type YesNoIndicator2 interface{}
+type YesNoIndicator2 bool
 
 type GroupHeader91 struct {
 	MsgId    *Max35Text                                    `xml:"MsgId" json:"MsgId"`
