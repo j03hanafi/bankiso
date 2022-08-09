@@ -3151,7 +3151,7 @@ func (p *ProxyEnquiryInformation1) AddAcctInf() *ProxyEnquiryAccount1 {
 }
 func (p *ProxyEnquiryInformation1) AddSplmtryData() *BI_SupplementaryData2 {
 	newValue := new(BI_SupplementaryData2)
-	p.SplmntryData = append(p.Rspn, newValue)
+	p.SplmntryData = append(p.SplmntryData, newValue)
 	return newValue
 }
 
