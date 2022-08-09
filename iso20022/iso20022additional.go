@@ -3150,8 +3150,9 @@ func (p *ProxyEnquiryInformation1) AddAcctInf() *ProxyEnquiryAccount1 {
 	return p.AcctInf
 }
 func (p *ProxyEnquiryInformation1) AddSplmtryData() *BI_SupplementaryData2 {
-	p.SplmtryData = new(BI_SupplementaryData2)
-	return p.SplmtryData
+	newValue := new(BI_SupplementaryData2)
+	p.SplmntryData = append(p.Rspn, newValue)
+	return newValue
 }
 
 type ProxyEnquiryDefinition1 struct {
