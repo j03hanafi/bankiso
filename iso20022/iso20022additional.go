@@ -3128,7 +3128,7 @@ type ProxyEnquiryInformation1 struct {
 	Ptcpt       *BranchAndFinancialInstitutionIdentification5 `xml:"Ptcpt" json:"Ptcpt"`
 	PrxyInf     *ProxyEnquiryDefinition1                      `xml:"PrxyInf" json:"PrxyInf"`
 	AcctInf     *ProxyEnquiryAccount1                         `xml:"AcctInf" json:"AcctInf"`
-	SplmtryData *BI_SupplementaryData2                        `xml:"SplmtryData" json:"SplmtryData"`
+	SplmtryData []*BI_SupplementaryData2                      `xml:"SplmtryData" json:"SplmtryData"`
 }
 
 func (p *ProxyEnquiryInformation1) SetRegnId(value string) {
